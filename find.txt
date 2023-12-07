@@ -1,0 +1,11 @@
+why background-color in App.css and index.css not working
+
+use SearchInput somewhere
+
+<AspectRatio maxW="600px" ratio={2 / 1}>
+  <iframe //to embed imgs, videos, google maps etc
+    title="naruto"
+    src="https://www.youtube.com/embed/QhBnZ6NPOY0"
+    allowFullScreen
+  />
+</AspectRatio>
