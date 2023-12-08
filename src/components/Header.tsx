@@ -1,6 +1,7 @@
 import { HStack } from "@chakra-ui/react";
 import ThemeSwitch from "./themeSwitch";
 import Logo from "./Logo";
+import Navs from "./Navs";
 
 // waiting for logo and other resources
 // import darkLogo from "../assets/Github-logo-dark.png";
@@ -16,8 +17,14 @@ import Logo from "./Logo";
 
 const Header = () => {
   return (
-    <HStack direction={"row"}>
+    <HStack
+      bg={"gray"}
+      justifyContent={"space-between"}
+      pr={8}
+      alignItems={"stretch"}
+    >
       <Logo />
+      <Navs />
       <ThemeSwitch />
     </HStack>
   );

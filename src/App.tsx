@@ -19,7 +19,7 @@ const App = () => {
           lg: "1fr",
         }}
       >
-        <GridItem area={"header"} bg={"gray"}>
+        <GridItem area={"header"}>
           <Header />
         </GridItem>
         <GridItem area={"main"} bg={"yellow"}>
