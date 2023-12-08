@@ -7,6 +7,7 @@ const Logo = () => {
         h={"100px"}
         w={"100px"}
         bg={"tomato"} /* chnage and use <AspectRatio> with logo img */
+        children={"Logo"}
       />
     </>
   );
