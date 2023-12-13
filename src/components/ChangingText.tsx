@@ -1,4 +1,4 @@
-import { Text, SlideFade } from "@chakra-ui/react";
+import { Text, SlideFade, useColorMode } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 
 interface Props {
@@ -9,6 +9,12 @@ interface Props {
 const ChangingText = ({ duration, texts }: Props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setVisible] = useState(true);
+  const { colorMode } = useColorMode();
+
+  const gradient =
+    colorMode === "dark"
+      ? "linear(to-r, valaBlue.200, valaBlue.600)"
+      : "linear(to-r, orange.400, valaRed.400)";
 
   useEffect(() => {
     let fadeOutTimeout: number;
@@ -41,7 +47,7 @@ const ChangingText = ({ duration, texts }: Props) => {
       <Text
         fontSize={"15vh"}
         fontFamily={"Fredoka"}
-        bgGradient={"linear(to-r, orange.400, valaRed.400)"}
+        bgGradient={gradient}
         bgClip={"text"}
         display={"inline-block"}
       >

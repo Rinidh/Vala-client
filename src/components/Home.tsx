@@ -12,9 +12,9 @@ const Home = () => {
   return (
     <>
       <Box
-        bgImage={backWallUrl}
+        bgImage={backWallUrl} /* dark mode blue behind is #140045 */
         w={"100vw"}
-        h={"95vh"}
+        h={"240vh"}
         bgSize={"cover"}
         bgPosition="center"
         bgRepeat="no-repeat"
