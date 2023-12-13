@@ -13,5 +13,6 @@ use SearchInput somewhere
 Console error advises to put "---/*" to avoid render-loop eg
   assume <Route path="app/*" element={<App />} /> in AppRoutes
 
+use <Lorem count={1} /> in chakra to gen block of text
 
 
