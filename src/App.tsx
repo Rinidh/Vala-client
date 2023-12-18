@@ -1,5 +1,5 @@
 import { Grid, GridItem } from "@chakra-ui/react";
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 import BodyRoutes from "./routes/BodyRoutes";
 
 const App = () => {

@@ -1,4 +1,4 @@
-import { Box, Button, Center, useColorMode } from "@chakra-ui/react";
+import { Button, Center, useColorMode } from "@chakra-ui/react";
 import { BsSunFill } from "react-icons/bs";
 import { BsMoonFill } from "react-icons/bs";
 

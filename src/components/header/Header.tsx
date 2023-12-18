@@ -1,6 +1,6 @@
 import { HStack } from "@chakra-ui/react";
 import ThemeSwitch from "./themeSwitch";
-import Logo from "./Logo";
+import Logo from "../Logo";
 import Navs from "./Navs";
 
 // waiting for logo and other resources
@@ -29,9 +29,5 @@ const Header = () => {
     </HStack>
   );
 };
-
-/**
- 
- */
 
 export default Header;
