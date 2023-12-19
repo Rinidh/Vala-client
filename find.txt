@@ -15,4 +15,10 @@ Console error advises to put "---/*" to avoid render-loop eg
 
 use <Lorem count={1} /> in chakra to gen block of text
 
+handling a click event on a chakra Box;
+  the autocompletion doesn't show that the e.target obj has the .textContent prop, yet on logging e.target, it's there
+  This prop may be special to chakra comps
+  I created a new type def with it
+  how should I combine the types at same time be able to pass it without error to the onClick prop of the Box, as the func
+    it accepts doesn't allow a param with union or intersection types
 

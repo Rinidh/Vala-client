@@ -1,7 +1,6 @@
-import { Box, Fade, Flex } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import { Link as ChakraLink } from "@chakra-ui/react";
+import { Box, Fade, Flex, Spacer, Text } from "@chakra-ui/react";
 import { useState } from "react";
+
 import ProductsPopOver from "./ProductsPopOver";
 
 const Navs = () => {
@@ -24,14 +23,25 @@ const Navs = () => {
       position={"relative"}
     >
       <Flex
+        align="center"
+        bg={"tomato"}
+        cursor={"pointer"}
+        onClick={() => console.log("Home")}
+      >
+        <Text fontSize={{ sm: "md", md: "xl" }}>Home</Text>
+      </Flex>
+      <Spacer /* Spacer helps to add spacing only where it's applied, the unnecessary space due to the Popover created in the navbar is ignored as there's no spacer btn Products and Popover */
+      />
+
+      <Flex
         bg={"tomato"}
         align={"center"}
+        cursor={"pointer"}
+        onClick={() => console.log("Home")}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <ChakraLink as={Link} to={"/x"} colorScheme={"valaBlue"}>
-          Products
-        </ChakraLink>
+        <Text fontSize={{ sm: "md", md: "xl" }}>Products</Text>
       </Flex>
       <Fade in={isHovered}>
         <Box
@@ -45,23 +55,36 @@ const Navs = () => {
           <ProductsPopOver />
         </Box>
       </Fade>
+      <Spacer />
 
-      <ChakraLink
-        as={Link} /* as prop connects it to react router */
-        to={"/"}
-        colorScheme={"valaBlue"}
+      <Flex
+        align="center"
+        bg={"tomato"}
+        cursor={"pointer"}
+        onClick={() => console.log("Customer Care")}
       >
-        Home
-      </ChakraLink>
-      <ChakraLink as={Link} to={"/y"} colorScheme={"valaBlue"}>
-        Contacts
-      </ChakraLink>
-      <ChakraLink as={Link} to={"/x"} colorScheme={"valaBlue"}>
-        FAQs
-      </ChakraLink>
-      <ChakraLink as={Link} to={"/y"} colorScheme={"valaBlue"}>
-        About
-      </ChakraLink>
+        <Text fontSize={{ sm: "md", md: "xl" }}>Customer Care</Text>
+      </Flex>
+      <Spacer />
+
+      <Flex
+        align="center"
+        bg={"tomato"}
+        cursor={"pointer"}
+        onClick={() => console.log("Blog")}
+      >
+        <Text fontSize={{ sm: "md", md: "xl" }}>Blog</Text>
+      </Flex>
+      <Spacer />
+
+      <Flex
+        align="center"
+        bg={"tomato"}
+        cursor={"pointer"}
+        onClick={() => console.log("About")}
+      >
+        <Text fontSize={{ sm: "md", md: "xl" }}>About</Text>
+      </Flex>
     </Flex>
   );
 };
