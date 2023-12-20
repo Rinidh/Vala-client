@@ -7,7 +7,7 @@ const Home = () => {
   const backWallUrl =
     colorMode === "dark"
       ? "url('src/assets/wall1-dark.png')"
-      : "url('src/assets/wall1.png')";
+      : "url('src/assets/wall1-light.png')";
 
   return (
     <>

@@ -1,10 +1,13 @@
 import { Box, Fade, Flex, Spacer, Text } from "@chakra-ui/react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import ProductsPopOver from "./ProductsPopOver";
 
 const Navs = () => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const navigate = useNavigate();
 
   const checkIfHoveredFromLink = () => {
     if (isHovered === true) {
@@ -26,7 +29,7 @@ const Navs = () => {
         align="center"
         bg={"tomato"}
         cursor={"pointer"}
-        onClick={() => console.log("Home")}
+        onClick={() => navigate("/")}
       >
         <Text fontSize={{ sm: "md", md: "xl" }}>Home</Text>
       </Flex>
@@ -37,7 +40,7 @@ const Navs = () => {
         bg={"tomato"}
         align={"center"}
         cursor={"pointer"}
-        onClick={() => console.log("Home")}
+        onClick={() => navigate("/x")}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -50,6 +53,7 @@ const Navs = () => {
           onMouseLeave={() => setIsHovered(false)}
           onMouseEnter={checkIfHoveredFromLink}
           style={{ position: "absolute", top: "95px", left: "0px" }}
+          zIndex={5}
           /* this position is in relation to the relative position at the parent ie ProductsLink */
         >
           <ProductsPopOver />
@@ -58,10 +62,11 @@ const Navs = () => {
       <Spacer />
 
       <Flex
+        /* allowed the linkboxes below to be repetitive coz each design may change over time  */
         align="center"
         bg={"tomato"}
         cursor={"pointer"}
-        onClick={() => console.log("Customer Care")}
+        onClick={() => navigate("/y")}
       >
         <Text fontSize={{ sm: "md", md: "xl" }}>Customer Care</Text>
       </Flex>
@@ -71,7 +76,7 @@ const Navs = () => {
         align="center"
         bg={"tomato"}
         cursor={"pointer"}
-        onClick={() => console.log("Blog")}
+        onClick={() => navigate("/x")}
       >
         <Text fontSize={{ sm: "md", md: "xl" }}>Blog</Text>
       </Flex>
@@ -81,7 +86,7 @@ const Navs = () => {
         align="center"
         bg={"tomato"}
         cursor={"pointer"}
-        onClick={() => console.log("About")}
+        onClick={() => navigate("/about")}
       >
         <Text fontSize={{ sm: "md", md: "xl" }}>About</Text>
       </Flex>
