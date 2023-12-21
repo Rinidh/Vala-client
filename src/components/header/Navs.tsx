@@ -19,25 +19,18 @@ const Navs = () => {
 
   return (
     <Flex
-      bg={"darkcyan"}
       minWidth={800}
       justify={"space-between"}
       align={"stretch"}
       position={"relative"}
     >
-      <Flex
-        align="center"
-        bg={"tomato"}
-        cursor={"pointer"}
-        onClick={() => navigate("/")}
-      >
+      <Flex align="center" cursor={"pointer"} onClick={() => navigate("/")}>
         <Text fontSize={{ sm: "md", md: "xl" }}>Home</Text>
       </Flex>
       <Spacer /* Spacer helps to add spacing only where it's applied, the unnecessary space due to the Popover created in the navbar is ignored as there's no spacer btn Products and Popover */
       />
 
       <Flex
-        bg={"tomato"}
         align={"center"}
         cursor={"pointer"}
         onClick={() => navigate("/x")}
@@ -48,7 +41,7 @@ const Navs = () => {
       </Flex>
       <Fade in={isHovered}>
         <Box
-          bg={"blue"}
+          bg={"gray.100"}
           boxSize={"xs"}
           onMouseLeave={() => setIsHovered(false)}
           onMouseEnter={checkIfHoveredFromLink}
@@ -64,7 +57,6 @@ const Navs = () => {
       <Flex
         /* allowed the linkboxes below to be repetitive coz each design may change over time  */
         align="center"
-        bg={"tomato"}
         cursor={"pointer"}
         onClick={() => navigate("/y")}
       >
@@ -72,19 +64,13 @@ const Navs = () => {
       </Flex>
       <Spacer />
 
-      <Flex
-        align="center"
-        bg={"tomato"}
-        cursor={"pointer"}
-        onClick={() => navigate("/x")}
-      >
+      <Flex align="center" cursor={"pointer"} onClick={() => navigate("/x")}>
         <Text fontSize={{ sm: "md", md: "xl" }}>Blog</Text>
       </Flex>
       <Spacer />
 
       <Flex
         align="center"
-        bg={"tomato"}
         cursor={"pointer"}
         onClick={() => navigate("/about")}
       >

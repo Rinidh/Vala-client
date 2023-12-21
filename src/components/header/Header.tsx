@@ -1,4 +1,4 @@
-import { HStack } from "@chakra-ui/react";
+import { HStack, useColorModeValue } from "@chakra-ui/react";
 import ThemeSwitch from "./themeSwitch";
 import Logo from "../Logo";
 import Navs from "./Navs";
@@ -16,16 +16,20 @@ import Navs from "./Navs";
 // }
 
 const Header = () => {
+  const bg = useColorModeValue("valaBlue.50", "valaBlue.800");
+
   return (
     <HStack
-      bg={"gray"}
       justifyContent={"space-between"}
       pr={8}
       alignItems={"stretch"}
+      bg={bg}
     >
       <Logo />
-      <Navs />
-      <ThemeSwitch />
+      <HStack spacing={10} alignItems={"stretch"}>
+        <Navs />
+        <ThemeSwitch />
+      </HStack>
     </HStack>
   );
 };
