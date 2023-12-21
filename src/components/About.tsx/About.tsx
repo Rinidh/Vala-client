@@ -1,14 +1,7 @@
-import {
-  Box,
-  Card,
-  useColorMode,
-  Text,
-  CardBody,
-  Image,
-  HStack,
-} from "@chakra-ui/react";
+import { Box, useColorMode, Heading, Center } from "@chakra-ui/react";
 
 import placeholder from "../../assets/placeholder1.png";
+import InfoCard from "./InfoCard";
 
 const About = () => {
   const { colorMode } = useColorMode();
@@ -17,6 +10,9 @@ const About = () => {
     colorMode === "dark"
       ? "url('src/assets/wall2-dark.png')"
       : "url('src/assets/wall2-light.png')";
+
+  const infoDharmesh =
+    "Incorporated VALA (U) LTD in 2007... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit quasi deserunt similique incidunt obcaecati. Ratione, assumenda esse. Ab, molestiae accusamus.";
 
   return (
     <Box
@@ -28,36 +24,22 @@ const About = () => {
       bgRepeat="no-repeat"
     >
       <Box
-        bgColor={"rgba(0,0,0,0.3)"} //transperancy
+        bgColor={"rgba(0,0,0,0.2)"} //transperancy
         paddingX={10}
         paddingY={30}
+        h="100%"
       >
-        <Card maxW={600} borderRadius={"30px"}>
-          <CardBody>
-            <HStack>
-              <Image
-                boxSize="240px"
-                objectFit="cover"
-                src={placeholder} ///
-                alt="Dhokia Dharmesh"
-                borderRadius={"50%"} //always round
-                mr={5}
-              />
-              <Text fontSize={"larger"}>
-                Incorporated VALA (U) LTD in 2007... Lorem ipsum dolor sit amet
-                consectetur, adipisicing elit. Velit quasi deserunt similique
-                incidunt obcaecati. Ratione, assumenda esse. Ab, molestiae
-                accusamus.
-              </Text>
-            </HStack>
-          </CardBody>
-          <Box pl={10} mb={5}>
-            <Text fontWeight={"bold"} fontSize={"larger"}>
-              DHARMESH DHOKIA
-            </Text>
-            <Text fontSize={"sm"}>FOUNDER</Text>
-          </Box>
-        </Card>
+        <Center mb={50}>
+          <Heading fontSize={"xxx-large"} fontFamily={"Merriweather"}>
+            About Us
+          </Heading>
+        </Center>
+        <InfoCard
+          name="DHOKIA DHARMESH"
+          role="FOUNDER"
+          info={infoDharmesh}
+          image={placeholder}
+        />
       </Box>
     </Box>
   );
