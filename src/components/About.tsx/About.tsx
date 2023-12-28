@@ -24,12 +24,12 @@ const About = () => {
       bgRepeat="no-repeat"
     >
       <Box
-        bgColor={"rgba(0,0,0,0.2)"} //transperancy
+        bgColor={"rgba(0,0,0,0.1)"} //transperancy
         paddingX={10}
         paddingY={30}
         h="100%"
       >
-        <Center mb={50}>
+        <Center mb={70}>
           <Heading fontSize={"xxx-large"} fontFamily={"Merriweather"}>
             About Us
           </Heading>

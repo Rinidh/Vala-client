@@ -45,8 +45,10 @@ const Navs = () => {
           boxSize={"xs"}
           onMouseLeave={() => setIsHovered(false)}
           onMouseEnter={checkIfHoveredFromLink}
-          style={{ position: "absolute", top: "95px", left: "0px" }}
-          zIndex={5}
+          position={"absolute"}
+          top={"98px"}
+          left={100}
+          zIndex={100}
           /* this position is in relation to the relative position at the parent ie ProductsLink */
         >
           <ProductsPopOver />
@@ -60,12 +62,7 @@ const Navs = () => {
         cursor={"pointer"}
         onClick={() => navigate("/y")}
       >
-        <Text fontSize={{ sm: "md", md: "xl" }}>Customer Care</Text>
-      </Flex>
-      <Spacer />
-
-      <Flex align="center" cursor={"pointer"} onClick={() => navigate("/x")}>
-        <Text fontSize={{ sm: "md", md: "xl" }}>Blog</Text>
+        <Text fontSize={{ sm: "md", md: "xl" }}>Trending</Text>
       </Flex>
       <Spacer />
 
@@ -75,6 +72,11 @@ const Navs = () => {
         onClick={() => navigate("/about")}
       >
         <Text fontSize={{ sm: "md", md: "xl" }}>About</Text>
+      </Flex>
+      <Spacer />
+
+      <Flex align="center" cursor={"pointer"} onClick={() => navigate("/x")}>
+        <Text fontSize={{ sm: "md", md: "xl" }}>XXXX</Text>
       </Flex>
     </Flex>
   );
