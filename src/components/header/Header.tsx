@@ -21,6 +21,7 @@ const Header = () => {
   return (
     <HStack
       justifyContent={"space-between"}
+      h={"100%"}
       pr={8}
       alignItems={"stretch"}
       bg={bg}

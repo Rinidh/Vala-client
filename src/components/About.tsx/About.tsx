@@ -1,4 +1,11 @@
-import { Box, useColorMode, Heading, Center } from "@chakra-ui/react";
+import {
+  Box,
+  useColorMode,
+  Heading,
+  Center,
+  Grid,
+  SimpleGrid,
+} from "@chakra-ui/react";
 
 import placeholder from "../../assets/placeholder1.png";
 import InfoCard from "./InfoCard";
@@ -17,8 +24,9 @@ const About = () => {
   return (
     <Box
       bgImage={backWallUrl}
-      w={"100vw"}
-      h={"280vh"}
+      w={{ base: "338vw", sm: "200vw", lg: "105vw" }}
+      h={{ base: "400vh", sm: "400vh", lg: "300vh" }}
+      maxW={"1280px"}
       bgSize={"cover"}
       bgPosition="center"
       bgRepeat="no-repeat"
@@ -29,17 +37,27 @@ const About = () => {
         paddingY={30}
         h="100%"
       >
-        <Center mb={70}>
+        <Center mb={50}>
           <Heading fontSize={"xxx-large"} fontFamily={"Merriweather"}>
             About Us
           </Heading>
         </Center>
+        <hr style={{ border: "3px solid", marginBottom: "30px" }} />
+
         <InfoCard
           name="DHOKIA DHARMESH"
           role="FOUNDER"
           info={infoDharmesh}
           image={placeholder}
         />
+
+        <SimpleGrid columns={{ sm: 1, md: 2 }} spacing="40px" maxW={"800px"}>
+          <Box bg="tomato" height="80px"></Box>
+          <Box bg="tomato" height="80px"></Box>
+          <Box bg="tomato" height="80px"></Box>
+          <Box bg="tomato" height="80px"></Box>
+          <Box bg="tomato" height="80px"></Box>
+        </SimpleGrid>
       </Box>
     </Box>
   );

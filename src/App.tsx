@@ -8,11 +8,12 @@ const App = () => {
       <Grid
         templateAreas={{
           base: `"header" "main" "footer"`,
-          lg: `"header" "main" "footer"`,
+          // lg: `"header" "main" "footer"`,
         }}
         gridTemplateRows={{
-          base: "100px 1fr 295px",
-          lg: "100px 1fr 295px",
+          base: "200px 1fr 295px",
+          sm: "140px 1fr 295px",
+          lg: "90px 1fr 295px",
         }}
         gridTemplateColumns={{
           base: "1fr",
