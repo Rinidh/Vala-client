@@ -26,7 +26,7 @@ const About = () => {
       bgImage={backWallUrl}
       w={{ base: "338vw", sm: "200vw", lg: "105vw" }}
       h={{ base: "400vh", sm: "400vh", lg: "300vh" }}
-      maxW={"1280px"}
+      maxW={"1536px"}
       bgSize={"cover"}
       bgPosition="center"
       bgRepeat="no-repeat"

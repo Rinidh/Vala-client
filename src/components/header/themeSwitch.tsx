@@ -7,7 +7,11 @@ const ThemeSwitch = () => {
 
   return (
     <Center>
-      <Button onClick={toggleColorMode} colorScheme="valaBlue">
+      <Button
+        onClick={toggleColorMode}
+        colorScheme="valaBlue"
+        size={{ base: "lg", md: "md" }}
+      >
         {colorMode === "dark" ? <BsSunFill /> : <BsMoonFill />}
       </Button>
     </Center>

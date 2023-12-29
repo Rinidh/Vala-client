@@ -27,7 +27,7 @@ const Header = () => {
       bg={bg}
     >
       <Logo />
-      <HStack spacing={20} alignItems={"stretch"}>
+      <HStack alignItems={"stretch"}>
         <Navs />
         <ThemeSwitch />
       </HStack>

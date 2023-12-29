@@ -1,4 +1,4 @@
-import { Box, Fade, Flex, Spacer, Text } from "@chakra-ui/react";
+import { Box, Fade, Flex, Show, Spacer, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -17,67 +17,74 @@ const Navs = () => {
     }
   };
 
+  const linkText = (text: string) => {
+    return <Text fontSize={{ md: "xx-large", lg: "medium" }}>{text}</Text>;
+  };
+
   return (
     <Flex
-      minWidth={800}
+      minWidth={{ base: "450px", sm: "600px", md: "870px", lg: "700px" }}
       justify={"space-between"}
       align={"stretch"}
       position={"relative"}
+      mr={{ base: "40px" }}
     >
-      <Flex align="center" cursor={"pointer"} onClick={() => navigate("/")}>
-        <Text fontSize={{ sm: "md", md: "xl" }}>Home</Text>
-      </Flex>
-      <Spacer /* Spacer helps to add spacing only where it's applied, the unnecessary space due to the Popover created in the navbar is ignored as there's no spacer btn Products and Popover */
-      />
+      <Show above="md">
+        <Flex align="center" cursor={"pointer"} onClick={() => navigate("/")}>
+          {linkText("Home")}
+        </Flex>
+        <Spacer /* Spacer helps to add spacing only where it's applied, the unnecessary space due to the Popover created in the navbar is ignored as there's no spacer btn Products and Popover */
+        />
 
-      <Flex
-        align={"center"}
-        cursor={"pointer"}
-        onClick={() => navigate("/x")}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <Text fontSize={{ sm: "md", md: "xl" }}>Products</Text>
-      </Flex>
-      <Fade in={isHovered}>
-        <Box
-          bg={"gray.100"}
-          boxSize={"xs"}
+        <Flex
+          align={"center"}
+          cursor={"pointer"}
+          onClick={() => navigate("/x")}
+          onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          onMouseEnter={checkIfHoveredFromLink}
-          position={"absolute"}
-          top={"98px"}
-          left={100}
-          zIndex={100}
-          /* this position is in relation to the relative position at the parent ie ProductsLink */
         >
-          <ProductsPopOver />
-        </Box>
-      </Fade>
-      <Spacer />
+          {linkText("Products")}
+        </Flex>
+        <Fade in={isHovered}>
+          <Box
+            bg={"gray.100"}
+            boxSize={"xs"}
+            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={checkIfHoveredFromLink}
+            position={"absolute"}
+            top={"98px"}
+            left={100}
+            zIndex={100}
+            /* this position is in relation to the relative position at the parent ie ProductsLink */
+          >
+            <ProductsPopOver />
+          </Box>
+        </Fade>
+        <Spacer />
 
-      <Flex
-        /* allowed the linkboxes below to be repetitive coz each design may change over time  */
-        align="center"
-        cursor={"pointer"}
-        onClick={() => navigate("/y")}
-      >
-        <Text fontSize={{ sm: "md", md: "xl" }}>Trending</Text>
-      </Flex>
-      <Spacer />
+        <Flex
+          /* allowed the linkboxes below to be repetitive coz each design may change over time  */
+          align="center"
+          cursor={"pointer"}
+          onClick={() => navigate("/y")}
+        >
+          {linkText("Trending")}
+        </Flex>
+        <Spacer />
 
-      <Flex
-        align="center"
-        cursor={"pointer"}
-        onClick={() => navigate("/about")}
-      >
-        <Text fontSize={{ sm: "md", md: "xl" }}>About</Text>
-      </Flex>
-      <Spacer />
+        <Flex
+          align="center"
+          cursor={"pointer"}
+          onClick={() => navigate("/about")}
+        >
+          {linkText("About")}
+        </Flex>
+        <Spacer />
 
-      <Flex align="center" cursor={"pointer"} onClick={() => navigate("/x")}>
-        <Text fontSize={{ sm: "md", md: "xl" }}>XXXX</Text>
-      </Flex>
+        <Flex align="center" cursor={"pointer"} onClick={() => navigate("/x")}>
+          {linkText("XXXX")}
+        </Flex>
+      </Show>
     </Flex>
   );
 };
