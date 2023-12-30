@@ -9,6 +9,7 @@ import {
 
 import placeholder from "../../assets/placeholder1.png";
 import InfoCard from "./InfoCard";
+import Section from "./Section";
 
 const About = () => {
   const { colorMode } = useColorMode();
@@ -25,7 +26,7 @@ const About = () => {
     <Box
       bgImage={backWallUrl}
       w={{ base: "338vw", sm: "200vw", lg: "105vw" }}
-      h={{ base: "400vh", sm: "400vh", lg: "300vh" }}
+      h={{ base: "700vh", sm: "600vh", lg: "400vh" }}
       maxW={"1536px"}
       bgSize={"cover"}
       bgPosition="center"
@@ -44,19 +45,13 @@ const About = () => {
         </Center>
         <hr style={{ border: "3px solid", marginBottom: "30px" }} />
 
-        <InfoCard
-          name="DHOKIA DHARMESH"
-          role="FOUNDER"
-          info={infoDharmesh}
-          image={placeholder}
-        />
-
-        <SimpleGrid columns={{ sm: 1, md: 2 }} spacing="40px" maxW={"800px"}>
-          <Box bg="tomato" height="80px"></Box>
-          <Box bg="tomato" height="80px"></Box>
-          <Box bg="tomato" height="80px"></Box>
-          <Box bg="tomato" height="80px"></Box>
-          <Box bg="tomato" height="80px"></Box>
+        <SimpleGrid columns={{ sm: 1, md: 2 }} spacing="5px">
+          <Section heading="ABC">abcd</Section>
+          <Section />
+          <Section />
+          <Section />
+          <Section />
+          <Section />
         </SimpleGrid>
       </Box>
     </Box>
