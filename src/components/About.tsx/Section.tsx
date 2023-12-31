@@ -9,12 +9,12 @@ interface Props {
 const Section = ({ heading, children }: Props) => {
   return (
     <Flex
-      bg={"tomato"}
+      // bg={"tomato"}
       minH={{ base: 550, lg: "300px" }}
       flexDirection={"column"}
     >
       <Box
-        bg={"yellow"}
+        // bg={"yellow"}
         h={{ base: 110, sm: 90, lg: 50 }}
         w={"100%"}
         pl={7}

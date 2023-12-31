@@ -22,6 +22,16 @@ const About = () => {
   const infoDharmesh =
     "Incorporated VALA (U) LTD in 2007... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit quasi deserunt similique incidunt obcaecati. Ratione, assumenda esse. Ab, molestiae accusamus.";
 
+  const demoText = (
+    <Text pt="20px" fontSize={"20px"} mb={7}>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, in
+      voluptates debitis sunt quae, facilis quasi nisi voluptas architecto
+      placeat adipisci optio nulla tempora! Illum voluptas omnis, dolore fugit
+      provident doloremque facere accusamus ut exercitationem error animi
+      laborum praesentium recusandae.
+    </Text>
+  );
+
   return (
     <Box
       bgImage={backWallUrl}
@@ -45,7 +55,22 @@ const About = () => {
         </Center>
         <hr style={{ border: "3px solid", marginBottom: "60px" }} />
 
-        <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={{ base: 10, lg: 6 }}>
+        <SimpleGrid
+          columns={{ sm: 1, md: 2 }}
+          spacingX={{ base: 10, lg: 6 }}
+          spacingY={20}
+        >
+          <Section heading="PROFILE">
+            <Heading fontSize={"27px"}>Mission</Heading>
+            {demoText}
+            <Heading fontSize={"27px"}>Vision</Heading>
+            {demoText}
+          </Section>
+          <Section>
+            <Heading fontSize={"27px"}>Objectives</Heading>
+            {demoText}
+          </Section>
+
           <Section heading="FOUNDER">
             <InfoCard
               name="DHOKIA DHARMESH"
@@ -54,19 +79,13 @@ const About = () => {
               image={placeholder}
             />
           </Section>
-          <Section>
-            <Text pt="20px" fontSize={"20px"}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum,
-              in voluptates debitis sunt quae, facilis quasi nisi voluptas
-              architecto placeat adipisci optio nulla tempora! Illum voluptas
-              omnis, dolore fugit provident doloremque facere accusamus ut
-              exercitationem error animi laborum praesentium recusandae.
-            </Text>
-          </Section>
-          <Section />
-          <Section />
-          <Section />
-          <Section />
+          <Section>{demoText}</Section>
+
+          <Section heading="HISTORY">{demoText}</Section>
+          <Section>{demoText}</Section>
+
+          <Section heading="XXXX">{demoText}</Section>
+          <Section>{demoText}</Section>
         </SimpleGrid>
       </Box>
     </Box>
