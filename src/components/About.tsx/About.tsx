@@ -3,7 +3,7 @@ import {
   useColorMode,
   Heading,
   Center,
-  Grid,
+  Text,
   SimpleGrid,
 } from "@chakra-ui/react";
 
@@ -43,11 +43,26 @@ const About = () => {
             About Us
           </Heading>
         </Center>
-        <hr style={{ border: "3px solid", marginBottom: "30px" }} />
+        <hr style={{ border: "3px solid", marginBottom: "60px" }} />
 
-        <SimpleGrid columns={{ sm: 1, md: 2 }} spacing="5px">
-          <Section heading="ABC">abcd</Section>
-          <Section />
+        <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={{ base: 10, lg: 6 }}>
+          <Section heading="FOUNDER">
+            <InfoCard
+              name="DHOKIA DHARMESH"
+              role="FOUNDER"
+              info={infoDharmesh}
+              image={placeholder}
+            />
+          </Section>
+          <Section>
+            <Text pt="20px" fontSize={"20px"}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum,
+              in voluptates debitis sunt quae, facilis quasi nisi voluptas
+              architecto placeat adipisci optio nulla tempora! Illum voluptas
+              omnis, dolore fugit provident doloremque facere accusamus ut
+              exercitationem error animi laborum praesentium recusandae.
+            </Text>
+          </Section>
           <Section />
           <Section />
           <Section />
