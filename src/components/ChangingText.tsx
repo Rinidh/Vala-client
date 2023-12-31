@@ -45,7 +45,7 @@ const ChangingText = ({ duration, texts }: Props) => {
   return (
     <SlideFade in={isVisible}>
       <Text
-        fontSize={"15vh"}
+        fontSize={{ base: "170px", lg: "110px" }}
         fontFamily={"Fredoka"}
         bgGradient={gradient}
         bgClip={"text"}

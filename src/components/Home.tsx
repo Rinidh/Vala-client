@@ -13,32 +13,39 @@ const Home = () => {
     <>
       <Box
         bgImage={backWallUrl} /* dark mode blue behind is #140045 */
-        w={"100vw"}
-        h={"240vh"}
+        w={{ base: "338vw", sm: "200vw", lg: "105vw" }}
+        minH={{ base: "700vh", sm: "600vh", lg: "400vh" }}
         bgSize={"cover"}
         bgPosition="center"
         bgRepeat="no-repeat"
-        paddingX={15}
-        paddingY={10}
+        paddingLeft={{ base: 5, md: 20, lg: "60px" }}
+        paddingTop={{ base: 25, lg: "40px" }}
         // h={1022} //original size too big
         // w={2368}
       >
         <Text
-          fontSize={"xxx-large"}
+          fontSize={{ base: "100px", md: "90px", lg: "xxx-large" }}
           /* xxx-large is 50px */
           fontWeight={"bold"}
         >
           One Stop-Place for
-        </Text>{" "}
+        </Text>
         <br />
-        <Text fontSize={"x-large"} marginTop={-5}>
+        <Text
+          fontSize={{ base: "90px", md: "80px", lg: "x-large" }}
+          marginTop={-3}
+        >
           ALL YOUR
         </Text>
         <ChangingText
           duration={3000}
           texts={["COOKWARE", "MEDICAL", "SALON"]} /* can add more texts */
         />
-        <Text fontSize={"30px"} fontFamily={"Fredoka"} marginY={-5}>
+        <Text
+          fontSize={{ base: "60px", lg: "30px" }}
+          fontFamily={"Fredoka"}
+          marginY={-5}
+        >
           NEEDS
         </Text>
       </Box>
