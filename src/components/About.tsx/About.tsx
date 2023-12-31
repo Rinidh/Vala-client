@@ -23,7 +23,7 @@ const About = () => {
     "Incorporated VALA (U) LTD in 2007... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit quasi deserunt similique incidunt obcaecati. Ratione, assumenda esse. Ab, molestiae accusamus.";
 
   const demoText = (
-    <Text pt="20px" fontSize={"20px"} mb={7}>
+    <Text pt="20px" fontSize={{ base: "40px", lg: "20px" }} mb={7}>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, in
       voluptates debitis sunt quae, facilis quasi nisi voluptas architecto
       placeat adipisci optio nulla tempora! Illum voluptas omnis, dolore fugit
@@ -36,14 +36,14 @@ const About = () => {
     <Box
       bgImage={backWallUrl}
       w={{ base: "338vw", sm: "200vw", lg: "105vw" }}
-      h={{ base: "700vh", sm: "600vh", lg: "400vh" }}
+      minH={{ base: "700vh", sm: "600vh", lg: "400vh" }}
       maxW={"1536px"}
       bgSize={"cover"}
       bgPosition="center"
       bgRepeat="no-repeat"
     >
       <Box
-        bgColor={"rgba(0,0,0,0.1)"} //transperancy
+        bgColor={"rgba(0,0,0,0.1)"} //transparency
         paddingX={10}
         paddingY={30}
         h="100%"
@@ -58,16 +58,18 @@ const About = () => {
         <SimpleGrid
           columns={{ sm: 1, md: 2 }}
           spacingX={{ base: 10, lg: 6 }}
-          spacingY={20}
+          spacingY={{ base: 20, lg: 20 }}
         >
           <Section heading="PROFILE">
-            <Heading fontSize={"27px"}>Mission</Heading>
+            <Heading fontSize={{ base: "50px", lg: "27px" }}>Mission</Heading>
             {demoText}
-            <Heading fontSize={"27px"}>Vision</Heading>
+            <Heading fontSize={{ base: "50px", lg: "27px" }}>Vision</Heading>
             {demoText}
           </Section>
           <Section>
-            <Heading fontSize={"27px"}>Objectives</Heading>
+            <Heading fontSize={{ base: "50px", lg: "27px" }}>
+              Objectives
+            </Heading>
             {demoText}
           </Section>
 

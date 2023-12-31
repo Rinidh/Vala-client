@@ -10,7 +10,7 @@ const Section = ({ heading, children }: Props) => {
   return (
     <Flex
       // bg={"tomato"}
-      minH={{ base: 550, lg: "300px" }}
+      minH={{ base: 360, lg: "300px" }}
       flexDirection={"column"}
     >
       <Box
