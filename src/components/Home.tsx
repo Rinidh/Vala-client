@@ -13,7 +13,7 @@ const Home = () => {
     <>
       <Box
         bgImage={backWallUrl} /* dark mode blue behind is #140045 */
-        w={{ base: "338vw", sm: "200vw", lg: "105vw" }}
+        w={{ base: "338vw", sm: "200vw", lg: "100vw" }}
         minH={{ base: "700vh", sm: "600vh", lg: "400vh" }}
         bgSize={"cover"}
         bgPosition="center"

@@ -4,6 +4,7 @@ import No from "../components/No";
 import Y from "../components/Y";
 import Home from "../components/Home";
 import About from "../components/About.tsx";
+import Trending from "../components/Trending";
 
 const AppRoutes = () => {
   return (
@@ -12,7 +13,13 @@ const AppRoutes = () => {
         <Route index element={<Home />}></Route>
         <Route path="x" element={<X />}></Route>
         <Route path="y" element={<Y />}></Route>
+
+        <Route path="/trending">
+          <Route index element={<Trending />} />
+          <Route path="offers" element={<Y />} />
+        </Route>
         <Route path="/about" element={<About />}></Route>
+
         <Route path="*" element={<No />} />
       </Routes>
     </>

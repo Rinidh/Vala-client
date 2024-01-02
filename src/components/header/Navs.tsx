@@ -66,7 +66,7 @@ const Navs = () => {
           /* allowed the linkboxes below to be repetitive coz each design may change over time  */
           align="center"
           cursor={"pointer"}
-          onClick={() => navigate("/y")}
+          onClick={() => navigate("/trending")}
         >
           {linkText("Trending")}
         </Flex>

@@ -1,6 +1,6 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import Header from "./components/header/Header";
-import BodyRoutes from "./routes/BodyRoutes";
+import AppRoutes from "./routes/AppRoutes";
 
 const App = () => {
   return (
@@ -24,7 +24,7 @@ const App = () => {
           <Header />
         </GridItem>
         <GridItem area={"main"} bg={"yellow"}>
-          <BodyRoutes />
+          <AppRoutes />
         </GridItem>
         <GridItem area={"footer"} bg={"green"}></GridItem>
       </Grid>
