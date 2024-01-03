@@ -11,14 +11,14 @@ const Offers = () => {
   return (
     <Box
       bgImage={backWallUrl}
-      w={{ base: "338vw", sm: "200vw", lg: "105vw" }}
-      minH={{ base: "700vh", sm: "600vh", lg: "400vh" }}
-      maxW={"1536px"}
       bgSize={"cover"}
       bgPosition="center"
       bgRepeat="no-repeat"
+      w={{ base: "338vw", sm: "200vw", lg: "105vw" }}
+      minH={{ base: "700vh", sm: "600vh", lg: "400vh" }}
+      maxW={"1536px"}
       px={"50px"}
-      py={"110px"}
+      pt={"130px"}
     >
       Offers
     </Box>
