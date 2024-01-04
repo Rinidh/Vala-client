@@ -1,4 +1,4 @@
-import { Box, useColorMode } from "@chakra-ui/react";
+import { Box, SimpleGrid, useColorMode } from "@chakra-ui/react";
 import Filter from "./Filter";
 import { useState } from "react";
 import Newscard from "./NewsCard";
@@ -28,7 +28,14 @@ const News = () => {
       pt={"130px"}
     >
       <Filter />
-      <Newscard image={placeholder1} info="info" heading="heading" />
+
+      <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={10}>
+        <Newscard image={placeholder1} info="info" heading="heading" />
+        <Newscard image={placeholder1} info="info" heading="heading" />
+        <Newscard image={placeholder1} info="info" heading="heading" />
+        <Newscard image={placeholder1} info="info" heading="heading" />
+        <Newscard image={placeholder1} info="info" heading="heading" />
+      </SimpleGrid>
     </Box>
   );
 };
