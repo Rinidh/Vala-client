@@ -1,5 +1,3 @@
-why background-color in App.css and index.css not working
-
 use SearchInput somewhere
 
 <AspectRatio maxW="600px" ratio={2 / 1}>
@@ -21,3 +19,5 @@ handling a click event on a chakra Box;
   I created a new type def with it
   how should I combine the types at same time be able to pass it without error to the onClick prop of the Box, as the func
     it accepts doesn't allow a param with union or intersection types
+
+make the offers sec after products

@@ -30,9 +30,9 @@ const News = () => {
       <Filter />
 
       <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={10}>
-        <Newscard image={placeholder1} info="info" heading="heading" />
-        <Newscard image={placeholder1} info="info" heading="heading" />
-        <Newscard image={placeholder1} info="info" heading="heading" />
+        <Newscard info="info" heading="heading" />
+        <Newscard info="info" heading="heading" />
+        <Newscard info="info" heading="heading" />
         <Newscard image={placeholder1} info="info" heading="heading" />
         <Newscard image={placeholder1} info="info" heading="heading" />
       </SimpleGrid>

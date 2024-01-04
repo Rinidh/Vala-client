@@ -23,12 +23,10 @@ const Newscard = ({ image, info, heading }: Props) => {
   const colors = useColorModeValue(
     {
       bg: "rgba(255,255,255,0.4)",
-      border: "5px solid wheat",
       button: "valaRed",
     },
     {
       bg: "rgba(0,0,0,0.4)",
-      border: "5px solid black",
       button: "valaBlue",
     }
   );
@@ -40,12 +38,12 @@ const Newscard = ({ image, info, heading }: Props) => {
         borderRadius={"30px"}
         bg={"transparent"}
         overflow={"hidden"}
-        border={colors.border}
+        // border={colors.border}
       >
         <Box
           //provides the blurred background
           position={"absolute"}
-          backdropFilter={"blur(23px)"}
+          backdropFilter={"blur(25px)"}
           height={"100%"}
           w={"100%"}
           bg={colors.bg}
@@ -60,18 +58,16 @@ const Newscard = ({ image, info, heading }: Props) => {
 
           <CardBody p={0}>
             <VStack justify={"start"}>
+              ({image} && (
               <Image
-                minH={{ base: 500, md: 300, lg: 100 }}
-                maxH={400}
+                minH={image ? { base: 500, md: 300, lg: 100 } : "0px"} //the space for minH stays even when img is not passed as prop. Therefore render the minH if image is given
+                maxH={{ base: 900, md: 600, lg: 200 }}
                 w={"100%"}
                 objectFit="cover"
                 src={image}
               />
-              <Box
-                minH={{ base: 400, md: 300, lg: 200 }}
-                w={"90%"}
-                bg={"tomato"}
-              >
+              ))
+              <Box minH={{ base: 400, md: 300, lg: 200 }} w={"90%"}>
                 <Text fontSize={{ base: 50, md: 40, lg: "larger" }}>
                   {info}
                 </Text>
