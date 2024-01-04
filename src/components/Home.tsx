@@ -39,7 +39,12 @@ const Home = () => {
         </Text>
         <ChangingText
           duration={3000}
-          texts={["COOKWARE", "MEDICAL", "SALON"]} /* can add more texts */
+          texts={[
+            "CULINARY NEEDS",
+            "MEDICAL ITEMS",
+            "SALON SUPPLIES",
+            "BAKING ITEMS",
+          ]} /* can add more texts */
         />
         <Text
           fontSize={{ base: "60px", lg: "30px" }}

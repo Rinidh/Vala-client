@@ -47,17 +47,25 @@ const Navs = () => {
         </Flex>
         <Fade in={isHovered}>
           <Box
-            bg={"gray.100"}
-            boxSize={"xs"}
+            bg={"black"}
+            borderRadius={15}
+            p={5}
             onMouseLeave={() => setIsHovered(false)}
             onMouseEnter={checkIfHoveredFromLink}
             position={"absolute"}
-            top={"98px"}
+            top={88}
             left={100}
             zIndex={100}
             /* this position is in relation to the relative position at the parent ie ProductsLink */
           >
-            <ProductsPopOver />
+            <ProductsPopOver
+              listItems={[
+                "CULINARY NEEDS",
+                "MEDICAL ITEMS",
+                "SALON SUPPLIES",
+                "BAKING ITEMS",
+              ]}
+            />
           </Box>
         </Fade>
         <Spacer />
