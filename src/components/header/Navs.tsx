@@ -47,9 +47,8 @@ const Navs = () => {
         </Flex>
         <Fade in={isHovered}>
           <Box
-            bg={"black"}
-            borderRadius={15}
-            p={5}
+            borderRadius={10}
+            overflow={"hidden"}
             onMouseLeave={() => setIsHovered(false)}
             onMouseEnter={checkIfHoveredFromLink}
             position={"absolute"}
@@ -60,10 +59,10 @@ const Navs = () => {
           >
             <ProductsPopOver
               listItems={[
-                "CULINARY NEEDS",
-                "MEDICAL ITEMS",
-                "SALON SUPPLIES",
-                "BAKING ITEMS",
+                "Culinary Needs",
+                "Medical Items",
+                "Salon Supplies",
+                "Baking Items",
               ]}
             />
           </Box>
