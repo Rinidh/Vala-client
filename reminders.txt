@@ -1,0 +1,27 @@
+menu icon
+
+drawer height - discord
+
+react icons
+
+make the offers sec after productCard
+    pdt pg should be very informative
+    good ux
+    qlty imgs
+    include reviews
+
+infocard responsivity
+
+team / workers photo
+
+button with arrow on hover
+
+info boxes that span columns and rows diff in home pg
+
+use <iframe> to put a video
+
+google maps
+
+use SearchInput somewhere
+
+livechat feature

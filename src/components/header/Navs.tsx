@@ -29,7 +29,7 @@ const Navs = () => {
       position={"relative"}
       mr={{ base: "40px" }}
     >
-      <Show above="md">
+      <Show above="lg">
         <Flex align="center" cursor={"pointer"} onClick={() => navigate("/")}>
           {linkText("Home")}
         </Flex>

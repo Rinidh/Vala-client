@@ -14,8 +14,9 @@ const ProductsPopOver = ({ listItems }: Props) => {
 
   return (
     <>
-      {listItems.map((item) => (
+      {listItems.map((item, itemIndex) => (
         <Box
+          key={itemIndex}
           w={"100%"}
           px={10}
           py={4}
@@ -23,6 +24,8 @@ const ProductsPopOver = ({ listItems }: Props) => {
           _hover={{ bg: colors.text, color: "white" }}
           transition={"all 0.2s"}
           fontWeight={"bold"}
+          cursor={"pointer"}
+          zIndex={10} //not working over the blurred cards
         >
           {item}
         </Box>

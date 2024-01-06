@@ -1,13 +1,3 @@
-use SearchInput somewhere
-
-<AspectRatio maxW="600px" ratio={2 / 1}>
-  <iframe //to embed imgs, videos, google maps etc
-    title="naruto"
-    src="https://www.youtube.com/embed/QhBnZ6NPOY0"
-    allowFullScreen
-  />
-</AspectRatio>
-
 Console error advises to put "---/*" to avoid render-loop eg
   assume <Route path="app/*" element={<App />} /> in AppRoutes
 
@@ -20,4 +10,4 @@ handling a click event on a chakra Box;
   how should I combine the types at same time be able to pass it without error to the onClick prop of the Box, as the func
     it accepts doesn't allow a param with union or intersection types
 
-make the offers sec after products
+aria-label as passed as a prop
