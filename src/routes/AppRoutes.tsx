@@ -7,15 +7,17 @@ import About from "../components/About";
 import News from "../components/Trending/News";
 import Tabs from "../components/Trending/Tabs";
 import Offers from "../components/Trending/Offers";
+import Products from "../components/Products/Products";
 
 const AppRoutes = () => {
   return (
     <>
       <Routes>
-        <Route index element={<Home />}></Route>
         <Route path="x" element={<X />}></Route>
         <Route path="y" element={<Y />}></Route>
 
+        <Route index element={<Home />}></Route>
+        <Route path="/products" element={<Products />}></Route>
         <Route path="/trending" element={<Tabs />}>
           <Route index element={<News />} />
           <Route path="offers" element={<Offers />} />

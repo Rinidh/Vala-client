@@ -1,11 +1,4 @@
-import {
-  Box,
-  useColorMode,
-  Heading,
-  Center,
-  Text,
-  SimpleGrid,
-} from "@chakra-ui/react";
+import { Box, Heading, Center, Text, SimpleGrid } from "@chakra-ui/react";
 
 import placeholder from "../../assets/placeholder1.png";
 import InfoCard from "./InfoCard";
@@ -27,7 +20,7 @@ const About = () => {
   );
 
   return (
-    <BackWall>
+    <BackWall px py>
       <Box
         bgColor={"rgba(0,0,0,0.1)"} //transparency
         paddingX={10}

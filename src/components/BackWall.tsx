@@ -1,7 +1,26 @@
 import { Box, useColorMode } from "@chakra-ui/react";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
-const BackWall = ({ children }: { children: ReactNode }) => {
+interface Props {
+  children: ReactNode;
+  py?: boolean;
+  px?: boolean;
+  // px?:
+  //   | ResponsiveValue< //the type of value if I were to pass instead of boolean
+  //       //note the | before
+  //       | number
+  //       | (string & {})
+  //       | "inherit"
+  //       | "-moz-initial"
+  //       | "initial"
+  //       | "revert"
+  //       | "revert-layer"
+  //       | "unset"
+  //     >
+  //   | undefined;
+}
+
+const BackWall = ({ children, px, py }: Props) => {
   const { colorMode } = useColorMode();
 
   const backWallUrl =
@@ -18,6 +37,8 @@ const BackWall = ({ children }: { children: ReactNode }) => {
       bgSize={"cover"}
       bgPosition="center"
       bgRepeat="no-repeat"
+      paddingX={px ? 10 : 0}
+      paddingY={py ? 30 : 0}
     >
       {children}
     </Box>

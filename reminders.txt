@@ -6,6 +6,8 @@ make the offers sec after productCard
 
 infocard responsivity
 
+carousel of pdts, 
+
 team / workers photo
 
 button with arrow on hover

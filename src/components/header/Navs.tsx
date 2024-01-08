@@ -39,7 +39,7 @@ const Navs = () => {
         <Flex
           align={"center"}
           cursor={"pointer"}
-          onClick={() => navigate("/x")}
+          onClick={() => navigate("/products")}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
