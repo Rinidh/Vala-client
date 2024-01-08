@@ -10,15 +10,9 @@ import {
 import placeholder from "../../assets/placeholder1.png";
 import InfoCard from "./InfoCard";
 import Section from "./Section";
+import BackWall from "../BackWall";
 
 const About = () => {
-  const { colorMode } = useColorMode();
-
-  const backWallUrl =
-    colorMode === "dark"
-      ? "url('src/assets/wall2-dark.png')"
-      : "url('src/assets/wall2-light.png')";
-
   const infoDharmesh =
     "Incorporated VALA (U) LTD in 2007... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit quasi deserunt similique incidunt obcaecati. Ratione, assumenda esse. Ab, molestiae accusamus.";
 
@@ -33,15 +27,7 @@ const About = () => {
   );
 
   return (
-    <Box
-      bgImage={backWallUrl}
-      w={{ base: "338vw", sm: "200vw", lg: "105vw" }}
-      minH={{ base: "700vh", sm: "600vh", lg: "400vh" }}
-      maxW={"1536px"}
-      bgSize={"cover"}
-      bgPosition="center"
-      bgRepeat="no-repeat"
-    >
+    <BackWall>
       <Box
         bgColor={"rgba(0,0,0,0.1)"} //transparency
         paddingX={10}
@@ -90,7 +76,7 @@ const About = () => {
           <Section>{demoText}</Section>
         </SimpleGrid>
       </Box>
-    </Box>
+    </BackWall>
   );
 };
 

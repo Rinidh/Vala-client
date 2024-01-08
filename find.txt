@@ -11,3 +11,5 @@ handling a click event on a chakra Box;
     it accepts doesn't allow a param with union or intersection types
 
 aria-label as passed as a prop
+
+drawer height - discord

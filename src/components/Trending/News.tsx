@@ -3,6 +3,7 @@ import Filter from "./Filter";
 import { useState } from "react";
 import Newscard from "./NewsCard";
 import placeholder1 from "../../assets/placeholder1.png";
+import BackWall from "../BackWall";
 
 type Filter = "All" | "Latest";
 
@@ -16,17 +17,7 @@ const News = () => {
       : "url('src/assets/wall2-light.png')";
 
   return (
-    <Box
-      bgImage={backWallUrl}
-      bgSize={"cover"}
-      bgPosition="center"
-      bgRepeat="no-repeat"
-      w={{ base: "338vw", sm: "200vw", lg: "105vw" }}
-      minH={{ base: "700vh", sm: "600vh", lg: "400vh" }}
-      maxW={"1536px"}
-      px={"50px"}
-      pt={"130px"}
-    >
+    <BackWall>
       <Filter />
 
       <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={10}>
@@ -36,7 +27,7 @@ const News = () => {
         <Newscard image={placeholder1} info="info" heading="heading" />
         <Newscard image={placeholder1} info="info" heading="heading" />
       </SimpleGrid>
-    </Box>
+    </BackWall>
   );
 };
 

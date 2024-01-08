@@ -3,7 +3,7 @@ import X from "../components/X";
 import No from "../components/No";
 import Y from "../components/Y";
 import Home from "../components/Home";
-import About from "../components/About.tsx";
+import About from "../components/About";
 import News from "../components/Trending/News";
 import Tabs from "../components/Trending/Tabs";
 import Offers from "../components/Trending/Offers";

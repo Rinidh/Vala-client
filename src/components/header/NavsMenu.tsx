@@ -1,13 +1,14 @@
 // rather implement a drawer instead of a Menu. The Drawer has issues with responsive screen size, though it works at the docs webpg, it doesn't work here??
 
 import {
-  Button,
+  IconButton,
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 interface Props {
   navs: string[];
@@ -18,15 +19,15 @@ export default function NavsMenu({ navs }: Props) {
     <>
       <Menu>
         <MenuButton
-          as={Button}
+          as={IconButton}
           aria-label="Options" //??
           fontSize={{ base: "50px", sm: "30px", lg: "20px" }}
           py={{ base: "50px", sm: "40px" }}
           px={"40px"}
           borderRadius={20}
-          // icon={<HamburgerIcon />}
+          icon={<GiHamburgerMenu />}
           colorScheme="valaBlue"
-          children={"Go To"}
+          // children={"Go To"}
         />
         <MenuList w={{ base: "700px", sm: "500px" }}>
           {navs.map((nav, index) => (
