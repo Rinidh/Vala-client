@@ -14,7 +14,7 @@ import {
 interface Props {
   image?: string;
   name: string;
-  description: string;
+  description?: string;
 }
 
 const ProductCard = ({ image, name, description }: Props) => {
@@ -31,11 +31,10 @@ const ProductCard = ({ image, name, description }: Props) => {
 
   return (
     <Card
-      maxW={{ base: 1000, lg: 450 }}
+      maxW={{ base: 1000, lg: 390 }}
       borderRadius={"30px"}
       bg={"transparent"}
       overflow={"hidden"}
-      // border={colors.border}
     >
       <Box
         //provides the blurred background

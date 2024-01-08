@@ -20,7 +20,7 @@ const About = () => {
   );
 
   return (
-    <BackWall px py>
+    <BackWall>
       <Box
         bgColor={"rgba(0,0,0,0.1)"} //transparency
         paddingX={10}

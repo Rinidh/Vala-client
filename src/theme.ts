@@ -33,7 +33,7 @@ const theme = extendTheme({
     valaBlue: {
       50: "#c0bdff",
       100: "#8e88fc",
-      200: "#6b64fa",
+      200: "#7870FF",
       300: "#453bff",
       400: "#271cff",
       500: "#0f03ff",

@@ -1,15 +1,30 @@
 import BackWall from "../BackWall";
-import ProductCard from "./ProductCard";
-import placeholder1 from "../../assets/placeholder1.png";
+import ProductCarousel from "./ProductsCarousel";
+import { Heading } from "@chakra-ui/react";
+
+export interface Product {
+  name: string;
+  image?: string;
+  description?: string;
+}
 
 const Products = () => {
+  const products = [
+    { name: "Product 1", image: 'url("src/assets/placeholder1.png")' },
+    { name: "Product 2", image: 'url("src/assets/placeholder1.png")' },
+    { name: "Product 12", image: 'url("src/assets/placeholder1.png")' },
+    { name: "Product 24", image: 'url("src/assets/placeholder1.png")' },
+    { name: "Product 17", image: 'url("src/assets/placeholder1.png")' },
+  ];
+
   return (
     <BackWall px py>
-      <ProductCard
-        name="Vala's Spirit"
-        image={placeholder1}
-        description="description..."
-      />
+      <Heading size={"xl"}>Culinary Needs</Heading>
+      <Heading size={"xl"}>Baking Items</Heading>
+      <Heading size={"xl"}>Medical Items</Heading>
+      <Heading size={"xl"}>Salon Supplies</Heading>
+
+      <ProductCarousel products={products} />
     </BackWall>
   );
 };

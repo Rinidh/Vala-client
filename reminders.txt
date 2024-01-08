@@ -1,3 +1,5 @@
+carousel of pdts, 
+
 make the offers sec after productCard
     pdt pg should be very informative
     good ux
@@ -6,7 +8,7 @@ make the offers sec after productCard
 
 infocard responsivity
 
-carousel of pdts, 
+when you scroll down, then elems appear in home pg
 
 team / workers photo
 

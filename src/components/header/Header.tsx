@@ -1,6 +1,6 @@
 import { HStack, Show, useColorModeValue, Center } from "@chakra-ui/react";
 import ThemeSwitch from "./themeSwitch";
-import Logo from "../Logo";
+import Logo from "./Logo";
 import Navs from "./Navs";
 import NavsMenu from "./NavsMenu";
 
@@ -27,7 +27,7 @@ const Header = () => {
       alignItems={"stretch"}
       bg={bg}
     >
-      <HStack>
+      <HStack pl={3}>
         <Logo />
 
         <Center ml={10}>
