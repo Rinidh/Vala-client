@@ -1,6 +1,8 @@
 import BackWall from "../BackWall";
+import SearchInput from "./SearchInput";
 import ProductCarousel from "./ProductsCarousel";
 import { Heading, Box } from "@chakra-ui/react";
+import { products } from "../../demoPdts";
 
 export interface Product {
   name: string;
@@ -9,16 +11,10 @@ export interface Product {
 }
 
 const Products = () => {
-  const products = [
-    { name: "Product 1", image: 'url("src/assets/placeholder1.png")' },
-    { name: "Product 2", image: 'url("src/assets/placeholder1.png")' },
-    { name: "Product 12", image: 'url("src/assets/placeholder1.png")' },
-    { name: "Product 24", image: 'url("src/assets/placeholder1.png")' },
-    { name: "Product 17", image: 'url("src/assets/placeholder1.png")' },
-  ];
-
   return (
     <BackWall px py>
+      <SearchInput onSearch={(searchedText) => console.log(searchedText)} />
+
       <Box mb={{ base: "90px", lg: "45px" }}>
         <Heading size={{ base: "4xl", lg: "xl" }} mb={7} ml={13}>
           Culinary Needs
