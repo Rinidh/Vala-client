@@ -107,15 +107,15 @@ const theme = extendTheme({
           field: { //modifying the field section
             borderColor: "valaBlue.800",
             border: "2px solid",
-            boxShadow: "0px 2px 2px black",
             bg: "valaBlue.50",
+            fontSize: "28px",
             _focus: { //when clicked
-              borderColor: "valaBlue.400",
-              boxShadow: "0px 2px 2px black",
+              borderColor: "valaRed.400",
+              // boxShadow: "0px 2px 2px black",
             },
             _hover: {
-              bg: "valaBlue.100",
-              borderColor: "valaBlue.800"
+              bg: "#DED0FF",
+              borderColor: "valaBlue.800",
             },
             // _focusVisible: { //unknown (activates on clicking??)
             //   // zIndex: 1,

@@ -1,4 +1,4 @@
-search pdts
+search pdts in home pg as well
 
 make the offers sec after productCard
     pdt pg should be very informative

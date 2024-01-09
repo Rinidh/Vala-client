@@ -15,6 +15,8 @@ const Products = () => {
     <BackWall px py>
       <SearchInput onSearch={(searchedText) => console.log(searchedText)} />
 
+      <Box h={100} /* for tempoaray spacing */ />
+
       <Box mb={{ base: "90px", lg: "45px" }}>
         <Heading size={{ base: "4xl", lg: "xl" }} mb={7} ml={13}>
           Culinary Needs

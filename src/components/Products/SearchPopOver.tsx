@@ -12,7 +12,14 @@ const SearchPopOver = ({ products }: Props) => {
   );
 
   return (
-    <Box w={400} mt={2} borderRadius={10} overflow={"hidden"}>
+    <Box
+      w={400}
+      borderRadius={10}
+      overflow={"hidden"}
+      position={"absolute"}
+      top={12}
+      zIndex={10}
+    >
       {products.map((p, itemIndex) => (
         <Box
           key={itemIndex}

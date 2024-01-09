@@ -20,32 +20,27 @@ const SearchInput = function ({ onSearch }: Props) {
   const ref = useRef<HTMLInputElement>(null);
 
   return (
-    <Flex direction={"column"} justify={"end"}>
-      <form //wrapped Input in a form to be able to submit it
-        onSubmit={(event) => {
-          event.preventDefault();
-          if (ref.current) onSearch(ref.current.value);
-        }}
-      >
-        <InputGroup w={400} color={"black"}>
-          <InputLeftElement children={<BsSearch />} />
-          <Input
-            // ref={ref}
-            // borderRadius={10}
-            // placeholder="XXXXX"
-            variant={"outline"} //as custom defined in theme.ts
-            // fontFamily={"Courier New"}
-            // errorBorderColor={"purple"} //purple if error in validation
-            // size={"md"}
-            // maxWidth={"800px"}
-            // borderColor={"ActiveBorder"}
-            // focusBorderColor="green.400"
-            // _placeholder={{ opacity: 1, color: "gray" }}
-          ></Input>
-        </InputGroup>
-      </form>
-
-      <SearchPopOver products={products} />
+    <Flex justify={"end"} mb={30}>
+      <Flex direction={"column"} position={"relative"}>
+        <form //wrapped Input in a form to be able to submit it
+          onSubmit={(event) => {
+            event.preventDefault();
+            if (ref.current) onSearch(ref.current.value);
+          }}
+        >
+          <InputGroup w={400} color={"black"}>
+            <InputLeftElement children={<BsSearch />} />
+            <Input
+              borderRadius={20}
+              placeholder="Find products"
+              variant={"outline"} //as custom defined in theme.ts
+              // errorBorderColor={"purple"} //purple if error in validation
+              _placeholder={{ opacity: 0.5, color: "blue" }}
+            ></Input>
+          </InputGroup>
+        </form>
+        <SearchPopOver products={products} />
+      </Flex>
     </Flex>
   );
 };
