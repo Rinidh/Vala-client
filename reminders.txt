@@ -1,4 +1,4 @@
-carousel of pdts, 
+search pdts
 
 make the offers sec after productCard
     pdt pg should be very informative

@@ -1,6 +1,6 @@
 import BackWall from "../BackWall";
 import ProductCarousel from "./ProductsCarousel";
-import { Heading } from "@chakra-ui/react";
+import { Heading, Box } from "@chakra-ui/react";
 
 export interface Product {
   name: string;
@@ -19,12 +19,33 @@ const Products = () => {
 
   return (
     <BackWall px py>
-      <Heading size={"xl"}>Culinary Needs</Heading>
-      <Heading size={"xl"}>Baking Items</Heading>
-      <Heading size={"xl"}>Medical Items</Heading>
-      <Heading size={"xl"}>Salon Supplies</Heading>
+      <Box mb={{ base: "90px", lg: "45px" }}>
+        <Heading size={{ base: "4xl", lg: "xl" }} mb={7} ml={13}>
+          Culinary Needs
+        </Heading>
+        <ProductCarousel products={products} />
+      </Box>
 
-      <ProductCarousel products={products} />
+      <Box mb={{ base: "90px", lg: "45px" }}>
+        <Heading size={{ base: "4xl", lg: "xl" }} mb={7} ml={13}>
+          Baking Items
+        </Heading>
+        <ProductCarousel products={products} />
+      </Box>
+
+      <Box mb={{ base: "90px", lg: "45px" }}>
+        <Heading size={{ base: "4xl", lg: "xl" }} mb={7} ml={13}>
+          Medical Items
+        </Heading>
+        <ProductCarousel products={products} />
+      </Box>
+
+      <Box mb={{ base: "90px", lg: "45px" }}>
+        <Heading size={{ base: "4xl", lg: "xl" }} mb={7} ml={13}>
+          Salon Supplies
+        </Heading>
+        <ProductCarousel products={products} />
+      </Box>
     </BackWall>
   );
 };

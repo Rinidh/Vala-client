@@ -31,8 +31,8 @@ const ProductCard = ({ image, name, description }: Props) => {
 
   return (
     <Card
-      maxW={{ base: 1000, lg: 390 }}
-      borderRadius={"30px"}
+      maxW={{ base: 700, md: 450, lg: 270, xl: 250 }}
+      borderRadius={"20px"}
       bg={"transparent"}
       overflow={"hidden"}
     >
@@ -60,7 +60,7 @@ const ProductCard = ({ image, name, description }: Props) => {
             <Heading fontSize={{ base: "90px", md: "70px", lg: "30px" }} mt={2}>
               {name}
             </Heading>
-            <Box minH={{ base: 400, md: 300, lg: 200 }} w={"90%"} mt={7}>
+            <Box minH={{ base: 380, md: 280, lg: 150 }} w={"90%"} mt={7}>
               <Text fontSize={{ base: 50, md: 40, lg: "larger" }}>
                 {description}
               </Text>
