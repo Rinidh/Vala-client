@@ -16,7 +16,7 @@ interface Props {
 }
 
 const SearchInput = function ({ onSearch }: Props) {
-  const [products, setProducts] = useState<Product[]>([...pdts]);
+  const [products, setProducts] = useState<Product[]>([]);
   const ref = useRef<HTMLInputElement>(null);
 
   return (

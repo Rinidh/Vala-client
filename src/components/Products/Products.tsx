@@ -18,28 +18,48 @@ const Products = () => {
       <Box h={100} /* for tempoaray spacing */ />
 
       <Box mb={{ base: "90px", lg: "45px" }}>
-        <Heading size={{ base: "4xl", lg: "xl" }} mb={7} ml={13}>
+        <Heading
+          id="culinary-needs"
+          size={{ base: "4xl", lg: "xl" }}
+          mb={7}
+          ml={13}
+        >
           Culinary Needs
         </Heading>
         <ProductCarousel products={products} />
       </Box>
 
       <Box mb={{ base: "90px", lg: "45px" }}>
-        <Heading size={{ base: "4xl", lg: "xl" }} mb={7} ml={13}>
+        <Heading
+          id="baking-items"
+          size={{ base: "4xl", lg: "xl" }}
+          mb={7}
+          ml={13}
+        >
           Baking Items
         </Heading>
         <ProductCarousel products={products} />
       </Box>
 
       <Box mb={{ base: "90px", lg: "45px" }}>
-        <Heading size={{ base: "4xl", lg: "xl" }} mb={7} ml={13}>
+        <Heading
+          id="medical-items"
+          size={{ base: "4xl", lg: "xl" }}
+          mb={7}
+          ml={13}
+        >
           Medical Items
         </Heading>
         <ProductCarousel products={products} />
       </Box>
 
       <Box mb={{ base: "90px", lg: "45px" }}>
-        <Heading size={{ base: "4xl", lg: "xl" }} mb={7} ml={13}>
+        <Heading
+          id="salon-supplies"
+          size={{ base: "4xl", lg: "xl" }}
+          mb={7}
+          ml={13}
+        >
           Salon Supplies
         </Heading>
         <ProductCarousel products={products} />
