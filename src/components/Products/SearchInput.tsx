@@ -24,47 +24,45 @@ const SearchInput = function ({ onSearch }: Props) {
   const ref = useRef<HTMLInputElement>(null);
 
   return (
-    <Flex justify={"end"} mb={30}>
-      <Flex direction={"column"} position={"relative"}>
-        <form //wrapped Input in a form to be able to submit it
-          onSubmit={(event) => {
-            event.preventDefault();
-            if (ref.current) onSearch(ref.current.value);
-          }}
+    <Flex direction={"column"} position={"relative"} mb={30}>
+      <form //wrapped Input in a form to be able to submit it
+        onSubmit={(event) => {
+          event.preventDefault();
+          if (ref.current) onSearch(ref.current.value);
+        }}
+      >
+        <Show
+          breakpoint={
+            "(min-width: 700px)"
+          } /* shown above 700px width of screen */
         >
-          <Show
-            breakpoint={
-              "(min-width: 700px)"
-            } /* shown above 700px width of screen */
-          >
-            <InputGroup color={"black"}>
-              <InputLeftElement children={<BsSearch />} />
-              <Input
-                w={400}
-                borderRadius={20}
-                placeholder="Find products"
-                variant={"outline"} //as custom defined in theme.ts
-                // errorBorderColor={"purple"} //purple if error in validation
-                _placeholder={{ opacity: 0.5, color: "blue" }}
-              />
-            </InputGroup>
-          </Show>
-
-          <Show breakpoint="(max-width: 700px)" /* shown below 700px width */>
+          <InputGroup color={"black"}>
+            <InputLeftElement children={<BsSearch />} />
             <Input
-              w={1000}
-              h={"100px"}
-              fontSize={"60px"}
+              maxW={400}
               borderRadius={20}
               placeholder="Find products"
               variant={"outline"} //as custom defined in theme.ts
               // errorBorderColor={"purple"} //purple if error in validation
               _placeholder={{ opacity: 0.5, color: "blue" }}
             />
-          </Show>
-        </form>
-        <SearchPopOver products={products} />
-      </Flex>
+          </InputGroup>
+        </Show>
+
+        <Show breakpoint="(max-width: 700px)" /* shown below 700px width */>
+          <Input
+            w={1000}
+            h={"100px"}
+            fontSize={"60px"}
+            borderRadius={20}
+            placeholder="Find products"
+            variant={"outline"} //as custom defined in theme.ts
+            // errorBorderColor={"purple"} //purple if error in validation
+            _placeholder={{ opacity: 0.5, color: "blue" }}
+          />
+        </Show>
+      </form>
+      <SearchPopOver products={products} />
     </Flex>
   );
 };

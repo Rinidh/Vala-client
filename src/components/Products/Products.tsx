@@ -1,7 +1,7 @@
 import BackWall from "../BackWall";
 import SearchInput from "./SearchInput";
 import ProductCarousel from "./ProductsCarousel";
-import { Heading, Box, Input } from "@chakra-ui/react";
+import { Heading, Box, Flex } from "@chakra-ui/react";
 import { products } from "../../demoPdts";
 
 export interface Product {
@@ -13,7 +13,9 @@ export interface Product {
 const Products = () => {
   return (
     <BackWall px py>
-      <SearchInput onSearch={(searchedText) => console.log(searchedText)} />
+      <Flex justify="end">
+        <SearchInput onSearch={(searchedText) => console.log(searchedText)} />
+      </Flex>
 
       <Box h={100} /* for tempoaray spacing */ />
 

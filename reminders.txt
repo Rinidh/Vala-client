@@ -1,6 +1,4 @@
-search pdts in home pg as well
 when you scroll down, then elems appear in home pg
-infocard responsivity
 
 make the offers sec after productCard
     pdt pg should be very informative

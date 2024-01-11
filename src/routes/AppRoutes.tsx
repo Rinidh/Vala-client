@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import X from "../components/X";
 import No from "../components/No";
 import Y from "../components/Y";
-import Home from "../components/Home";
+import Home from "../components/Home/Home";
 import About from "../components/About";
 import News from "../components/Trending/News";
 import Tabs from "../components/Trending/Tabs";
