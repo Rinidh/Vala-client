@@ -1,3 +1,5 @@
+modal hover styles - group & peer hover??
+
 search pdts in home pg as well
 
 make the offers sec after productCard

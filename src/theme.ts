@@ -108,7 +108,7 @@ const theme = extendTheme({
             borderColor: "valaBlue.800",
             border: "2px solid",
             bg: "valaBlue.50",
-            fontSize: "28px",
+            fontSize: "20px",
             _focus: { //when clicked
               borderColor: "valaRed.400",
               // boxShadow: "0px 2px 2px black",

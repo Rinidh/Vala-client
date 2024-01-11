@@ -1,7 +1,7 @@
 import BackWall from "../BackWall";
 import SearchInput from "./SearchInput";
 import ProductCarousel from "./ProductsCarousel";
-import { Heading, Box } from "@chakra-ui/react";
+import { Heading, Box, Input } from "@chakra-ui/react";
 import { products } from "../../demoPdts";
 
 export interface Product {
