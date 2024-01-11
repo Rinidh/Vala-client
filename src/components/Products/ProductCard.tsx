@@ -26,10 +26,12 @@ const ProductCard = ({ image, name, description }: Props) => {
     {
       bg: "rgba(255,255,255,0.4)",
       button: "valaRed",
+      hoverBg: "valaBlue.50",
     },
     {
       bg: "rgba(0,0,0,0.4)",
       button: "valaBlue",
+      hoverBg: "valaBlue.800",
     }
   );
 
@@ -50,7 +52,13 @@ const ProductCard = ({ image, name, description }: Props) => {
           bg={colors.bg}
         />
 
-        <Box zIndex={1} onClick={onOpen} cursor={"pointer"}>
+        <Box
+          zIndex={1}
+          onClick={onOpen}
+          cursor={"pointer"}
+          _hover={{ bg: colors.hoverBg }}
+          transition={"all 0.2s"}
+        >
           <CardBody p={0}>
             <VStack justify={"start"}>
               {image && (

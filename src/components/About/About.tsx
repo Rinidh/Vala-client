@@ -1,4 +1,4 @@
-import { Box, Heading, Center, Text, SimpleGrid } from "@chakra-ui/react";
+import { Box, Heading, Center, Text, SimpleGrid, Flex } from "@chakra-ui/react";
 
 import placeholder from "../../assets/placeholder1.png";
 import InfoCard from "./InfoCard";
@@ -53,12 +53,14 @@ const About = () => {
           </Section>
 
           <Section heading="FOUNDER">
-            <InfoCard
-              name="DHOKIA DHARMESH"
-              role="FOUNDER"
-              info={infoDharmesh}
-              image={placeholder}
-            />
+            <Flex align="center" h={"100%"}>
+              <InfoCard
+                name="DHOKIA DHARMESH"
+                role="FOUNDER"
+                info={infoDharmesh}
+                image={placeholder}
+              />
+            </Flex>
           </Section>
           <Section>{demoText}</Section>
 
