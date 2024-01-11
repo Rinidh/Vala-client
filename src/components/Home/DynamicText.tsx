@@ -1,5 +1,5 @@
 import { Text } from "@chakra-ui/react";
-import ChangingText from "../ChangingText";
+import ChangingText from "./ChangingText";
 
 const DynamicText = () => {
   return (
