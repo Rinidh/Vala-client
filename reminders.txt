@@ -1,11 +1,10 @@
-when you scroll down, then elems appear in home pg
-
 make the offers sec after productCard
     pdt pg should be very informative
     good ux
     qlty imgs
     include reviews
 
+use framer-motion or GSAP instead of IntersectionObserver
 
 team / workers photo
 
@@ -16,7 +15,5 @@ info boxes that span columns and rows diff in home pg
 use <iframe> to put a video
 
 google maps
-
-use SearchInput somewhere
 
 livechat feature
