@@ -1,13 +1,9 @@
-import { Box, Flex, Grid, GridItem, useColorMode } from "@chakra-ui/react";
+import { Box, Grid, GridItem, useColorMode } from "@chakra-ui/react";
 import QuickAccess from "./QuickAccess";
 import DynamicText from "./DynamicText";
-import { useRef, useState } from "react";
-import useFadeOnScroll from "../../hooks/useFadeOnScroll";
 
 const Home = () => {
   const { colorMode } = useColorMode();
-  const { refs, setChildProps } = useFadeOnScroll();
-  const [ref1, ref2] = refs;
 
   const backWallUrl =
     colorMode === "dark"
@@ -42,32 +38,6 @@ const Home = () => {
             <QuickAccess />
           </GridItem>
         </Grid>
-
-        <Box p={30} bg={"green"}>
-          <Flex justify={"start"} ref={ref1}>
-            <Box
-              bg={"tomato"}
-              h={500}
-              w={500}
-              transition={"all ease-in 0.3s"}
-              {...setChildProps(1)}
-            >
-              Child1
-            </Box>
-          </Flex>
-
-          <Flex justify={"end"} ref={ref2}>
-            <Box
-              bg={"tomato"}
-              h={500}
-              w={500}
-              transition={"all ease-in 0.3s"}
-              {...setChildProps(2)}
-            >
-              Child2
-            </Box>
-          </Flex>
-        </Box>
       </Box>
     </>
   );

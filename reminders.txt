@@ -4,11 +4,15 @@ make the offers sec after productCard
     qlty imgs
     include reviews
 
+back to top button
+
 use framer-motion or GSAP instead of IntersectionObserver
 
 team / workers photo
 
 button with arrow on hover
+
+sec to pick user's email to inform him about latest posts, offers, news etc
 
 info boxes that span columns and rows diff in home pg
 
