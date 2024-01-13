@@ -1,6 +1,7 @@
 import { Box, useColorMode } from "@chakra-ui/react";
 import BackToTop from "../BackToTop";
 import SectionA from "./section-A";
+import SectionC from "./section-C";
 
 const Home = () => {
   const { colorMode } = useColorMode();
@@ -26,6 +27,8 @@ const Home = () => {
         // w={2368}
       >
         <SectionA />
+
+        <SectionC />
       </Box>
 
       <BackToTop />

@@ -2,7 +2,7 @@ import { Grid, GridItem, Box } from "@chakra-ui/react";
 import Texts from "./Texts";
 import QuickAccess from "./QuickAccess";
 
-const sectionA = () => {
+const SectionA = () => {
   return (
     <Grid
       templateColumns={"repeat(10, 1fr)"}
@@ -26,4 +26,4 @@ const sectionA = () => {
   );
 };
 
-export default sectionA;
+export default SectionA;
