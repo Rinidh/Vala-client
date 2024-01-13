@@ -4,6 +4,7 @@ import placeholder from "../../assets/placeholder1.png";
 import InfoCard from "./InfoCard";
 import Section from "./Section";
 import BackWall from "../BackWall";
+import BackToTop from "../BackToTop";
 
 const About = () => {
   const infoDharmesh =
@@ -71,6 +72,8 @@ const About = () => {
           <Section>{demoText}</Section>
         </SimpleGrid>
       </Box>
+
+      <BackToTop />
     </BackWall>
   );
 };

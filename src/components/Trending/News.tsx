@@ -3,6 +3,7 @@ import Filter from "./Filter";
 import Newscard from "./NewsCard";
 import placeholder1 from "../../assets/placeholder1.png";
 import BackWall from "../BackWall";
+import BackToTop from "../BackToTop";
 
 type Filter = "All" | "Latest";
 
@@ -18,6 +19,8 @@ const News = () => {
         <Newscard image={placeholder1} info="info" heading="heading" />
         <Newscard image={placeholder1} info="info" heading="heading" />
       </SimpleGrid>
+
+      <BackToTop />
     </BackWall>
   );
 };

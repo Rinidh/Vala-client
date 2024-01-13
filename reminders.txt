@@ -1,10 +1,8 @@
-make the offers sec after productCard
-    pdt pg should be very informative
-    good ux
-    qlty imgs
-    include reviews
+finish as fast as you can
 
-back to top button
+qlty imgs
+
+include reviews
 
 use framer-motion or GSAP instead of IntersectionObserver
 

@@ -1,6 +1,7 @@
 import { Box, Grid, GridItem, useColorMode } from "@chakra-ui/react";
 import QuickAccess from "./QuickAccess";
 import DynamicText from "./DynamicText";
+import BackToTop from "../BackToTop";
 
 const Home = () => {
   const { colorMode } = useColorMode();
@@ -39,6 +40,8 @@ const Home = () => {
           </GridItem>
         </Grid>
       </Box>
+
+      <BackToTop />
     </>
   );
 };

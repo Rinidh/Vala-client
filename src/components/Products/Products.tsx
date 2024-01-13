@@ -3,6 +3,7 @@ import SearchInput from "./SearchInput";
 import ProductCarousel from "./ProductsCarousel";
 import { Heading, Box, Flex } from "@chakra-ui/react";
 import { products } from "../../demoPdts";
+import BackToTop from "../BackToTop";
 
 export interface Product {
   name: string;
@@ -12,61 +13,65 @@ export interface Product {
 
 const Products = () => {
   return (
-    <BackWall px py>
-      <Flex justify="end">
-        <SearchInput onSearch={(searchedText) => console.log(searchedText)} />
-      </Flex>
+    <>
+      <BackWall px py>
+        <Flex justify="end">
+          <SearchInput onSearch={(searchedText) => console.log(searchedText)} />
+        </Flex>
 
-      <Box h={100} /* for tempoaray spacing */ />
+        <Box h={100} /* for tempoaray spacing */ />
 
-      <Box mb={{ base: "90px", lg: "45px" }}>
-        <Heading
-          id="culinary-needs"
-          size={{ base: "4xl", lg: "xl" }}
-          mb={7}
-          ml={13}
-        >
-          Culinary Needs
-        </Heading>
-        <ProductCarousel products={products} />
-      </Box>
+        <Box mb={{ base: "90px", lg: "45px" }}>
+          <Heading
+            id="culinary-needs"
+            size={{ base: "4xl", lg: "xl" }}
+            mb={7}
+            ml={13}
+          >
+            Culinary Needs
+          </Heading>
+          <ProductCarousel products={products} />
+        </Box>
 
-      <Box mb={{ base: "90px", lg: "45px" }}>
-        <Heading
-          id="baking-items"
-          size={{ base: "4xl", lg: "xl" }}
-          mb={7}
-          ml={13}
-        >
-          Baking Items
-        </Heading>
-        <ProductCarousel products={products} />
-      </Box>
+        <Box mb={{ base: "90px", lg: "45px" }}>
+          <Heading
+            id="baking-items"
+            size={{ base: "4xl", lg: "xl" }}
+            mb={7}
+            ml={13}
+          >
+            Baking Items
+          </Heading>
+          <ProductCarousel products={products} />
+        </Box>
 
-      <Box mb={{ base: "90px", lg: "45px" }}>
-        <Heading
-          id="medical-items"
-          size={{ base: "4xl", lg: "xl" }}
-          mb={7}
-          ml={13}
-        >
-          Medical Items
-        </Heading>
-        <ProductCarousel products={products} />
-      </Box>
+        <Box mb={{ base: "90px", lg: "45px" }}>
+          <Heading
+            id="medical-items"
+            size={{ base: "4xl", lg: "xl" }}
+            mb={7}
+            ml={13}
+          >
+            Medical Items
+          </Heading>
+          <ProductCarousel products={products} />
+        </Box>
 
-      <Box mb={{ base: "90px", lg: "45px" }}>
-        <Heading
-          id="salon-supplies"
-          size={{ base: "4xl", lg: "xl" }}
-          mb={7}
-          ml={13}
-        >
-          Salon Supplies
-        </Heading>
-        <ProductCarousel products={products} />
-      </Box>
-    </BackWall>
+        <Box mb={{ base: "90px", lg: "45px" }}>
+          <Heading
+            id="salon-supplies"
+            size={{ base: "4xl", lg: "xl" }}
+            mb={7}
+            ml={13}
+          >
+            Salon Supplies
+          </Heading>
+          <ProductCarousel products={products} />
+        </Box>
+      </BackWall>
+
+      <BackToTop />
+    </>
   );
 };
 
