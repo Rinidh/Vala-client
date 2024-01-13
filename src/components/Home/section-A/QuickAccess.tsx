@@ -1,4 +1,4 @@
-import SearchInput from "../Products/SearchInput";
+import SearchInput from "../../Products/SearchInput";
 import { Box, Card, Flex, useColorModeValue, Text } from "@chakra-ui/react";
 
 const QuickAccess = () => {

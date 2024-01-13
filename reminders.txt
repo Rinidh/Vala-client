@@ -1,21 +1,20 @@
 finish as fast as you can
 
-qlty imgs
-
 include reviews
 
-use framer-motion or GSAP instead of IntersectionObserver
-
-team / workers photo
-
-button with arrow on hover
+navsmenu links
 
 sec to pick user's email to inform him about latest posts, offers, news etc
 
 info boxes that span columns and rows diff in home pg
 
-use <iframe> to put a video
-
 google maps
 
+----------
+use framer-motion or GSAP instead of IntersectionObserver
+qlty imgs
+team / workers photo
 livechat feature
+
+button with arrow on hover
+use <iframe> to put a video

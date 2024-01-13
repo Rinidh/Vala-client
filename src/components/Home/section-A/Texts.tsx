@@ -1,7 +1,7 @@
 import { Text } from "@chakra-ui/react";
 import ChangingText from "./ChangingText";
 
-const DynamicText = () => {
+const Texts = () => {
   return (
     <>
       <Text
@@ -38,4 +38,4 @@ const DynamicText = () => {
   );
 };
 
-export default DynamicText;
+export default Texts;

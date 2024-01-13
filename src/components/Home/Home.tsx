@@ -1,7 +1,6 @@
-import { Box, Grid, GridItem, useColorMode } from "@chakra-ui/react";
-import QuickAccess from "./QuickAccess";
-import DynamicText from "./DynamicText";
+import { Box, useColorMode } from "@chakra-ui/react";
 import BackToTop from "../BackToTop";
+import SectionA from "./section-A";
 
 const Home = () => {
   const { colorMode } = useColorMode();
@@ -26,19 +25,7 @@ const Home = () => {
         // h={1022} //original size too big
         // w={2368}
       >
-        <Grid
-          templateColumns={"repeat(10, 1fr)"}
-          templateRows="repeat(3, 1fr)"
-          gap={1}
-        >
-          <GridItem colSpan={7} rowSpan={2}>
-            <DynamicText />
-          </GridItem>
-
-          <GridItem colSpan={3} rowSpan={3}>
-            <QuickAccess />
-          </GridItem>
-        </Grid>
+        <SectionA />
       </Box>
 
       <BackToTop />

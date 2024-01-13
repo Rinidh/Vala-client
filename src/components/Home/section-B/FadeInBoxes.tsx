@@ -1,5 +1,5 @@
 import { Box, Flex } from "@chakra-ui/react";
-import useFadeOnScroll from "../../hooks/useFadeOnScroll";
+import useFadeOnScroll from "../../../hooks/useFadeOnScroll";
 
 const FadeInBoxes = ({}) => {
   const { refs, setChildProps } = useFadeOnScroll();

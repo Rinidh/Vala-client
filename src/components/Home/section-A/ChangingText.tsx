@@ -50,6 +50,7 @@ const ChangingText = ({ duration, texts }: Props) => {
         bgGradient={gradient}
         bgClip={"text"}
         display={"inline-block"}
+        lineHeight={"normal"}
       >
         {texts[currentIndex]}
       </Text>
