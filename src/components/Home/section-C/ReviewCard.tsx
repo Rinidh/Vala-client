@@ -16,22 +16,16 @@ const ReviewCard = ({ name, image, review }: Review) => {
 
   return (
     <Card
+      w={"100%"}
       maxW={{ sm: 1000, lg: 450 }}
-      h={{ lg: 300 }}
+      h={"100%"}
       borderRadius={20}
-      bg={"transparent"}
+      bg={useColorModeValue("valaBlue.50", "valaBlue.900")}
       overflow={"hidden"}
       border={border}
-      // boxShadow={"1px 3px 3px black"}
+      boxShadow={"2xl"}
     >
-      <Box
-        position={"absolute"}
-        backdropFilter={"blur(25px)"}
-        height={"100%"}
-        w={"100%"}
-        bg={bg}
-      />
-      <CardBody zIndex={1}>
+      <CardBody>
         <Flex direction={"row"}>
           <Avatar name={name} src={image} />
           <Heading size={"lg"}>{name}</Heading>

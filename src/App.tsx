@@ -23,7 +23,7 @@ const App = () => {
         <GridItem area={"header"}>
           <Header />
         </GridItem>
-        <GridItem area={"main"} bg={"yellow"}>
+        <GridItem area={"main"} bg={"darkgreen"}>
           <AppRoutes />
         </GridItem>
         <GridItem area={"footer"} bg={"green"}></GridItem>
