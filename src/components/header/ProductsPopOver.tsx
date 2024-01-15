@@ -20,7 +20,7 @@ const ProductsPopOver = ({ listItems }: Props) => {
   });
 
   return (
-    <Flex direction={"column"}>
+    <Flex direction={"column"} zIndex="tooltip">
       {listItems.map((item, itemIndex) => (
         <Box
           as="a"
@@ -33,7 +33,7 @@ const ProductsPopOver = ({ listItems }: Props) => {
           _hover={{ bg: colors.text, color: "white" }}
           transition={"all 0.2s"}
           fontWeight={"bold"}
-          zIndex={10} //not working over the blurred cards
+          zIndex={"tooltip"} //not working over the product cards
         >
           {item}
         </Box>

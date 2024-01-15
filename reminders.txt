@@ -2,7 +2,7 @@ finish as fast as you can
 
 input
 
-navsmenu links
+iconbutton themebutton
 
 sec to pick user's email to inform him about latest posts, offers, news etc
 
@@ -15,6 +15,7 @@ use framer-motion or GSAP instead of IntersectionObserver
 qlty imgs
 team / workers photo
 livechat feature
+products popover briefly appearing behind the product card on hover
 
 button with arrow on hover
 use <iframe> to put a video

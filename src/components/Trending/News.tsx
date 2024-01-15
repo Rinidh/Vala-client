@@ -12,7 +12,7 @@ const News = () => {
     <BackWall px py>
       <Filter />
 
-      <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={10}>
+      <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={10} mt={"150px"}>
         <Newscard info="info" heading="heading" />
         <Newscard info="info" heading="heading" />
         <Newscard info="info" heading="heading" />

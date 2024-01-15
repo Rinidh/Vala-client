@@ -54,7 +54,7 @@ const Navs = () => {
             position={"absolute"}
             top={88}
             left={100}
-            zIndex={100}
+            zIndex={"tooltip"}
             /* this position is in relation to the relative position at the parent ie ProductsLink */
           >
             <ProductsPopOver

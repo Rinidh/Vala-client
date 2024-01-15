@@ -9,27 +9,38 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   navs: string[];
 }
 
 export default function NavsMenu({ navs }: Props) {
+  const navigate = useNavigate();
+
+  const lowerCased = navs.map((nav) => {
+    return nav.replace(/[A-Z]/g, (match) => match.toLowerCase());
+  });
+
+  const pageLinks = lowerCased.map((navLink) =>
+    navLink === "home" ? "" : navLink
+  );
+  //replace the 'home' with empty '' coz home is at index route not at '/home'
+
   return (
     <>
       <Menu>
         <MenuButton
           as={IconButton}
-          aria-label="Options" //??
+          aria-label="Navigate to different pages"
           fontSize={{ base: "50px", sm: "30px", lg: "20px" }}
           py={{ base: "50px", sm: "40px" }}
           px={"40px"}
           borderRadius={20}
           icon={<GiHamburgerMenu />}
           colorScheme="valaBlue"
-          // children={"Go To"}
         />
-        <MenuList w={{ base: "700px", sm: "500px" }}>
+        <MenuList w={{ base: "700px", sm: "500px" }} p={0} zIndex={100}>
           {navs.map((nav, index) => (
             <MenuItem
               key={index}
@@ -37,9 +48,9 @@ export default function NavsMenu({ navs }: Props) {
               py={{ base: 70, sm: 50 }}
               w={"100%"}
               fontSize={{ base: "60px", sm: "35px" }}
-              // bg={colors.back}
               fontWeight={"bold"}
               bg={useColorModeValue("valaBlue.50", "valaBlue.800")}
+              onClick={() => navigate(`/${pageLinks[index]}`)}
             >
               {nav}
             </MenuItem>
