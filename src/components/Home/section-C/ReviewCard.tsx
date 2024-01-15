@@ -25,13 +25,13 @@ const ReviewCard = ({ name, image, review }: Review) => {
       border={border}
       boxShadow={"2xl"}
     >
-      <CardBody>
-        <Flex direction={"row"}>
-          <Avatar name={name} src={image} />
-          <Heading size={"lg"}>{name}</Heading>
+      <CardBody p={{ base: 14, sm: 0 }}>
+        <Flex direction={"row"} mb={3}>
+          <Avatar name={name} src={image} mr={3} />
+          <Heading size={{ base: "4xl", sm: "lg" }}>{name}</Heading>
         </Flex>
         <Text
-          fontSize={{ base: "40px", lg: "20px" }}
+          fontSize={{ base: "40px", md: "30px", lg: "20px" }}
           noOfLines={{ base: 6, lg: 9, xl: 13 }}
         >
           {review}

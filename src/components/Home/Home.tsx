@@ -20,9 +20,6 @@ const Home = () => {
         bgSize={"cover"}
         bgPosition="center"
         bgRepeat="no-repeat"
-        paddingLeft={{ base: 5, md: 20, lg: 15 }}
-        paddingTop={{ base: 25, lg: "40px" }}
-        paddingRight={{ base: 5, md: 20, lg: 25 }}
         // h={1022} //original size too big
         // w={2368}
       >

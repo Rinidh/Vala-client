@@ -8,6 +8,9 @@ const SectionA = () => {
       templateColumns={"repeat(10, 1fr)"}
       templateRows="repeat(6, 1fr)"
       gap={1}
+      paddingLeft={{ base: 5, md: 20, lg: 15 }}
+      paddingTop={{ base: 25, lg: "40px" }}
+      paddingRight={{ base: 5, md: 20, lg: 25 }}
     >
       <GridItem colSpan={{ base: 10, lg: 7 }} rowSpan={2}>
         <Texts />
