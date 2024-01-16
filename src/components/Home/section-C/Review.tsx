@@ -1,5 +1,7 @@
 import {
   Box,
+  Button,
+  Flex,
   FormControl,
   FormLabel,
   Textarea,
@@ -17,7 +19,7 @@ const Review = () => {
       h={"100%"}
       maxH={500}
     >
-      <FormControl h={"100%"}>
+      <FormControl h={"80%"}>
         <FormLabel
           mb={1}
           ml={2}
@@ -34,6 +36,18 @@ const Review = () => {
           zIndex={1}
         />
       </FormControl>
+
+      <Flex justify="end" mt={{ base: 5, md: 3 }}>
+        <Button
+          fontSize={{ base: 50, md: 30, lg: 15 }}
+          px={{ base: 50, md: 30, lg: 15 }}
+          py={{ base: 10, md: 6, lg: 5 }}
+          bg={"valaBlue.500"}
+          color={"white"}
+        >
+          Post
+        </Button>
+      </Flex>
     </Box>
   );
 };

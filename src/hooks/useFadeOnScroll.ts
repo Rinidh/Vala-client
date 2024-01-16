@@ -40,7 +40,7 @@ function useFadeOnScroll() {
     };
   }, [isIntersecting]);
 
-  function setChildProps(childNumber: number) {
+  function setChildPosition(childNumber: number) {
     if(childNumber === 1) {
       if (isIntersecting[1]) {
         return {
@@ -49,7 +49,7 @@ function useFadeOnScroll() {
         };
       } else {
         return {
-          transform: "translateX(-100%)",
+          transform: "translateX(-30px)",
           opacity: 0,
         };
       }
@@ -64,7 +64,7 @@ function useFadeOnScroll() {
         };
       } else {
         return {
-          transform: "translateX(100%)",
+          transform: "translateX(30px)",
           opacity: 0,
         };
       }
@@ -73,7 +73,7 @@ function useFadeOnScroll() {
 
   }
 
-  return { refs, setChildProps }
+  return { refs, setChildPosition }
 }
 
 export default useFadeOnScroll;

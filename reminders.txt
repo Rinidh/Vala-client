@@ -1,13 +1,11 @@
 finish as fast as you can
 
-input
-
 iconbutton themebutton
-
-sec to pick user's email to inform him about latest posts, offers, news etc
 
 info boxes that span columns and rows diff in home pg
 
+serving ug for... pdts
+based in jinja... about
 google maps
 
 ----------

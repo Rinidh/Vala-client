@@ -1,3 +1,3 @@
-import SectionC from "./sectionC";
+import SectionC from "./SectionC";
 
-export default SectionC;
+export default SectionC

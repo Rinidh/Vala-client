@@ -2,6 +2,7 @@ import { Box, useColorMode } from "@chakra-ui/react";
 import BackToTop from "../BackToTop";
 import SectionA from "./section-A";
 import SectionC from "./section-C";
+import SectionB from "./section-B";
 
 const Home = () => {
   const { colorMode } = useColorMode();
@@ -23,9 +24,11 @@ const Home = () => {
         // h={1022} //original size too big
         // w={2368}
       >
-        <SectionA />
+        <Box h={"821px"} w={"100%"} />
 
-        <SectionC />
+        <Box h={500} /* to push sectionB texts more down */ />
+
+        <SectionB />
       </Box>
 
       <BackToTop />
