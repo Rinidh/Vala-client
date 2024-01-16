@@ -22,7 +22,14 @@ const QuickAccess = () => {
 
       <Flex direction={"column"} zIndex={1} p={5} h={"100%"}>
         <Flex justifyContent={"end"} pr={5}>
-          <Text>Quick Access</Text>
+          <Text
+            fontSize={{ base: 45, md: 35, lg: 16 }}
+            border={{ base: "4px solid", md: "2px solid" }}
+            p={{ base: 3, lg: 1 }}
+            borderRadius={{ base: 20, lg: 10 }}
+          >
+            Quick Access
+          </Text>
         </Flex>
 
         <Flex justify="center" mt={4} mb={7}>

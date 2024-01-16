@@ -51,7 +51,7 @@ const SearchInput = function ({ onSearch }: Props) {
     _placeholder: { opacity: 0.7, color: "white" },
   };
 
-  const inputProps = useColorModeValue(inputLight, inputDark);
+  const inputColorProps = useColorModeValue(inputLight, inputDark);
 
   return (
     <Flex direction={"column"} position={"relative"} mb={30}>
@@ -72,7 +72,7 @@ const SearchInput = function ({ onSearch }: Props) {
               maxW={400}
               placeholder="Find products"
               variant={"outline"} //as custom defined in theme.ts
-              {...inputProps}
+              {...inputColorProps}
               // errorBorderColor={"purple"} //purple if error in validation
             />
           </InputGroup>
@@ -83,11 +83,13 @@ const SearchInput = function ({ onSearch }: Props) {
             //not using 'outine' variant coz of totally different sizes required
             w={1000}
             h={"100px"}
+            pl={10}
             fontSize={"60px"}
+            borderWidth={10}
             borderRadius={50}
             placeholder="Find products"
             // errorBorderColor={"purple"} //purple if error in validation
-            {...inputProps}
+            {...inputColorProps}
           />
         </Show>
       </form>

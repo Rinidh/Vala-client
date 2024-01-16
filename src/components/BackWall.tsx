@@ -32,7 +32,7 @@ const BackWall = ({ children, px, py }: Props) => {
     <Box
       bgImage={backWallUrl}
       w={{ base: "338vw", sm: "200vw", lg: "105vw" }}
-      minH={{ base: "700vh", sm: "600vh", lg: "400vh" }}
+      minH={{ base: "400vh", sm: "300vh", lg: "200vh" }}
       maxW={"1536px"}
       bgSize={"cover"}
       bgPosition="center"
