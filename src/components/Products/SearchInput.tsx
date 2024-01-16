@@ -5,6 +5,7 @@ import {
   InputGroup,
   InputLeftElement,
   Show,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
@@ -23,6 +24,35 @@ const SearchInput = function ({ onSearch }: Props) {
   const [products, setProducts] = useState<Product[]>([]);
   const ref = useRef<HTMLInputElement>(null);
 
+  const inputLight = {
+    color: "black",
+    borderColor: "valaBlue.800",
+    bg: "valaBlue.50",
+    _focus: {
+      //when clicked
+      borderColor: "valaBlue.500",
+    },
+    _hover: {
+      borderColor: "valaBlue.500",
+    },
+    _placeholder: { opacity: 0.7, color: "black" },
+  };
+
+  const inputDark = {
+    color: "white",
+    borderColor: "valaBlue.200",
+    bg: "valaBlue.800",
+    _focus: {
+      borderColor: "valaBlue.500",
+    },
+    _hover: {
+      borderColor: "valaBlue.500",
+    },
+    _placeholder: { opacity: 0.7, color: "white" },
+  };
+
+  const inputProps = useColorModeValue(inputLight, inputDark);
+
   return (
     <Flex direction={"column"} position={"relative"} mb={30}>
       <form //wrapped Input in a form to be able to submit it
@@ -40,28 +70,28 @@ const SearchInput = function ({ onSearch }: Props) {
             <InputLeftElement children={<BsSearch />} />
             <Input
               maxW={400}
-              borderRadius={20}
               placeholder="Find products"
               variant={"outline"} //as custom defined in theme.ts
+              {...inputProps}
               // errorBorderColor={"purple"} //purple if error in validation
-              _placeholder={{ opacity: 0.5, color: "blue" }}
             />
           </InputGroup>
         </Show>
 
         <Show breakpoint="(max-width: 700px)" /* shown below 700px width */>
           <Input
+            //not using 'outine' variant coz of totally different sizes required
             w={1000}
             h={"100px"}
             fontSize={"60px"}
-            borderRadius={20}
+            borderRadius={50}
             placeholder="Find products"
-            variant={"outline"} //as custom defined in theme.ts
             // errorBorderColor={"purple"} //purple if error in validation
-            _placeholder={{ opacity: 0.5, color: "blue" }}
+            {...inputProps}
           />
         </Show>
       </form>
+
       <SearchPopOver products={products} />
     </Flex>
   );

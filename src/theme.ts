@@ -97,6 +97,8 @@ const theme = extendTheme({
 
         outline: (props: StyleFunctionProps)=>( //modifying the outline variant
           mode(buttonLight, buttonDark)(props) //less repetition of mode()
+          //the props is an obj with colorMode as one of its properties
+          //mode is a function that does the allocation for you acc to color mode
         )
       },
     },
@@ -104,26 +106,13 @@ const theme = extendTheme({
     Input: {
       variants: {
         outline: {
-          field: { //modifying the field section
-            borderColor: "valaBlue.800",
-            border: "2px solid",
-            bg: "valaBlue.50",
+          field: {
+            border: "5px solid",
+            borderRadius: 20,
             fontSize: "20px",
-            _focus: { //when clicked
-              borderColor: "valaRed.400",
-              // boxShadow: "0px 2px 2px black",
-            },
-            _hover: {
-              bg: "#DED0FF",
-              borderColor: "valaBlue.800",
-            },
-            // _focusVisible: { //unknown (activates on clicking??)
-            //   // zIndex: 1,
-            //   // borderColor: "yellow",
-            //   // boxShadow: "0px 10px 10px red",
-            // },
-
-          },
+            // more styles eg backgroundColor and others related to color mode are 
+            // styled at the consumer comp. The mode() function is failing to work in this field object
+          }
         }
       }
     }, 

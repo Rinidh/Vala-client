@@ -25,7 +25,7 @@ const ReviewCard = ({ name, image, review }: Review) => {
       border={border}
       boxShadow={"2xl"}
     >
-      <CardBody p={{ base: 14, sm: 0 }}>
+      <CardBody p={{ base: 14, sm: 5 }}>
         <Flex direction={"row"} mb={3}>
           <Avatar name={name} src={image} mr={3} />
           <Heading size={{ base: "4xl", sm: "lg" }}>{name}</Heading>
