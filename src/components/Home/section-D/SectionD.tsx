@@ -1,4 +1,4 @@
-import { Image, Flex, Button, Link, Box } from "@chakra-ui/react";
+import { Image, Flex, Button, Link, Box, Heading } from "@chakra-ui/react";
 import locationMap from "../../../assets/location.png";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useEffect } from "react";
@@ -11,45 +11,50 @@ const SectionD = () => {
   // useEffect(() => {
   //   const mapDiv = document.getElementById("map-div");
   //   const mapDivWidth = mapDiv?.offsetWidth;
-  //   console.log(mapDivWidth);
+  //   console.log(mapDivWidth); //weird values are logging
 
   //   const button = document.getElementById("map-div-button");
   //   if (button && mapDivWidth) button.style.left = `${mapDivWidth / 2}px`;
   // }, []);
 
   return (
-    <Flex px={100} py={100}>
-      <Box
-        h={{ base: 800, lg: 600 }}
-        position="relative"
-        id="map-div"
-        as={Link}
-        href={mapUrl}
-        isExternal
-        // border={"2px solid"}
-      >
-        <Image
-          src={locationMap}
-          objectFit={"contain"}
-          borderRadius={50}
-          maxW={1000}
-        />
-        <Button
-          fontSize={{ base: 50, md: 30, lg: 15 }}
-          px={{ base: 50, md: 30, lg: 15 }}
-          py={{ base: 10, md: 6, lg: 5 }}
-          borderRadius={{ base: 20, sm: 10 }}
-          colorScheme={"valaBlue"}
-          color={"white"}
-          position={"absolute"}
-          top={30}
-          left={10}
-          id="map-div-button"
+    <>
+      <Heading size={{ base: "4xl", md: "3xl" }} px={10} pt={40}>
+        Find us here...
+      </Heading>
+      <Flex px={10} pb={100} pt={7}>
+        <Box
+          h={{ base: 800, lg: 600 }}
+          position="relative"
+          id="map-div"
+          as={Link}
+          href={mapUrl}
+          isExternal
+          // border={"2px solid"}
         >
-          Open in Maps <FaExternalLinkAlt style={{ marginLeft: "20px" }} />
-        </Button>
-      </Box>
-    </Flex>
+          <Image
+            src={locationMap}
+            objectFit={"contain"}
+            borderRadius={50}
+            maxW={{ lg: 800, xl: 1000 }}
+          />
+          <Button
+            fontSize={{ base: 50, md: 30, lg: 15 }}
+            px={{ base: 50, md: 30, lg: 15 }}
+            py={{ base: 10, md: 6, lg: 5 }}
+            borderRadius={{ base: 20, sm: 10 }}
+            colorScheme={"valaBlue"}
+            color={"white"}
+            position={"absolute"}
+            top={30}
+            left={10}
+            id="map-div-button"
+          >
+            Open in Maps <FaExternalLinkAlt style={{ marginLeft: "20px" }} />
+          </Button>
+        </Box>
+      </Flex>
+    </>
   );
 };
 

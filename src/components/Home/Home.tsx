@@ -25,9 +25,7 @@ const Home = () => {
         // h={1022} //original size too big
         // w={2368}
       >
-        <Box h={"821px"} w={"100%"} />
-
-        <Box h={500} /* to push sectionB texts more down */ />
+        <SectionA />
 
         <SectionB />
 

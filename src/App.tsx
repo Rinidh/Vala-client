@@ -1,6 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import Header from "./components/Header";
 import AppRoutes from "./routes/AppRoutes";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -11,8 +12,7 @@ const App = () => {
           // lg: `"header" "main" "footer"`,
         }}
         gridTemplateRows={{
-          base: "200px 1fr 295px",
-          sm: "140px 1fr 295px",
+          base: "200px 1fr 500px",
           lg: "90px 1fr 295px",
         }}
         gridTemplateColumns={{
@@ -26,7 +26,11 @@ const App = () => {
         <GridItem area={"main"} bg={"darkgreen"}>
           <AppRoutes />
         </GridItem>
-        <GridItem area={"footer"} bg={"green"}></GridItem>
+        <GridItem area={"footer"} bg={"green"}>
+          <Footer
+            pageLinks={["Home", "Products", "Trending", "About", "XXXX"]}
+          />
+        </GridItem>
       </Grid>
     </>
   );
