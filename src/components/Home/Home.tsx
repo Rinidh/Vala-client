@@ -3,6 +3,7 @@ import BackToTop from "../BackToTop";
 import SectionA from "./section-A";
 import SectionC from "./section-C";
 import SectionB from "./section-B";
+import SectionD from "./section-D";
 
 const Home = () => {
   const { colorMode } = useColorMode();
@@ -29,6 +30,10 @@ const Home = () => {
         <Box h={500} /* to push sectionB texts more down */ />
 
         <SectionB />
+
+        <SectionC />
+
+        <SectionD />
       </Box>
 
       <BackToTop />

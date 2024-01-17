@@ -18,7 +18,7 @@ function useFadeOnScroll() {
       },
       { rootMargin: "-200px" }
     );
-    console.log(isIntersecting);
+    // console.log(isIntersecting);
 
     const observer2 = new IntersectionObserver(
       (entries) => {
@@ -27,7 +27,7 @@ function useFadeOnScroll() {
       },
       { rootMargin: "-200px" }
     );
-    console.log(isIntersecting);
+    // console.log(isIntersecting);
 
     //assigning the observers an elem to watch
     if (ref1.current) observer1.observe(ref1.current);

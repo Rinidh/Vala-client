@@ -4,14 +4,14 @@ iconbutton themebutton
 
 info boxes that span columns and rows diff in home pg
 
-serving ug for... pdts
-based in jinja... about
 google maps
+
+footer - contact us, social media icons, links to other pgs
 
 ----------
 use framer-motion or GSAP instead of IntersectionObserver
 qlty imgs
-team / workers photo
+photos - team / workers, premises,  (at home pg)
 livechat feature
 products popover briefly appearing behind the product card on hover
 
