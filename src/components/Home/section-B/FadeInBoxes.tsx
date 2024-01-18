@@ -8,12 +8,12 @@ const FadeInBoxes = ({}) => {
   const [ref1, ref2] = refs;
 
   return (
-    <Box p={30}>
-      <Flex justify={"start"} ref={ref1}>
+    <Box p={30} mb={40}>
+      <Flex justify={"start"} ref={ref1} mb={40}>
         <Box
           // bg={"tomato"}
           minH={500}
-          w={700}
+          w={{ base: 1200, md: 900, lg: 700 }}
           transition={"all ease-in 0.6s"}
           {...setChildPosition(1)}
         >
@@ -25,7 +25,7 @@ const FadeInBoxes = ({}) => {
         <Box
           // bg={"tomato"}
           minH={500}
-          w={700}
+          w={{ base: 1200, md: 900, lg: 700 }}
           transition={"all ease-in 0.6s"}
           {...setChildPosition(2)}
         >

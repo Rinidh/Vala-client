@@ -19,7 +19,12 @@ const SectionD = () => {
 
   return (
     <>
-      <Heading size={{ base: "4xl", md: "3xl" }} px={10} pt={40}>
+      <Heading
+        size={{ base: "4xl", md: "3xl" }}
+        px={10}
+        pt={40}
+        color={"white"}
+      >
         Find us here...
       </Heading>
       <Flex px={10} pb={100} pt={7}>

@@ -7,6 +7,7 @@ import {
   SimpleGrid,
   VStack,
   Show,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
@@ -33,13 +34,15 @@ const Footer = ({ pageLinks }: Props) => {
       paddingLeft={{ base: 5, md: 20, lg: 15 }}
       paddingTop={{ base: 25, lg: "40px" }}
       paddingRight={{ base: 5, md: 20, lg: 25 }}
+      bg={useColorModeValue("valaBlue.50", "valaBlue.800")}
+      h={"100%"}
     >
       <SimpleGrid h={"100%"} columns={2}>
         <Box>
           <VStack>
             {links.map((link, index) => (
               <Box
-                as="text"
+                as={Text}
                 m={2}
                 textAlign={"left"}
                 fontSize={{ base: 50, md: 30, lg: 15 }}
