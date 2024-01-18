@@ -10,7 +10,7 @@ import {
 import { useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import SearchPopOver from "./SearchPopOver";
-import { Product } from "./Products";
+import { Product } from "./ProductsMain";
 import { products as pdts } from "../../demoPdts";
 
 interface Props {

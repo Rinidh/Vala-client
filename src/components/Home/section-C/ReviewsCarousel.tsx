@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ReviewCard from "./ReviewCard";
-import { Review } from "./sectionC";
+import { Review } from "./SectionCMain";
 
 const ReviewsCarousel = ({ reviews }: { reviews: Review[] }) => {
   const settings = {

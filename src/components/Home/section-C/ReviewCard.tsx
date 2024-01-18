@@ -8,7 +8,7 @@ import {
   Avatar,
   Heading,
 } from "@chakra-ui/react";
-import { Review } from "./sectionC";
+import { Review } from "./SectionCMain";
 
 const ReviewCard = ({ name, image, review }: Review) => {
   const bg = useColorModeValue("rgba(255,255,255,0.2)", "rgba(0,0,0,0.2)");

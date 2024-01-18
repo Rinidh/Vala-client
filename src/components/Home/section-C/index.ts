@@ -1,3 +1,3 @@
-import SectionC from "./SectionC";
+import SectionC from "./SectionCMain";
 
 export default SectionC

@@ -1,9 +1,9 @@
 import { Box, useColorMode } from "@chakra-ui/react";
 import BackToTop from "../BackToTop";
-import SectionA from "./section-A";
-import SectionC from "./section-C";
-import SectionB from "./section-B";
-import SectionD from "./section-D";
+import SectionA from "./section-A/SectionAMain";
+import SectionC from "./section-C/SectionCMain";
+import SectionB from "./section-B/SectionBMain";
+import SectionD from "./section-D/SectionDMain";
 
 const Home = () => {
   const { colorMode } = useColorMode();

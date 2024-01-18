@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Box, Flex, Button } from "@chakra-ui/react";
-import { Product } from "./Products";
+import { Product } from "./ProductsMain";
 import ProductCard from "./ProductCard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";

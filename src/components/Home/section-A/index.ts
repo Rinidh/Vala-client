@@ -1,3 +1,3 @@
-import sectionA from "./sectionA";
+import sectionA from "./SectionAMain";
 
 export default sectionA;
