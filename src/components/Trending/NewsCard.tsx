@@ -47,7 +47,7 @@ const Newscard = ({ image, info, heading }: Props) => {
         bg={colors.bg}
       />
 
-      <Box zIndex={1}>
+      <Box zIndex={1} h={"100%"} position={"relative"}>
         <CardHeader>
           <Heading fontSize={{ base: "90px", md: "70px", lg: "30px" }}>
             {heading}
@@ -71,7 +71,11 @@ const Newscard = ({ image, info, heading }: Props) => {
           </VStack>
         </CardBody>
 
-        <CardFooter justify={"end"}>
+        <CardFooter
+          position={"absolute"}
+          bottom={{ base: 7, md: 0 }}
+          right={{ base: 7, md: 0 }}
+        >
           <Button
             fontSize={{ base: 50, md: 30, lg: 15 }}
             px={{ base: 50, md: 30, lg: 15 }}

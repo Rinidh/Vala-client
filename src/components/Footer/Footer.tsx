@@ -8,11 +8,14 @@ import {
   VStack,
   Show,
   useColorModeValue,
+  Image,
+  Flex,
 } from "@chakra-ui/react";
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { BiLogoGmail } from "react-icons/bi";
 import { BsTwitterX } from "react-icons/bs";
+import logo from "../../assets/logo.png";
 
 interface Props {
   pageLinks: string[];
@@ -31,13 +34,14 @@ const Footer = ({ pageLinks }: Props) => {
 
   return (
     <Box
-      paddingLeft={{ base: 5, md: 20, lg: 15 }}
-      paddingTop={{ base: 25, lg: "40px" }}
-      paddingRight={{ base: 5, md: 20, lg: 25 }}
+      // paddingLeft={{ base: 5, md: 20, lg: 15 }}
+      // paddingTop={{ base: 25, lg: "40px" }}
+      // paddingRight={{ base: 5, md: 20, lg: 25 }}
       bg={useColorModeValue("valaBlue.50", "valaBlue.800")}
       h={"100%"}
+      w={"100%"}
     >
-      <SimpleGrid h={"100%"} columns={2}>
+      <SimpleGrid h={"100%"} columns={3}>
         <Box>
           <VStack>
             {links.map((link, index) => (
@@ -54,6 +58,14 @@ const Footer = ({ pageLinks }: Props) => {
         </Box>
 
         <Center>
+          <Image
+            src={logo}
+            boxSize={{ base: "150px", md: "200px" }}
+            objectFit={"contain"}
+          />
+        </Center>
+
+        <Flex direction={"column"} justify={"center"}>
           <Text mr={10} fontSize={{ base: 50, md: 30, lg: 15 }}>
             Contact Us
           </Text>
@@ -91,7 +103,7 @@ const Footer = ({ pageLinks }: Props) => {
               </Box>
             </HStack>
           </Show>
-        </Center>
+        </Flex>
       </SimpleGrid>
     </Box>
   );

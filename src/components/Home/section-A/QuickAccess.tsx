@@ -1,12 +1,23 @@
 import SearchInput from "../../Products/SearchInput";
-import { Box, Card, Flex, useColorModeValue, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  Flex,
+  useColorModeValue,
+  Text,
+  useColorMode,
+} from "@chakra-ui/react";
 
 const QuickAccess = () => {
-  const bg = useColorModeValue("rgba(255,255,255,0.2)", "rgba(0,0,0,0.2)");
+  const { colorMode } = useColorMode();
+  const bg =
+    colorMode === "light" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.2)";
 
   return (
     <Card
       borderRadius={20}
+      border={colorMode === "dark" ? "3px solid" : ""}
+      borderColor={"valaBlue.50"}
       h={"100%"}
       overflow={"hidden"}
       bg={"transparent"}
@@ -40,7 +51,13 @@ const QuickAccess = () => {
           />
         </Flex>
 
-        <Flex borderRadius={20} border={"2px solid blue"} flex={1} p={3}>
+        <Flex
+          borderRadius={20}
+          border={"2px solid"}
+          borderColor={"valaBlue.50"}
+          flex={1}
+          p={3}
+        >
           XXXX
         </Flex>
       </Flex>

@@ -1,7 +1,3 @@
-finish as fast as you can
-
-iconbutton themebutton
-
 info boxes that span columns and rows diff in home pg
 
 ----------

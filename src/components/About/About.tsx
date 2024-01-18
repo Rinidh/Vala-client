@@ -22,19 +22,13 @@ const About = () => {
 
   return (
     <BackWall>
-      <Box
-        bgColor={"rgba(0,0,0,0.1)"} //transparency
-        paddingX={10}
-        paddingY={30}
-        h="100%"
-      >
+      <Box px={10} py={30}>
         <Center mb={50}>
-          <Heading fontSize={"xxx-large"} fontFamily={"Merriweather"}>
+          <Heading fontSize={"xxx-large"} fontFamily={"Merriweather"} mt={30}>
             About Us
           </Heading>
         </Center>
         <hr style={{ border: "3px solid", marginBottom: "60px" }} />
-
         <SimpleGrid
           columns={{ sm: 1, md: 2 }}
           spacingX={{ base: 10, lg: 6 }}
@@ -52,7 +46,6 @@ const About = () => {
             </Heading>
             {demoText}
           </Section>
-
           <Section heading="FOUNDER">
             <Flex align="center" h={"100%"}>
               <InfoCard
@@ -64,16 +57,13 @@ const About = () => {
             </Flex>
           </Section>
           <Section>{demoText}</Section>
-
           <Section heading="HISTORY">{demoText}</Section>
           <Section>{demoText}</Section>
-
           <Section heading="XXXX">{demoText}</Section>
           <Section>{demoText}</Section>
         </SimpleGrid>
+        <BackToTop />
       </Box>
-
-      <BackToTop />
     </BackWall>
   );
 };

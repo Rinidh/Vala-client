@@ -1,7 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import Header from "./components/Header";
 import AppRoutes from "./routes/AppRoutes";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
