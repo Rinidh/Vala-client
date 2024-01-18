@@ -46,6 +46,7 @@ const Footer = ({ pageLinks }: Props) => {
           <VStack>
             {links.map((link, index) => (
               <Box
+                key={index}
                 as={Text}
                 m={2}
                 textAlign={"left"}
