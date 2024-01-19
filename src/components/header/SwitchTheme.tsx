@@ -1,8 +1,7 @@
-import { Button, Center, IconButton, useColorMode } from "@chakra-ui/react";
-import { BsSunFill } from "react-icons/bs";
-import { BsMoonFill } from "react-icons/bs";
+import { Center, IconButton, useColorMode } from "@chakra-ui/react";
+import { BsSunFill, BsMoonFill } from "react-icons/bs";
 
-const ThemeSwitch = () => {
+const SwitchTheme = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -22,4 +21,4 @@ const ThemeSwitch = () => {
   );
 };
 
-export default ThemeSwitch;
+export default SwitchTheme;

@@ -1,8 +1,8 @@
 import { HStack, Show, useColorModeValue, Center } from "@chakra-ui/react";
-import ThemeSwitch from "./themeSwitch";
 import Logo from "./Logo";
 import Navs from "./Navs";
 import NavsMenu from "./NavsMenu";
+import SwitchTheme from "./SwitchTheme";
 // import SearchInput from "./SearchInput";
 
 const Header = () => {
@@ -32,7 +32,7 @@ const Header = () => {
 
       <HStack alignItems={"stretch"}>
         <Navs />
-        <ThemeSwitch />
+        <SwitchTheme />
       </HStack>
     </HStack>
   );
