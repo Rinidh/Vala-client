@@ -12,7 +12,7 @@ const SwitchTheme = () => {
           colorMode === "dark" ? "Change to light mode" : "Change to dark mode"
         }
         fontSize={{ base: "50px", sm: "30px", lg: "20px" }}
-        p={{ base: "30px", sm: "25px", lg: "20px" }}
+        p={{ base: "50px", sm: "30px", lg: "20px" }}
         borderRadius={10}
         icon={colorMode === "dark" ? <BsSunFill /> : <BsMoonFill />}
         colorScheme="valaBlue"

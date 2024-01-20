@@ -1,5 +1,7 @@
 import { Box, useColorMode } from "@chakra-ui/react";
 import { ReactNode } from "react";
+import bg2 from "../assets/wall2-light.png";
+import bg2Dark from "../assets/wall2-dark.png";
 
 interface Props {
   children: ReactNode;
@@ -23,10 +25,7 @@ interface Props {
 const BackWall = ({ children, px, py }: Props) => {
   const { colorMode } = useColorMode();
 
-  const backWallUrl =
-    colorMode === "dark"
-      ? "url('src/assets/wall2-dark.png')"
-      : "url('src/assets/wall2-light.png')";
+  const backWallUrl = colorMode === "dark" ? bg2Dark : bg2;
 
   return (
     <Box
