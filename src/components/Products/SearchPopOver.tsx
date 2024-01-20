@@ -1,5 +1,5 @@
 import { Box, useColorModeValue } from "@chakra-ui/react";
-import { Product } from "./ProductsMain";
+import { Product } from "../../data/products";
 
 interface Props {
   products: Product[];

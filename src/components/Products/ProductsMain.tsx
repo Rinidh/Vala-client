@@ -2,10 +2,10 @@ import BackWall from "../BackWall";
 import SearchInput from "./SearchInput";
 import ProductCarousel from "./ProductsCarousel";
 import { Heading, Box, Flex } from "@chakra-ui/react";
-import { products } from "../../demoPdts";
+import { demoProducts } from "../../demoPdts";
 import BackToTop from "../BackToTop";
 
-export interface Product {
+export interface ProductBrief {
   name: string;
   image?: string;
   description?: string;
@@ -30,7 +30,7 @@ const Products = () => {
           >
             Culinary Needs
           </Heading>
-          <ProductCarousel products={products} />
+          <ProductCarousel products={demoProducts} />
         </Box>
 
         <Box mb={{ base: "90px", lg: "45px" }}>
@@ -42,7 +42,7 @@ const Products = () => {
           >
             Baking Items
           </Heading>
-          <ProductCarousel products={products} />
+          <ProductCarousel products={demoProducts} />
         </Box>
 
         <Box mb={{ base: "90px", lg: "45px" }}>
@@ -54,7 +54,7 @@ const Products = () => {
           >
             Medical Items
           </Heading>
-          <ProductCarousel products={products} />
+          <ProductCarousel products={demoProducts} />
         </Box>
 
         <Box mb={{ base: "90px", lg: "45px" }}>
@@ -66,7 +66,7 @@ const Products = () => {
           >
             Salon Supplies
           </Heading>
-          <ProductCarousel products={products} />
+          <ProductCarousel products={demoProducts} />
         </Box>
       </BackWall>
 

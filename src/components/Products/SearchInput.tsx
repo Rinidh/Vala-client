@@ -7,11 +7,11 @@ import {
   Show,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import SearchPopOver from "./SearchPopOver";
-import { Product } from "./ProductsMain";
-import { products as pdts } from "../../demoPdts";
+import { Product } from "../../data/products";
+import { getMatchingProducts } from "../../utlis/getMatchingProducts";
 
 interface Props {
   onSearch: (searchText: string) => void;
@@ -22,7 +22,12 @@ interface Props {
 
 const SearchInput = function ({ onSearch }: Props) {
   const [products, setProducts] = useState<Product[]>([]);
-  const ref = useRef<HTMLInputElement>(null);
+
+  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const matchedProducts = getMatchingProducts(event.target.value);
+
+    setProducts(matchedProducts);
+  };
 
   const inputLight = {
     color: "black",
@@ -56,10 +61,6 @@ const SearchInput = function ({ onSearch }: Props) {
   return (
     <Flex direction={"column"} position={"relative"} mb={30}>
       <form //wrapped Input in a form to be able to submit it
-        onSubmit={(event) => {
-          event.preventDefault();
-          if (ref.current) onSearch(ref.current.value);
-        }}
       >
         <Show
           breakpoint={
@@ -74,6 +75,8 @@ const SearchInput = function ({ onSearch }: Props) {
               variant={"outline"} //as custom defined in theme.ts
               {...inputColorProps}
               // errorBorderColor={"purple"} //purple if error in validation
+
+              onChange={handleInput}
             />
           </InputGroup>
         </Show>

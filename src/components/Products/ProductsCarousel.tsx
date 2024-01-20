@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Box, Flex, Button } from "@chakra-ui/react";
-import { Product } from "./ProductsMain";
+import { ProductBrief } from "./ProductsMain";
 import ProductCard from "./ProductCard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import placeholder1 from "../../assets/placeholder1.png";
 
-const ProductCarousel = ({ products }: { products: Product[] }) => {
+const ProductCarousel = ({ products }: { products: ProductBrief[] }) => {
   // If not using the react-slick lib, this logic is helpful
   // const [currentIndex, setCurrentIndex] = useState(0);
   // const handleNext = () => {
