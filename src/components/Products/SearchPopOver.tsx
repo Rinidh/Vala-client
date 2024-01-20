@@ -32,7 +32,7 @@ const SearchPopOver = ({ products }: Props) => {
           fontWeight={"bold"}
           cursor={"pointer"}
         >
-          {p.name}
+          {`${p.name} - ${p.qtyEachUnit}`}
         </Box>
       ))}
     </Box>

@@ -22,6 +22,7 @@ interface Props {
 
 const SearchInput = function ({ onSearch }: Props) {
   const [products, setProducts] = useState<Product[]>([]);
+  const [isFocused, setIsFocused] = useState<Boolean>(false);
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const matchedProducts = getMatchingProducts(event.target.value);
@@ -76,6 +77,8 @@ const SearchInput = function ({ onSearch }: Props) {
               {...inputColorProps}
               // errorBorderColor={"purple"} //purple if error in validation
 
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)} //when the input is unfocused
               onChange={handleInput}
             />
           </InputGroup>
@@ -97,7 +100,7 @@ const SearchInput = function ({ onSearch }: Props) {
         </Show>
       </form>
 
-      <SearchPopOver products={products} />
+      {isFocused && <SearchPopOver products={products} />}
     </Flex>
   );
 };
