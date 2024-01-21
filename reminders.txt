@@ -1,6 +1,10 @@
-info boxes that span columns and rows diff in home pg
+implement one more feature, and then merge PR
+
+links in Footer and ProductsPopOver don't work coz of using `` in href
+
 
 ----------
+info boxes that span columns and rows diff in home pg
 use framer-motion or GSAP instead of IntersectionObserver
 qlty imgs
 photos - team / workers, premises,  (at home pg)

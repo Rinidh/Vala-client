@@ -1,6 +1,6 @@
 import { Box, useColorMode } from "@chakra-ui/react";
-import bg from "../../assets/wall1-dark.png";
-import bgDark from "../../assets/wall1-light.png";
+import bg from "../../assets/wall1-light.png";
+import bgDark from "../../assets/wall1-dark.png";
 import BackToTop from "../BackToTop";
 import SectionA from "./section-A/SectionAMain";
 import SectionC from "./section-C/SectionCMain";
