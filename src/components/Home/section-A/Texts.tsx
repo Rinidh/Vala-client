@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react";
+import { Box, Show, Text } from "@chakra-ui/react";
 import ChangingText from "./ChangingText";
 
 const Texts = () => {
@@ -13,27 +13,38 @@ const Texts = () => {
       </Text>
       <br />
       <Text
-        fontSize={{ base: "90px", md: "80px", lg: "x-large" }}
+        fontSize={{ base: "60px", md: "50px", lg: "30px" }}
         marginTop={-3}
+        mb={8}
       >
-        ALL YOUR
+        ALL YOUR NEEDS IN
       </Text>
-      <ChangingText
-        duration={3000}
-        texts={[
-          "CULINARY NEEDS",
-          "MEDICAL ITEMS",
-          "SALON SUPPLIES",
-          "BAKING ITEMS",
-        ]} /* can add more texts */
-      />
-      <Text
-        fontSize={{ base: "60px", lg: "30px" }}
-        fontFamily={"Fredoka"}
-        marginY={-5}
-      >
-        NEEDS
-      </Text>
+
+      {/* below 416px, the longer changing texts appear on double lines and smaller ones on single line, causing expanding and contracting of page */}
+      <Show breakpoint="(max-width: 416px)">
+        <Box h={500} bg="darkgreen">
+          <ChangingText
+            duration={3000}
+            texts={[
+              "CULINARY NEEDS",
+              "MEDICAL ITEMS",
+              "SALON SUPPLIES",
+              "BAKING ITEMS",
+            ]} /* can add more texts */
+          />
+        </Box>
+      </Show>
+      <Show breakpoint="(min-width: 416px)">
+        <ChangingText
+          duration={3000}
+          texts={[
+            "CULINARY NEEDS",
+            "MEDICAL ITEMS",
+            "SALON SUPPLIES",
+            "BAKING ITEMS",
+          ]} /* can add more texts */
+        />
+      </Show>
     </>
   );
 };

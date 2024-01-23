@@ -1,5 +1,5 @@
 import { Box, useColorModeValue } from "@chakra-ui/react";
-import { Product } from "./ProductsMain";
+import { Product } from "../../data/products";
 
 interface Props {
   products: Product[];
@@ -32,7 +32,7 @@ const SearchPopOver = ({ products }: Props) => {
           fontWeight={"bold"}
           cursor={"pointer"}
         >
-          {p.name}
+          {`${p.name} - ${p.qtyEachUnit}`}
         </Box>
       ))}
     </Box>

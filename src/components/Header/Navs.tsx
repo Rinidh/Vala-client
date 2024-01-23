@@ -47,6 +47,7 @@ const Navs = () => {
         </Flex>
         <Fade in={isHovered}>
           <Box
+            display={isHovered ? "block" : "none"} //to prevent the links from invisibly staying active
             borderRadius={10}
             overflow={"hidden"}
             onMouseLeave={() => setIsHovered(false)}

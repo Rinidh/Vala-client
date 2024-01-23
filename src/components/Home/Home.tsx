@@ -1,4 +1,6 @@
 import { Box, useColorMode } from "@chakra-ui/react";
+import bg from "../../assets/wall1-light.png";
+import bgDark from "../../assets/wall1-dark.png";
 import BackToTop from "../BackToTop";
 import SectionA from "./section-A/SectionAMain";
 import SectionC from "./section-C/SectionCMain";
@@ -8,15 +10,12 @@ import SectionD from "./section-D/SectionDMain";
 const Home = () => {
   const { colorMode } = useColorMode();
 
-  const backWallUrl =
-    colorMode === "dark"
-      ? "url('src/assets/wall1-dark.png')"
-      : "url('src/assets/wall1-light.png')";
+  const backWall = colorMode === "dark" ? bgDark : bg;
 
   return (
     <>
       <Box
-        bgImage={backWallUrl} /* dark mode blue behind is #140045 */
+        bgImage={backWall} /* dark mode blue behind is #140045 */
         w={{ base: "338vw", sm: "200vw", lg: "100vw" }}
         minH={{ base: "700vh", sm: "600vh", lg: "400vh" }}
         bgSize={"cover"}
