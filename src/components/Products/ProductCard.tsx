@@ -22,6 +22,7 @@ interface Props {
   name: string;
   description?: string;
   discountPercentage?: string;
+  onClick: () => void;
 }
 
 const ProductCard = ({
@@ -29,9 +30,8 @@ const ProductCard = ({
   name,
   description,
   discountPercentage,
+  onClick,
 }: Props) => {
-  const { isOpen, onClose, onOpen } = useDisclosure();
-
   const colors = useColorModeValue(
     {
       bg: "rgba(255,255,255,0.4)",
@@ -64,7 +64,7 @@ const ProductCard = ({
           />
           <Box
             zIndex={1}
-            onClick={onOpen}
+            onClick={onClick}
             cursor={"pointer"}
             _hover={{ bg: colors.hoverBg }}
             transition={"all 0.2s"}
@@ -125,14 +125,6 @@ const ProductCard = ({
           </Tag>
         )}
       </Box>
-
-      <ProductModal
-        heading="heading"
-        image={image}
-        info={description}
-        isOpen={isOpen}
-        onClose={() => onClose()}
-      />
     </>
   );
 };

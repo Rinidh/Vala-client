@@ -4,6 +4,9 @@ import ProductCarousel from "./ProductsCarousel";
 import { Heading, Box, Flex } from "@chakra-ui/react";
 import { demoProducts } from "../../demoPdts";
 import BackToTop from "../BackToTop";
+import ProductModal from "./ProductModal";
+import { Fragment, useState } from "react";
+import { Product, products } from "../../data/products";
 
 export interface ProductBrief {
   name: string;
@@ -12,6 +15,15 @@ export interface ProductBrief {
 }
 
 const Products = () => {
+  const [clickedProduct, setClickedProduct] = useState<string>("");
+
+  const [modalIsVisible, setModalVisibility] = useState(false);
+
+  const handleProductClick = (fullName: string) => {
+    setClickedProduct(fullName);
+    setModalVisibility(true);
+  };
+
   return (
     <>
       <BackWall px py>
@@ -30,7 +42,10 @@ const Products = () => {
           >
             Culinary Needs
           </Heading>
-          <ProductCarousel products={demoProducts} />
+          <ProductCarousel
+            products={products}
+            onClickProductCard={(fullName) => handleProductClick(fullName)}
+          />
         </Box>
 
         <Box mb={{ base: "90px", lg: "45px" }}>
@@ -42,7 +57,10 @@ const Products = () => {
           >
             Baking Items
           </Heading>
-          <ProductCarousel products={demoProducts} />
+          <ProductCarousel
+            products={products}
+            onClickProductCard={(fullName) => setClickedProduct(fullName)}
+          />
         </Box>
 
         <Box mb={{ base: "90px", lg: "45px" }}>
@@ -54,7 +72,10 @@ const Products = () => {
           >
             Medical Items
           </Heading>
-          <ProductCarousel products={demoProducts} />
+          <ProductCarousel
+            products={products}
+            onClickProductCard={(fullName) => setClickedProduct(fullName)}
+          />
         </Box>
 
         <Box mb={{ base: "90px", lg: "45px" }}>
@@ -66,9 +87,18 @@ const Products = () => {
           >
             Salon Supplies
           </Heading>
-          <ProductCarousel products={demoProducts} />
+          <ProductCarousel
+            products={products}
+            onClickProductCard={(fullName) => setClickedProduct(fullName)}
+          />
         </Box>
       </BackWall>
+
+      <ProductModal
+        clickedProduct={clickedProduct}
+        modalIsVisible={modalIsVisible}
+        setModalVisibility={() => setModalVisibility(false)}
+      />
 
       <BackToTop />
     </>

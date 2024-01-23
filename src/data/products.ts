@@ -2,8 +2,10 @@ export interface Product {
   name: string,
   fullName: string
   qtyEachUnit: string,
-  pack: number | null,
-  price: number
+  pack?: number | null,
+  price: number,
+  image?: string,
+  description?: string,
 }
 
 export const products: Product[] = [

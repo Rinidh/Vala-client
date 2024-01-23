@@ -1,6 +1,8 @@
-implement one more feature, and then merge PR
+email from review + store in db
 
-links in Footer and ProductsPopOver don't work coz of using `` in href
+store emails from trending pg into db
+
+pdt card
 
 
 ----------
@@ -10,6 +12,7 @@ qlty imgs
 photos - team / workers, premises,  (at home pg)
 livechat feature
 products popover briefly appearing behind the product card on hover
+<Link>s in Footer and ProductsPopOver don't work if using `` in href
 
 button with arrow on hover
 use <iframe> to put a video

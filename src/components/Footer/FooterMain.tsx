@@ -11,6 +11,7 @@ import {
   Image,
   Flex,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { BiLogoGmail } from "react-icons/bi";
@@ -22,6 +23,8 @@ interface Props {
 }
 
 const Footer = ({ pageLinks }: Props) => {
+  const navigate = useNavigate();
+
   const lowerCased = pageLinks.map((link) => {
     return link.replace(/[A-Z]/g, (match) => match.toLowerCase());
   });
@@ -50,9 +53,11 @@ const Footer = ({ pageLinks }: Props) => {
                 as={Text}
                 m={2}
                 textAlign={"left"}
+                cursor={"pointer"}
                 fontSize={{ base: 50, md: 30, lg: 15 }}
+                onClick={() => navigate(`/${link}`)}
               >
-                <Link href={`/${link}`}>{pageLinks[index]}</Link>
+                {pageLinks[index]}
               </Box>
             ))}
           </VStack>
