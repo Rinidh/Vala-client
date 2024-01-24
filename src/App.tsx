@@ -40,8 +40,6 @@ const App = () => {
           />
         </GridItem>
       </Grid>
-
-      <PageLoadSpinner show={isLoading} />
     </>
   );
 };

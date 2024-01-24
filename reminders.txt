@@ -2,8 +2,9 @@ email from review + store in db
 
 store emails from trending pg into db
 
-pdt card
+pdt card design then commit
 
+add back spinner
 
 ----------
 info boxes that span columns and rows diff in home pg

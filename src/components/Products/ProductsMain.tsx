@@ -59,7 +59,7 @@ const Products = () => {
           </Heading>
           <ProductCarousel
             products={products}
-            onClickProductCard={(fullName) => setClickedProduct(fullName)}
+            onClickProductCard={(fullName) => handleProductClick(fullName)}
           />
         </Box>
 
@@ -74,7 +74,7 @@ const Products = () => {
           </Heading>
           <ProductCarousel
             products={products}
-            onClickProductCard={(fullName) => setClickedProduct(fullName)}
+            onClickProductCard={(fullName) => handleProductClick(fullName)}
           />
         </Box>
 
@@ -89,7 +89,7 @@ const Products = () => {
           </Heading>
           <ProductCarousel
             products={products}
-            onClickProductCard={(fullName) => setClickedProduct(fullName)}
+            onClickProductCard={(fullName) => handleProductClick(fullName)}
           />
         </Box>
       </BackWall>
