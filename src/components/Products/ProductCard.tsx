@@ -101,7 +101,7 @@ const ProductCard = ({
                 colorScheme={colors.button}
                 color={"white"}
               >
-                View Sellers
+                View
               </Button>
             </CardFooter>
           </Box>

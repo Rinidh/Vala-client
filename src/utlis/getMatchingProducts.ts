@@ -9,7 +9,5 @@ export function getMatchingProducts (searchedText: string){
     if(searchRegex.test(prod.fullName)) matchedProducts.push(prod)
   })
   
-
-  console.log('function has run')
   return matchedProducts;
 }

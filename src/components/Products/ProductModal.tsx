@@ -5,6 +5,9 @@ import {
   Grid,
   GridItem,
   useColorModeValue,
+  Text,
+  VStack,
+  HStack,
 } from "@chakra-ui/react";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Product } from "../../data/products";
@@ -58,9 +61,7 @@ const ProductModal = ({
             //use other libs eg emotion & react-transition-group to create a smooth transition when disappearing instead of complicated code in this component
           >
             <Flex h={"100%"} w={"100%"} bg={"rgba(0,0,0,0.5)"}>
-              <Flex flex={1} onClick={() => setModalVisibility(false)}>
-                abcd
-              </Flex>
+              <Flex flex={1} onClick={() => setModalVisibility(false)}></Flex>
 
               <Flex w={"60%"} minW={300} py={10}>
                 <Grid
@@ -72,12 +73,11 @@ const ProductModal = ({
                   templateColumns="repeat(4, 1fr)"
                   zIndex={60}
                   bg={useColorModeValue("white", "valaBlue.800")}
-                  fontSize={{ base: 50, sm: 35, lg: 20 }}
                 >
                   <GridItem
                     rowSpan={{ base: 1, md: 3 }}
                     colSpan={{ base: 4, md: 2 }}
-                    bg={"darkred"}
+                    // bg={"darkred"}
                   >
                     <Flex align={"center"} justify={"center"} p={5}>
                       <Image
@@ -95,20 +95,55 @@ const ProductModal = ({
                     rowSpan={{ base: 2, md: 3 }}
                     colSpan={{ base: 4, md: 2 }}
                     p={5}
-                    bg={"darkgoldenrod"}
+                    // bg={"darkgoldenrod"}
                   >
-                    {product.description}
-                    info...
+                    <Flex direction={"column"} h={"100%"}>
+                      <Text
+                        mb={3}
+                        fontSize={{ base: 70, sm: 50, lg: 30 }}
+                        fontWeight={"bold"}
+                      >
+                        {product.fullName}
+                      </Text>
+
+                      <Box flex={1} fontSize={{ base: 50, sm: 35, lg: 20 }}>
+                        {product.description}
+                      </Box>
+
+                      <HStack
+                        p={0}
+                        h={{ base: 70, sm: 60, lg: 20 }}
+                        // bg={"darkgoldenrod"}
+                        justify={"space-between"}
+                        fontSize={{ base: 30, sm: 30, lg: 17 }}
+                      >
+                        <Text>
+                          Per box:
+                          <br />
+                          UGX {product.price}
+                        </Text>
+                        <Text>
+                          Pack:
+                          <br />
+                          {product.qtyEachUnit} X {product.pack}
+                        </Text>
+                      </HStack>
+                    </Flex>
                   </GridItem>
-                  <GridItem colSpan={4} p={5} borderTop={"2px solid"}>
-                    XXXX
+                  <GridItem
+                    colSpan={4}
+                    p={5}
+                    borderTop={"2px solid"}
+                    fontSize={{ base: 30, sm: 30, lg: 17 }}
+                  >
+                    Please contact us to directly buy factory outlet. <br />
+                    We only sale cartons (boxes), and you may have not be able
+                    to buy below minimum orders according to the product. <br />
                   </GridItem>
                 </Grid>
               </Flex>
 
-              <Flex flex={1} onClick={() => setModalVisibility(false)}>
-                abcd
-              </Flex>
+              <Flex flex={1} onClick={() => setModalVisibility(false)}></Flex>
             </Flex>
           </Flex>
         </Fragment>

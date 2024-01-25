@@ -15,6 +15,7 @@ export const products: Product[] = [
     qtyEachUnit: "500ml",
     pack: 12,
     price: 21_000,
+    description: "For use with salads, curries, sauces etc..."
   },
   {
     name: "Vinegar",

@@ -2,11 +2,10 @@ email from review + store in db
 
 store emails from trending pg into db
 
-pdt card design then commit
-
 add back spinner
 
 ----------
+plan before you make
 info boxes that span columns and rows diff in home pg
 use framer-motion or GSAP instead of IntersectionObserver
 qlty imgs
@@ -14,6 +13,7 @@ photos - team / workers, premises,  (at home pg)
 livechat feature
 products popover briefly appearing behind the product card on hover
 <Link>s in Footer and ProductsPopOver don't work if using `` in href
+rebuild this website with nextjs later
 
 button with arrow on hover
 use <iframe> to put a video
