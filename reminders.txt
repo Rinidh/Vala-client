@@ -4,6 +4,7 @@ store emails from trending pg into db
 
 add back spinner
 
+don't push very often due to vercel auto-build
 ----------
 plan before you make
 info boxes that span columns and rows diff in home pg
