@@ -89,8 +89,12 @@ const Navs = () => {
         </Flex>
         <Spacer />
 
-        <Flex align="center" cursor={"pointer"} onClick={() => navigate("/x")}>
-          {linkText("XXXX")}
+        <Flex
+          align="center"
+          cursor={"pointer"}
+          onClick={() => navigate("/admin")}
+        >
+          {linkText("Admin")}
         </Flex>
       </Show>
     </Flex>

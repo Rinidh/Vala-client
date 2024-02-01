@@ -4,17 +4,19 @@ store emails from trending pg into db
 
 add back spinner
 
+change colors to only blue
+  re-assign valaBlue theme values
+
 don't push very often due to vercel auto-build
 ----------
 plan before you make
-info boxes that span columns and rows diff in home pg
 use framer-motion or GSAP instead of IntersectionObserver
 qlty imgs
 photos - team / workers, premises,  (at home pg)
-livechat feature
+livechat feature powered by ---
 products popover briefly appearing behind the product card on hover
 <Link>s in Footer and ProductsPopOver don't work if using `` in href
-rebuild this website with nextjs later
 
 button with arrow on hover
 use <iframe> to put a video
+rebuild this website with nextjs later

@@ -37,7 +37,9 @@ const AppRoutes = () => {
         <Route
           path="/admin"
           element={
-            <Suspense fallback={<PageLoadSpinner show={isLoading} />}>
+            <Suspense
+            // fallback={<PageLoadSpinner show={isLoading} />}
+            >
               <LazyAdmin />
             </Suspense>
           }
