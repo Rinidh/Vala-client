@@ -1,29 +1,48 @@
 import { useEffect, useState } from "react"
 import { apiClient } from "../services/apiClient"
-import { AxiosResponse } from "axios";
+import { CanceledError } from "axios";
+import { FormData } from "../components/Admin/CreateAccountForm";
 
-interface Props {
-  formData: FormData
+interface AdminInfo {
+  _id: string,
+  name: string,
+  email: string,
+
 }
 
-const useAccountCreator = ({formData}:Props)=>{
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [response, setResponse] = useState<AxiosResponse>()
+interface ResponseData {
+  message: string,
+  adminInfo: AdminInfo,
+}
+
+const useAccountCreator = ({ name, email, password }:FormData)=>{
+  const [fetchError, setFetchError] = useState("");
+  const [isPosting, setIsPosting] = useState(false);
+  const [responseData, setResponseData] = useState<ResponseData>({} as ResponseData)
 
   useEffect(()=>{
-    if(isSubmitted) {
-      apiClient.post("/api/admin", formData).then((response)=>{
-        setResponse
+    const controller = new AbortController();
+
+    if(email && !isPosting) {
+      setIsPosting(true)
+
+      apiClient.post<ResponseData>("/api/admin", { name, email, password }, { signal: controller.signal }).then((res)=>{
+        setResponseData(res.data);
+        setIsPosting(false);
       })
+      .catch((error)=>{
+        if(error instanceof CanceledError) return;
 
+        console.error("Err posting data: ", error);
+        setFetchError(error.message);
+        setIsPosting(false);
+      })
+    }
 
-        .catch((error)=>{
-          console.error("Err posting data: ", error)
-        })
-      }
-  },[isSubmitted])
+    return ()=>controller.abort()
+  },[name, email, password])
 
-
+  return { responseData, fetchError, isPosting }
 }
 
 export default useAccountCreator;

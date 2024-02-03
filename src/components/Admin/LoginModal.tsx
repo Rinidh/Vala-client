@@ -22,10 +22,10 @@ interface Props {
 }
 
 type ModalDisplayStatus =
-  | "submitted"
   | "a/c-creation-success"
   | "create-account"
-  | "login";
+  | "login"
+  | "error";
 
 const LoginModal = ({
   operation,
@@ -33,6 +33,7 @@ const LoginModal = ({
   setModalVisibility,
 }: Props) => {
   const [showModal, setShowModal] = useState(modalIsVisible); //this state hook handles whether the modal is in the DOM, while modalIsVisible handles the opacity. Using only modalIsVisible to handle mounting state doesn't show transitions
+  const [APIError, setAPIError] = useState("");
   const [modalDisplayStatus, setModalDisplayStatus] =
     useState<ModalDisplayStatus>(operation);
 
@@ -76,18 +77,16 @@ const LoginModal = ({
                 >
                   {modalDisplayStatus === "create-account" && (
                     <CreateAccountForm
-                      onValidSubmit={() => setModalDisplayStatus("submitted")}
+                      onAPICallError={(error: string) => {
+                        setModalDisplayStatus("error");
+                        setAPIError(error);
+                      }}
                       onSubmitSuccess={() =>
                         setModalDisplayStatus("a/c-creation-success")
                       }
                     />
                   )}
                   {/* {modalDisplayStatus === "login" && <LoginForm />} */}
-                  {modalDisplayStatus === "submitted" && (
-                    <Center boxSize={"100%"}>
-                      <Spinner size={"xl"} />
-                    </Center>
-                  )}
                   {modalDisplayStatus === "a/c-creation-success" && (
                     <Center boxSize={"100%"}>
                       <Flex direction={"column"} align={"center"}>
@@ -101,6 +100,11 @@ const LoginModal = ({
                           You will recieve a confirmation email
                         </Text>
                       </Flex>
+                    </Center>
+                  )}
+                  {modalDisplayStatus === "error" && (
+                    <Center boxSize={"100%"}>
+                      <Heading>{APIError}</Heading>
                     </Center>
                   )}
                 </Box>

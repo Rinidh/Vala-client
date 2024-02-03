@@ -12,41 +12,41 @@ import {
   Center,
   Button,
   Flex,
+  Spinner,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import { FieldValues, useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import useAccountCreator from "../../hooks/useAccountCreator";
 
-interface FormData {
+export interface FormData {
   name: string;
   email: string;
   password: string;
 }
 
 interface Props {
+  onAPICallError: (error: string) => void;
   onSubmitSuccess: () => void; //should run when the server has responded with status 200
-  onValidSubmit: () => void; // should run when the user clicks submit, and the form data is valid ie when handleSubmit() from hook-form runs
 }
 
-const CreateAccountForm = ({ onValidSubmit, onSubmitSuccess }: Props) => {
+const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
   const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState<FormData>();
+  const [formData, setFormData] = useState<FormData>({} as FormData);
+  const { responseData, isPosting, fetchError } = useAccountCreator(formData);
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<FormData>(formData);
-  const {} = useAccountCreator();
+  } = useForm<FormData>();
 
-  const handleValidSubmit = (data: FormData) => {
-    onValidSubmit(); //to notify the parent
+  const handleValidSubmit = (data: FormData) => setFormData(data);
 
-    setFormData(data)
-
-    console.log(data);
-  };
+  useEffect(() => {
+    if (!isPosting && fetchError) onAPICallError(fetchError);
+    if (!isPosting && responseData.message) onSubmitSuccess();
+  });
 
   //using basic email validation logic
   const emailRegex =
@@ -61,12 +61,18 @@ const CreateAccountForm = ({ onValidSubmit, onSubmitSuccess }: Props) => {
   };
 
   return (
-    <>
+    <Box position={"relative"}>
       <Center mb={{ base: 35, md: 18 }}>
         <Heading size={{ base: "4xl", md: "xl" }}>
           Create an admin account
         </Heading>
       </Center>
+
+      {isPosting && (
+        <Center position={"absolute"} boxSize={"100%"} bg={"rgba(0,0,0,0,5)"}>
+          <Spinner size={"xl"} />
+        </Center>
+      )}
 
       <form onSubmit={handleSubmit(handleValidSubmit)}>
         <FormControl mb={{ base: 10, lg: 3 }}>
@@ -189,7 +195,7 @@ const CreateAccountForm = ({ onValidSubmit, onSubmitSuccess }: Props) => {
           </Button>
         </Flex>
       </form>
-    </>
+    </Box>
   );
 };
 
