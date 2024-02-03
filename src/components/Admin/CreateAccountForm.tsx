@@ -13,10 +13,11 @@ import {
   Button,
   Flex,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import useAccountCreator from "../../hooks/useAccountCreator";
 
 interface FormData {
   name: string;
@@ -31,20 +32,20 @@ interface Props {
 
 const CreateAccountForm = ({ onValidSubmit, onSubmitSuccess }: Props) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState<FormData>();
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<FormData>(formData);
+  const {} = useAccountCreator();
 
-  const handleValidSubmit = (data: FieldValues) => {
-    onValidSubmit();
+  const handleValidSubmit = (data: FormData) => {
+    onValidSubmit(); //to notify the parent
+
+    setFormData(data)
 
     console.log(data);
-
-    setTimeout(() => {
-      onSubmitSuccess();
-    }, 3000);
   };
 
   //using basic email validation logic

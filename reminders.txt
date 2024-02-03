@@ -1,3 +1,5 @@
+cleanup
+
 email from review + store in db
 
 store emails from trending pg into db
