@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { Fragment, useEffect, useRef, useState } from "react";
 import CreateAccountForm from "./CreateAccountForm";
+import LoginForm from "./LoginForm";
 
 interface Props {
   operation: "create-account" | "login";
@@ -86,7 +87,7 @@ const LoginModal = ({
                       }
                     />
                   )}
-                  {/* {modalDisplayStatus === "login" && <LoginForm />} */}
+                  {modalDisplayStatus === "login" && <LoginForm />}
                   {modalDisplayStatus === "a/c-creation-success" && (
                     <Center boxSize={"100%"}>
                       <Flex direction={"column"} align={"center"}>

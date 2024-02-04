@@ -12,7 +12,8 @@ import Products from "../components/Products";
 import PageLoadSpinner from "../PageLoadSpinner";
 
 //lazy loaded components
-const LazyAdmin = lazy(() => import("../components/Admin"));
+const LoginOrSignUp = lazy(() => import("../components/Admin/LoginOrSignUp"));
+const Admin = lazy(() => import("../components/Admin"));
 
 const AppRoutes = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +41,16 @@ const AppRoutes = () => {
             <Suspense
             // fallback={<PageLoadSpinner show={isLoading} />}
             >
-              <LazyAdmin />
+              <LoginOrSignUp />
+            </Suspense>
+          }
+        />
+
+        <Route
+          path="/admin"
+          element={
+            <Suspense fallback={"Loading Admin..."}>
+              <Admin />
             </Suspense>
           }
         />

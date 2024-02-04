@@ -1,3 +1,3 @@
 import Admin from "./AdminMain";
 
-export default Admin
+export default Admin;

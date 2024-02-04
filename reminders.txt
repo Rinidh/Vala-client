@@ -1,6 +1,8 @@
-cleanup
+incase valdation skips at client and fails at server, 400 returned back, show appropriate error (err.response.data)
 
 email from review + store in db
+
+use _id for dealing with each product, admin, news, review etc
 
 store emails from trending pg into db
 
