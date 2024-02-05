@@ -2,13 +2,7 @@ import { useEffect, useState } from "react"
 import { apiClient } from "../services/apiClient"
 import { CanceledError } from "axios";
 import { FormData } from "../components/Admin/CreateAccountForm";
-
-interface AdminInfo {
-  _id: string,
-  name: string,
-  email: string,
-
-}
+import { AdminInfo } from "../components/Admin/AdminMain"
 
 interface ResponseData {
   message: string,

@@ -10,6 +10,7 @@ import Tabs from "../components/Trending/Tabs";
 import Offers from "../components/Trending/Offers";
 import Products from "../components/Products";
 import PageLoadSpinner from "../PageLoadSpinner";
+import AuthProvider from "../components/AuthProvider";
 
 //lazy loaded components
 const LoginOrSignUp = lazy(() => import("../components/Admin/LoginOrSignUp"));
@@ -23,7 +24,7 @@ const AppRoutes = () => {
   }, []);
 
   return (
-    <>
+    <AuthProvider>
       <Routes>
         <Route path="x" element={<X />}></Route>
         <Route path="y" element={<Y />}></Route>
@@ -36,7 +37,7 @@ const AppRoutes = () => {
         </Route>
         <Route path="/about" element={<About />} />
         <Route
-          path="/admin"
+          path="/login"
           element={
             <Suspense
             // fallback={<PageLoadSpinner show={isLoading} />}
@@ -57,7 +58,7 @@ const AppRoutes = () => {
 
         <Route path="*" element={<No />} />
       </Routes>
-    </>
+    </AuthProvider>
   );
 };
 

@@ -1,8 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { apiClient } from "../../services/apiClient";
+import { useAuth } from "../AuthProvider";
+
+export interface AdminInfo {
+  _id: string;
+  name: string;
+  email: string;
+}
 
 const AdminMain = () => {
-  return <div>AdminMain</div>;
+  const { currentAdmin } = useAuth();
+
+  return <div>{currentAdmin.name}</div>;
 };
 
 export default AdminMain;

@@ -19,6 +19,7 @@ import { useForm } from "react-hook-form";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import useAccountCreator from "../../hooks/useAccountCreator";
+import { AdminInfo } from "./AdminMain";
 
 export interface FormData {
   name: string;
@@ -28,7 +29,7 @@ export interface FormData {
 
 interface Props {
   onAPICallError: (error: string) => void;
-  onSubmitSuccess: () => void; //should run when the server has responded with status 200
+  onSubmitSuccess: (adminInfo: AdminInfo) => void; //should run when the server has responded with status 200
 }
 
 const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
@@ -45,7 +46,8 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
 
   useEffect(() => {
     if (!isPosting && fetchError) onAPICallError(fetchError);
-    if (!isPosting && responseData.message) onSubmitSuccess();
+    if (!isPosting && responseData.message)
+      onSubmitSuccess(responseData.adminInfo);
   });
 
   //using basic email validation logic

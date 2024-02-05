@@ -15,11 +15,13 @@ import {
 import { Fragment, useEffect, useRef, useState } from "react";
 import CreateAccountForm from "./CreateAccountForm";
 import LoginForm from "./LoginForm";
+import { AdminInfo } from "./AdminMain";
 
 interface Props {
   operation: "create-account" | "login";
   modalIsVisible: boolean;
   setModalVisibility: (bool: boolean) => void;
+  onLogin: (adminInfo: AdminInfo) => void;
 }
 
 type ModalDisplayStatus =
@@ -31,6 +33,7 @@ type ModalDisplayStatus =
 const LoginModal = ({
   operation,
   modalIsVisible,
+  onLogin,
   setModalVisibility,
 }: Props) => {
   const [showModal, setShowModal] = useState(modalIsVisible); //this state hook handles whether the modal is in the DOM, while modalIsVisible handles the opacity. Using only modalIsVisible to handle mounting state doesn't show transitions
@@ -82,9 +85,10 @@ const LoginModal = ({
                         setModalDisplayStatus("error");
                         setAPIError(error);
                       }}
-                      onSubmitSuccess={() =>
-                        setModalDisplayStatus("a/c-creation-success")
-                      }
+                      onSubmitSuccess={(adminInfo) => {
+                        setModalDisplayStatus("a/c-creation-success");
+                        onLogin(adminInfo);
+                      }}
                     />
                   )}
                   {modalDisplayStatus === "login" && <LoginForm />}

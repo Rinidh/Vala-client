@@ -12,6 +12,8 @@ import LoginModal from "./LoginModal";
 import { apiClient } from "../../services/apiClient";
 import { useNavigate } from "react-router-dom";
 import { Axios, AxiosError } from "axios";
+import { AdminInfo } from "./AdminMain";
+import { useAuth } from "../AuthProvider";
 
 type Operation = "create-account" | "login";
 
@@ -19,14 +21,17 @@ const LoginOrSignUp = () => {
   const [triedDefaultLogIn, setTriedDefaultLogIn] = useState(false); //the app first tries to login whenever the user visits admin section; if he's already an authorized admin, he is directly taken to admin page
   const [modalIsVisible, setModalVisibility] = useState(false);
   const [operation, setOperation] = useState<Operation>("" as Operation);
+  const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
+  const { setLoggedInAdmin } = useAuth();
 
   useEffect(() => {
     const tryDefaultLogin = async () => {
       try {
         const { data } = await apiClient.post("/api/auth");
-        console.log(data);
+
+        setLoggedInAdmin(data);
 
         navigate(`/admin`);
       } catch (err) {
@@ -40,12 +45,14 @@ const LoginOrSignUp = () => {
 
           case err instanceof AxiosError &&
             err.response?.data == "You are not yet approved...":
-            //show: yet not approved
+            setMessage("Please wait, you are not yet approved as an admin...");
             break;
 
           case err instanceof AxiosError &&
             err.response?.data == "Invalid token...":
-            //show: pls relogin
+            setMessage(
+              "Please relogin.You may have to relogin after a certain period..."
+            );
             setTriedDefaultLogIn(true);
             break;
         }
@@ -58,9 +65,9 @@ const LoginOrSignUp = () => {
   }, []);
 
   return (
-    <>
+    <Box>
       {triedDefaultLogIn && (
-        <Box>
+        <Box position={"relative"}>
           <Flex
             h={{ base: "200vh", lg: "100vh" }}
             direction={"column"}
@@ -109,15 +116,35 @@ const LoginOrSignUp = () => {
               <Box h={"200px"} />
             </Show>
           </Flex>
+
           <LoginModal
             operation={operation}
             modalIsVisible={modalIsVisible}
             setModalVisibility={() => setModalVisibility(false)}
+            onLogin={(adminInfo) => setLoggedInAdmin(adminInfo)}
           />
+
+          {message && (
+            <Box
+              bg={useColorModeValue("valaBlue.50", "valaBlue.900")}
+              px={30}
+              py={10}
+              fontSize={{ base: 70, md: 40, lg: 20 }}
+              fontWeight={"bold"}
+              boxShadow={"0px 6px 20px black"}
+              borderRadius={20}
+              position={"absolute"}
+              top={10}
+              left={"20%"}
+              right={"20%"}
+            >
+              {message}
+            </Box>
+          )}
         </Box>
       )}
       spinner
-    </>
+    </Box>
   );
 };
 

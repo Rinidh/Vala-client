@@ -1,3 +1,9 @@
+Admin should only be visible if user exists in AuthContext
+
+save adminInfo received after creating a/c
+
+show input err when user enters @ in name input
+
 incase valdation skips at client and fails at server, 400 returned back, show appropriate error (err.response.data)
 
 email from review + store in db

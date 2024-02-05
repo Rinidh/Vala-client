@@ -92,7 +92,7 @@ const Navs = () => {
         <Flex
           align="center"
           cursor={"pointer"}
-          onClick={() => navigate("/admin")}
+          onClick={() => navigate("/login")}
         >
           {linkText("Admin")}
         </Flex>
