@@ -10,7 +10,8 @@ import Tabs from "../components/Trending/Tabs";
 import Offers from "../components/Trending/Offers";
 import Products from "../components/Products";
 import PageLoadSpinner from "../PageLoadSpinner";
-import AuthProvider from "../components/AuthProvider";
+import AuthProvider from "../components/Auth/AuthProvider";
+import RequireAuth from "../components/Auth/RequireAuth";
 
 //lazy loaded components
 const LoginOrSignUp = lazy(() => import("../components/Admin/LoginOrSignUp"));
@@ -51,7 +52,9 @@ const AppRoutes = () => {
           path="/admin"
           element={
             <Suspense fallback={"Loading Admin..."}>
-              <Admin />
+              <RequireAuth>
+                <Admin />
+              </RequireAuth>
             </Suspense>
           }
         />

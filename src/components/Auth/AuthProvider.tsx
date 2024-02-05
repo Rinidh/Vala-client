@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useContext, useState } from "react";
-import { AdminInfo } from "./Admin/AdminMain";
+import { AdminInfo } from "../Admin/AdminMain";
 
 interface AuthProviderValue {
   setLoggedInAdmin: (adminInfo: AdminInfo) => void;

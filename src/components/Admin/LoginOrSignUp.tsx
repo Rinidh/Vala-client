@@ -9,64 +9,21 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import LoginModal from "./LoginModal";
-import { apiClient } from "../../services/apiClient";
-import { useNavigate } from "react-router-dom";
-import { Axios, AxiosError } from "axios";
-import { AdminInfo } from "./AdminMain";
-import { useAuth } from "../AuthProvider";
+import { useAuth } from "../Auth/AuthProvider";
+import useDefaultLogin from "../../hooks/useDefaultLogin";
 
 type Operation = "create-account" | "login";
 
 const LoginOrSignUp = () => {
-  const [triedDefaultLogIn, setTriedDefaultLogIn] = useState(false); //the app first tries to login whenever the user visits admin section; if he's already an authorized admin, he is directly taken to admin page
   const [modalIsVisible, setModalVisibility] = useState(false);
   const [operation, setOperation] = useState<Operation>("" as Operation);
-  const [message, setMessage] = useState("");
 
-  const navigate = useNavigate();
+  const { errorMessage, failedDefaultLogIn } = useDefaultLogin(); //sometimes, there may be failure but not necessarily an errorMessage
   const { setLoggedInAdmin } = useAuth();
 
-  useEffect(() => {
-    const tryDefaultLogin = async () => {
-      try {
-        const { data } = await apiClient.post("/api/auth");
-
-        setLoggedInAdmin(data);
-
-        navigate(`/admin`);
-      } catch (err) {
-        console.log("failed default login: ", err);
-
-        switch (err) {
-          case err instanceof AxiosError &&
-            err.response?.data == "No token provided...":
-            setTriedDefaultLogIn(true);
-            break;
-
-          case err instanceof AxiosError &&
-            err.response?.data == "You are not yet approved...":
-            setMessage("Please wait, you are not yet approved as an admin...");
-            break;
-
-          case err instanceof AxiosError &&
-            err.response?.data == "Invalid token...":
-            setMessage(
-              "Please relogin.You may have to relogin after a certain period..."
-            );
-            setTriedDefaultLogIn(true);
-            break;
-        }
-
-        setTriedDefaultLogIn(true);
-      }
-    };
-
-    tryDefaultLogin();
-  }, []);
-
   return (
-    <Box>
-      {triedDefaultLogIn && (
+    <>
+      {failedDefaultLogIn && (
         <Box position={"relative"}>
           <Flex
             h={{ base: "200vh", lg: "100vh" }}
@@ -124,7 +81,7 @@ const LoginOrSignUp = () => {
             onLogin={(adminInfo) => setLoggedInAdmin(adminInfo)}
           />
 
-          {message && (
+          {errorMessage && (
             <Box
               bg={useColorModeValue("valaBlue.50", "valaBlue.900")}
               px={30}
@@ -138,13 +95,13 @@ const LoginOrSignUp = () => {
               left={"20%"}
               right={"20%"}
             >
-              {message}
+              {errorMessage}
             </Box>
           )}
         </Box>
       )}
       spinner
-    </Box>
+    </>
   );
 };
 
