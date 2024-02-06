@@ -16,6 +16,10 @@ add back spinner
 
 change colors to only blue
   re-assign valaBlue theme values
+  new hexcolors:
+    ("#ebe9f5", "#0c002b") - backwall
+    ("#e0dcf5", "#190257") - comps
+    ("#d4cef5", "#210273") - comps_hover
 
 don't push very often due to vercel auto-build
 ----------
