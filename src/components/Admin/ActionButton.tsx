@@ -1,6 +1,5 @@
-import { Flex, useColorModeValue, Text } from "@chakra-ui/react";
-import React, { ReactNode } from "react";
-import { IconType } from "react-icons";
+import { Flex, useColorModeValue } from "@chakra-ui/react";
+import { ReactNode } from "react";
 
 interface Props {
   icon: ReactNode;
@@ -16,14 +15,14 @@ const ActionButton = ({ icon, text }: Props) => {
       borderRadius={20}
       bg={useColorModeValue("#e0dcf5", "#190257")}
       mr={10}
-      py={10}
+      py={{ base: "120px", md: "40px" }}
       _hover={{ bg: useColorModeValue("#d4cef5", "#210273") }}
       transition={"all 0.1s linear"}
     >
       <Flex fontSize={"130px"} mb={12} justify={"center"}>
         {icon}
       </Flex>
-      <Flex fontSize={"20px"} justify={"center"}>
+      <Flex fontSize={{ base: "45px", md: "20px" }} justify={"center"}>
         {text}
       </Flex>
     </Flex>

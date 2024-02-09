@@ -7,7 +7,7 @@ const AdminHeader = ({ adminInfo }: { adminInfo: AdminInfo }) => {
     <Flex
       bg={useColorModeValue("#e0dcf5", "#190257")}
       borderRadius={20}
-      h={28}
+      h={{ base: 80, md: 28 }}
       px={8}
       mb={"120px"}
       align={"center"}
@@ -15,26 +15,26 @@ const AdminHeader = ({ adminInfo }: { adminInfo: AdminInfo }) => {
     >
       <Box>
         <Text
-          fontSize={"13px"}
+          fontSize={{ base: "30px", md: "13px" }}
           mb={2}
           color={useColorModeValue("rgba(0,0,0,0.7)", "rgba(255,255,255,0.7)")}
         >
           Admin
         </Text>
-        <Text fontSize={"35px"} fontWeight={"700"}>
+        <Text fontSize={{ base: "70px", md: "35px" }} fontWeight={"700"}>
           {adminInfo.name}
         </Text>
       </Box>
 
       <Box>
         <Text
-          fontSize={"13px"}
+          fontSize={{ base: "30px", md: "13px" }}
           mb={2}
           color={useColorModeValue("rgba(0,0,0,0.7)", "rgba(255,255,255,0.7)")}
         >
           Your ID
         </Text>
-        <Text fontSize={"20px"} fontWeight={1}>
+        <Text fontSize={{ base: "45px", md: "20px" }} fontWeight={1}>
           {adminInfo._id}
         </Text>
       </Box>

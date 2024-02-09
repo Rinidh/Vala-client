@@ -1,4 +1,7 @@
-Admin should only be visible if user exists in AuthContext
+increase custom-modal width at base and sm
+  truncate only name
+
+design pending reqs; implement query parsing at server
 
 save adminInfo received after creating a/c
 
