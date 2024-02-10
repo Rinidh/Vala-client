@@ -51,44 +51,42 @@ const PendingRequests = () => {
             key={req._id}
             bg={useColorModeValue("#e0dcf5", "#190257")}
             borderRadius={20}
-            h={{ base: 200, md: 90, lg: 20 }}
+            minH={{ base: 200, md: 90, lg: 20 }}
             px={6}
             py={{ base: 4, sm: 0 }}
             mb={"40px"}
             align={"center"}
-            justify={"space-between"}
             direction={{ base: "column", sm: "row" }}
           >
-            <Flex
-              direction={"row"}
-              align={"center"}
-              bg={"darkred"}
-              w={{ base: "100%", sm: "auto" }}
-            >
+            <Flex direction={"row"} align={"center"} flex={1}>
               <Text
+                bg={"darkred"}
                 mr={{ base: 6, md: 4, lg: 2 }}
                 fontSize={{ base: 40, sm: 26 }}
+                w={{ base: "290px", md: "100px", lg: "100px" }}
+                /* by default, word-wrap: word-break is applied to name by <Text> */
               >
                 {req.name}
               </Text>
               <Text
                 bg={"darkgoldenrod"}
-                w={"100%"}
+                flex={1}
                 color={useColorModeValue(
                   "rgba(0,0,0,0.7)",
                   "rgba(255,255,255,0.7)"
                 )}
                 fontSize={{ base: 32, sm: 20 }}
-                textOverflow={"ellipsis"}
+                wordBreak={"break-all"}
               >
                 {req.email}
               </Text>
             </Flex>
 
             <Flex
+              bg={"yellow"}
               direction={"row"}
               justify={"end"}
-              w={{ base: "100%", sm: "auto" }}
+              w={{ base: "100%", sm: "170px" }}
             >
               <Button
                 colorScheme="valaBlue"

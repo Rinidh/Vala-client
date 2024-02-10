@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { AdminInfo } from "../components/Admin/AdminMain";
 import { apiClient } from "../services/apiClient";
+import truncateText from "../utlis/truncateText";
 
 export default function () {
   const [pending, setPending] = useState<AdminInfo[]>([]);
 
   useEffect(()=>{
     setPending([{
-      name: "Name",
-      email: "mailrererererererererereryyyyy",
+      name: truncateText("Nameeeeeeeeerrrrruuuuuuuuxxxxxxxx", 10),
+      email: "mailrererererererererereryyyyyxxxxxxxxxxxxxxxxxxxx",
       _id: "1234"
     },{
       name: "Name",

@@ -1,5 +1,6 @@
 import { Flex, useColorModeValue, Box } from "@chakra-ui/react";
 import { Fragment, ReactNode, useEffect, useState } from "react";
+import { MdClose } from "react-icons/md";
 
 interface Props {
   modalIsVisible: boolean;
@@ -45,14 +46,38 @@ const CustomModal = ({
             <Flex h={"100%"} w={"100%"} bg={"rgba(0,0,0,0.5)"}>
               <Flex flex={1} onClick={() => setModalVisibility(false)} />
 
-              <Flex w={"60%"} minW={300} py={{ base: "70px", md: "40px" }}>
+              <Flex
+                w={{ base: "100%", sm: "60%" }}
+                minW={300}
+                py={{ base: "70px", md: "40px" }}
+              >
                 <Box
                   bg={useColorModeValue("white", "valaBlue.800")}
                   boxSize={"100%"}
                   borderRadius={{ base: 30, lg: 20 }}
                   pt={{ base: 30, md: 15 }}
-                  px={20}
+                  px={{ base: 20, md: 10 }}
                 >
+                  <Flex
+                    justify={"flex-end"}
+                    mb={5}
+                    mr={{ base: "-70px", md: "-35px" }}
+                  >
+                    <Box
+                      fontSize={{ base: 60, md: 40 }}
+                      borderRadius={"17%"}
+                      _hover={{
+                        bg: useColorModeValue(
+                          "rgba(0,0,0,0.3)",
+                          "rgba(255,255,255,0.3)"
+                        ),
+                      }}
+                      transition={"all 0.1s linear"}
+                      onClick={() => setModalVisibility(false)}
+                    >
+                      <MdClose />
+                    </Box>
+                  </Flex>
                   {children}
                 </Box>
               </Flex>

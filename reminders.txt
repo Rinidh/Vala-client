@@ -1,5 +1,4 @@
-increase custom-modal width at base and sm
-  truncate only name
+email box too long at md and above
 
 design pending reqs; implement query parsing at server
 
