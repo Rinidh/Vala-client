@@ -1,20 +1,4 @@
-email box too long at md and above
-
-design pending reqs; implement query parsing at server
-
-save adminInfo received after creating a/c
-
-show input err when user enters @ in name input
-
-incase valdation skips at client and fails at server, 400 returned back, show appropriate error (err.response.data)
-
-email from review + store in db
-
-use _id for dealing with each product, admin, news, review etc
-
-store emails from trending pg into db
-
-add back spinner
+create new admin even when logged in from dropdown
 
 change colors to only blue
   re-assign valaBlue theme values
@@ -23,16 +7,25 @@ change colors to only blue
     ("#e0dcf5", "#190257") - comps
     ("#d4cef5", "#210273") - comps_hover
 
-don't push very often due to vercel auto-build
+save adminInfo in localStorage received after creating a/c
+
+show input err when user enters @ in name input
+
+incase valdation skips at client and fails at server, 400 returned back, show appropriate error (err.response.data)
+
+ask email from review + store in db
+store emails from trending pg into db
+
+use _id for dealing with each product, admin, news, review etc
+
+add the name text box to reviews input with chars-left counter. Also email input popup if one wants to subscribe
+
+add .d.ts or docstrings where necessary
+
+add back spinner
+
 ----------
-plan before you make
 use framer-motion or GSAP instead of IntersectionObserver
-qlty imgs
-photos - team / workers, premises,  (at home pg)
-livechat feature powered by ---
+qlty imgs = photos - team / workers, premises,  (at home pg)
 products popover briefly appearing behind the product card on hover
 <Link>s in Footer and ProductsPopOver don't work if using `` in href
-
-button with arrow on hover
-use <iframe> to put a video
-rebuild this website with nextjs later

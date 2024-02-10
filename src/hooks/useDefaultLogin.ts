@@ -31,7 +31,7 @@ export default function() {
         switch (err) {
           case err instanceof AxiosError &&
             err.response?.data == "No token provided...":
-            setFailedDefaultLogIn(true);
+            setErrorMessage("No token provided...")
             break;
 
           case err instanceof AxiosError &&
@@ -44,7 +44,6 @@ export default function() {
             setErrorMessage(
               "Please relogin.You may have to relogin after a certain period..."
             );
-            setFailedDefaultLogIn(true);
             break;
         }
 

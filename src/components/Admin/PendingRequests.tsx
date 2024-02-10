@@ -60,22 +60,20 @@ const PendingRequests = () => {
           >
             <Flex direction={"row"} align={"center"} flex={1}>
               <Text
-                bg={"darkred"}
                 mr={{ base: 6, md: 4, lg: 2 }}
-                fontSize={{ base: 40, sm: 26 }}
+                fontSize={{ base: 40, sm: 26, lg: 18 }}
                 w={{ base: "290px", md: "100px", lg: "100px" }}
                 /* by default, word-wrap: word-break is applied to name by <Text> */
               >
                 {req.name}
               </Text>
               <Text
-                bg={"darkgoldenrod"}
                 flex={1}
                 color={useColorModeValue(
                   "rgba(0,0,0,0.7)",
                   "rgba(255,255,255,0.7)"
                 )}
-                fontSize={{ base: 32, sm: 20 }}
+                fontSize={{ base: 32, sm: 20, lg: 15 }}
                 wordBreak={"break-all"}
               >
                 {req.email}
@@ -83,9 +81,9 @@ const PendingRequests = () => {
             </Flex>
 
             <Flex
-              bg={"yellow"}
               direction={"row"}
               justify={"end"}
+              align={"center"}
               w={{ base: "100%", sm: "170px" }}
             >
               <Button
@@ -97,11 +95,24 @@ const PendingRequests = () => {
               >
                 Accept
               </Button>
-              <AiFillMail
-                fontSize={iconSize}
-                color={useColorModeValue("#190257", "#e0dcf5")}
-                onClick={() => console.log(`Mail to: ${req.email}`)}
-              />
+              <Box
+                borderRadius={"17%"}
+                p={2}
+                _hover={{
+                  bg: useColorModeValue(
+                    "rgba(0,0,0,0.1)",
+                    "rgba(255,255,255,0.1)"
+                  ),
+                }}
+                transition={"all 0.1s linear"}
+                onClick={() => setModalVisibility(false)}
+              >
+                <AiFillMail
+                  fontSize={iconSize}
+                  color={useColorModeValue("#190257", "#e0dcf5")}
+                  onClick={() => console.log(`Mail to: ${req.email}`)}
+                />
+              </Box>
             </Flex>
           </Flex>
         ))}
