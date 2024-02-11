@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   IconButton,
   Menu,
@@ -14,12 +14,14 @@ import { FaPlus } from "react-icons/fa6";
 import { LuLogIn } from "react-icons/lu";
 import LoginModal from "../Admin/LoginModal";
 import { useAuth } from "../Auth/AuthProvider";
+import { HeaderStyleContext } from "./HeaderMain";
 
 type Operation = "create-account" | "login";
 
 const AdminDropdown = () => {
   const [modalIsVisible, setModalVisibility] = useState(false);
   const [operation, setOperation] = useState<Operation>("" as Operation);
+  const headerStyleProps = useContext(HeaderStyleContext);
 
   const { setLoggedInAdmin } = useAuth();
 
@@ -34,11 +36,22 @@ const AdminDropdown = () => {
   return (
     <>
       <Menu>
-        <MenuButton as={IconButton} icon={<FaChevronDown />} bg={bg} />
+        <MenuButton
+          {...headerStyleProps}
+          color={"white"}
+          as={IconButton}
+          icon={<FaChevronDown />}
+          _active={{ bg: headerStyleProps._hover.bg }}
+        />
 
-        <MenuList bg={bg}>
+        <MenuList
+          bg={headerStyleProps.bg}
+          border={"none"}
+          boxShadow={"0px 5px 10px black"}
+        >
           <MenuItem
             {...menuItemProps}
+            {...headerStyleProps}
             icon={<FaPlus fontSize={"22px"} />}
             onClick={() => {
               setOperation("create-account");
@@ -49,6 +62,7 @@ const AdminDropdown = () => {
           </MenuItem>
           <MenuItem
             {...menuItemProps}
+            {...headerStyleProps}
             icon={<LuLogIn fontSize={"22px"} />}
             onClick={() => {
               setOperation("login");

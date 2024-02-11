@@ -1,11 +1,4 @@
-create new admin even when logged in from dropdown
-
-change colors to only blue
-  re-assign valaBlue theme values
-  new hexcolors:
-    ("#ebe9f5", "#0c002b") - backwall
-    ("#e0dcf5", "#190257") - comps
-    ("#d4cef5", "#210273") - comps_hover
+pass headerstyle cntext down
 
 save adminInfo in localStorage received after creating a/c
 

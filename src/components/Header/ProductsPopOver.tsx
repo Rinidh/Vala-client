@@ -1,12 +1,15 @@
 // this file will only hold the content of the popover
 
 import { Box, Flex, useColorModeValue } from "@chakra-ui/react";
+import { useContext } from "react";
+import { HeaderStyleContext } from "./HeaderMain";
 
 interface Props {
   listItems: string[];
 }
 
 const ProductsPopOver = ({ listItems }: Props) => {
+  const headerStyleProps = useContext(HeaderStyleContext);
   const colors = useColorModeValue(
     { text: "valaBlue.700", back: "valaBlue.50" },
     { text: "valaRed.700", back: "valaBlue.800" }
@@ -23,14 +26,13 @@ const ProductsPopOver = ({ listItems }: Props) => {
     <Flex direction={"column"} zIndex="tooltip">
       {listItems.map((item, itemIndex) => (
         <Box
+          {...headerStyleProps}
           as="a"
           href={`/products#${anchorLinkNames[itemIndex]}`}
           key={itemIndex}
           w={"100%"}
           px={10}
           py={4}
-          bg={colors.back}
-          _hover={{ bg: colors.text, color: "white" }}
           transition={"all 0.2s"}
           fontWeight={"bold"}
           zIndex={"tooltip"} //not working over the product cards
