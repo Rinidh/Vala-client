@@ -1,4 +1,4 @@
-import { Box, useColorMode } from "@chakra-ui/react";
+import { Box, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import bg from "../../assets/wall1-light.png";
 import bgDark from "../../assets/wall1-dark.png";
 import BackToTop from "../BackToTop";
@@ -15,12 +15,9 @@ const Home = () => {
   return (
     <>
       <Box
-        bgImage={backWall} /* dark mode blue behind is #140045 */
+        bg={useColorModeValue("gray.50", "valaBlue.900")}
         w={{ base: "338vw", sm: "200vw", lg: "100vw" }}
         minH={{ base: "700vh", sm: "600vh", lg: "400vh" }}
-        bgSize={"cover"}
-        bgPosition="center"
-        bgRepeat="no-repeat"
         // h={1022} //original size too big
         // w={2368}
       >

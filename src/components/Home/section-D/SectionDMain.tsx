@@ -1,4 +1,12 @@
-import { Image, Flex, Button, Link, Box, Heading } from "@chakra-ui/react";
+import {
+  Image,
+  Flex,
+  Button,
+  Link,
+  Box,
+  Heading,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import locationMap from "../../../assets/location.png";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useEffect } from "react";
@@ -23,7 +31,7 @@ const SectionD = () => {
         size={{ base: "4xl", md: "3xl" }}
         px={10}
         pt={40}
-        color={"white"}
+        color={useColorModeValue("black", "white")}
       >
         Find us here...
       </Heading>
@@ -44,16 +52,15 @@ const SectionD = () => {
             maxW={{ lg: 800, xl: 1000 }}
           />
           <Button
-            fontSize={{ base: 50, md: 30, lg: 15 }}
+            // fontSize={{ base: 50, md: 30, lg: 15 }}
             px={{ base: 50, md: 30, lg: 15 }}
             py={{ base: 10, md: 6, lg: 5 }}
+            variant={"customVariant"}
             borderRadius={{ base: 20, sm: 10 }}
-            colorScheme={"valaBlue"}
-            color={"white"}
             position={"absolute"}
             top={30}
             left={10}
-            id="map-div-button"
+            // id="map-div-button"
           >
             Open in Maps <FaExternalLinkAlt style={{ marginLeft: "20px" }} />
           </Button>

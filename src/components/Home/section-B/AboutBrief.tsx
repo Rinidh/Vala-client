@@ -15,11 +15,9 @@ const AboutBrief = () => {
         consequatur. Distinctio!
       </Text>
       <Button
-        fontSize={{ base: "60px", md: "35px", lg: "20px" }}
         px={{ base: 50, md: 30, lg: 15 }}
         py={{ base: 10, md: 6, lg: 5 }}
-        colorScheme={"valaBlue"}
-        color={"white"}
+        variant={"customVariant"}
         onClick={() => navigate("/about")}
       >
         See History

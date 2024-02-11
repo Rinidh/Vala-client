@@ -7,8 +7,8 @@ interface Props {
 
 const SearchPopOver = ({ products }: Props) => {
   const colors = useColorModeValue(
-    { text: "valaBlue.700", back: "valaBlue.50" },
-    { text: "valaRed.700", back: "valaBlue.800" }
+    { _hover: { bg: "valaBlue.400", color: "white" }, bg: "valaBlue.50" },
+    { _hover: { bg: "valaBlue.700" }, bg: "valaBlue.800" }
   );
 
   return (
@@ -22,12 +22,11 @@ const SearchPopOver = ({ products }: Props) => {
     >
       {products.map((p, itemIndex) => (
         <Box
+          {...colors}
           key={itemIndex}
           w={"100%"}
           px={10}
           py={4}
-          bg={colors.back}
-          _hover={{ bg: colors.text, color: "white" }}
           transition={"all 0.1s"}
           fontWeight={"bold"}
           cursor={"pointer"}

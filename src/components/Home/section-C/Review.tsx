@@ -30,6 +30,7 @@ const Review = () => {
         </FormLabel>
         <Textarea
           bg={useColorModeValue("valaBlue.50", "valaBlue.900")}
+          resize={"none"}
           placeholder="Write a review"
           fontSize={{ base: "50px", sm: "35px", lg: "20px" }}
           h={"80%"}
@@ -39,11 +40,10 @@ const Review = () => {
 
       <Flex justify="end" mt={{ base: 5, md: 3 }}>
         <Button
-          fontSize={{ base: 50, md: 30, lg: 15 }}
+          // fontSize={{ base: 50, md: 30, lg: 15 }}
+          variant={"customVariant"}
           px={{ base: 50, md: 30, lg: 15 }}
           py={{ base: 10, md: 6, lg: 5 }}
-          bg={"valaBlue.500"}
-          color={"white"}
         >
           Post
         </Button>

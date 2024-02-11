@@ -48,6 +48,7 @@ const AdminDropdown = () => {
           bg={headerStyleProps.bg}
           border={"none"}
           boxShadow={"0px 5px 10px black"}
+          zIndex={100}
         >
           <MenuItem
             {...menuItemProps}

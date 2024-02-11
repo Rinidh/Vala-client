@@ -46,7 +46,7 @@ const SearchInput = function ({ onSearch }: Props) {
 
   const inputDark = {
     color: "white",
-    borderColor: "valaBlue.200",
+    borderColor: "valaBlue.400",
     bg: "valaBlue.800",
     _focus: {
       borderColor: "valaBlue.500",

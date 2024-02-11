@@ -2,10 +2,20 @@ import { extendTheme, theme as default_theme, withDefaultColorScheme, withDefaul
 import { mode } from "@chakra-ui/theme-tools"
 import type { StyleFunctionProps } from '@chakra-ui/styled-system'
 
+/*
+With MenuList and MenuItem in this project, I have used 'react Context' and individual styling (in certain components) istead of styling them here, in extendTheme().
+This is due to:
+  - The MenuItem colors differ much in many areas eg in NavsMenu, I want it to match the colors of the header; at SearchPopOver, I want it to unique etc
+  - It restricts limited colors to generally all MenuItems
+  - It was better to replace Box with MenuItem in some places eg in SearchPopOver
+
+For example, I have used headerStyleProps to add same color styles to all MenuItems in Header. This can work even if I had Boxes instead of MenuItems
+*/
+
 const buttonDark = {
   border: "1px solid",
   borderColor: "valaBlue.300",
-  bg: "valaBlue.200",
+  bg: "valaBlue.400",
   color: "valaBlue.800",
   _hover: {
     bg: "valaBlue.300"
@@ -18,7 +28,7 @@ const buttonDark = {
 const buttonLight = {
   border: "1px solid",
   borderColor: "valaBlue.900",
-  bg: "valaBlue.700",
+  bg: "valaBlue.600",
   color: "whiteAlpha.800",
   _hover: {
     bg: "valaBlue.900"
@@ -69,24 +79,26 @@ const theme = extendTheme({
     Button: {
       variants: {
         // custom new variant for use
-        // customVariant: (props: StyleFunctionProps) => ({
-        //   color: mode('white', 'gray.800')(props),
-        //   backgroundColor: mode('valaBlue.200', 'valaBlue.700')(props),
+        customVariant: (props: StyleFunctionProps) => ({
+          fontSize: { base: "60px", md: "35px", lg: "20px" },
+          color: "white",
+          backgroundColor: mode("valaBlue.400", "valaBlue.600")(props),
 
-        //   _hover: {
-        //     backgroundColor: mode('valaBlue.300', 'valaBlue.600')(props),
-        //   },
+          _hover: {
+            backgroundColor: mode("valaBlue.500", "valaBlue.700")(props),
+          },
 
-        //   _active: {
-        //     backgroundColor: mode('valaBlue.400', 'valaBlue.500')(props),
-        //   },
-        // }),
+          _active: {
+            backgroundColor: mode("valaBlue.500", "valaBlue.700")(props),
+          },
+          // Prefer not to set padding and margin here
+        }),
 
-        outline: (props: StyleFunctionProps)=>( //modifying the outline variant
-          mode(buttonLight, buttonDark)(props) //less repetition of mode()
-          //the props is an obj with colorMode as one of its properties
-          //mode is a function that does the allocation for you acc to color mode
-        )
+        // outline: (props: StyleFunctionProps)=>( //modifying the outline variant
+        //   mode(buttonLight, buttonDark)(props) //less repetition of mode()
+        //   //the props is an obj with colorMode as one of its properties
+        //   //mode is a function that does the allocation for you acc to color mode
+        // )
       },
     },
 
