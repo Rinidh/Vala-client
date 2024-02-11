@@ -49,7 +49,7 @@ const PendingRequests = () => {
         {pendingReqs.map((req) => (
           <Flex
             key={req._id}
-            bg={useColorModeValue("#e0dcf5", "#190257")}
+            bg={useColorModeValue("gray.50", "valaBlue.900")}
             borderRadius={20}
             minH={{ base: 200, md: 90, lg: 20 }}
             px={6}
@@ -87,8 +87,8 @@ const PendingRequests = () => {
               w={{ base: "100%", sm: "170px" }}
             >
               <Button
-                colorScheme="valaBlue"
-                fontSize={{ base: 24, md: 24, lg: 15 }}
+                // fontSize={{ base: 24, md: 24, lg: 15 }}
+                variant={"customVariant"}
                 px={{ base: 6, md: 4 }}
                 py={{ base: 9, md: 6, lg: 3 }}
                 mr={2}

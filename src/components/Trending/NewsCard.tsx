@@ -34,20 +34,11 @@ const Newscard = ({ image, info, heading }: Props) => {
     <Card
       maxW={{ base: 1000, lg: 450 }}
       borderRadius={"30px"}
-      bg={"transparent"}
+      bg={useColorModeValue("valaBlue.50", "valaBlue.800")}
+      _hover={{ bg: useColorModeValue("valaBlue.100", "valaBlue.700") }}
       overflow={"hidden"}
-      // border={colors.border}
     >
-      <Box
-        //provides the blurred background
-        position={"absolute"}
-        backdropFilter={"blur(25px)"}
-        height={"100%"}
-        w={"100%"}
-        bg={colors.bg}
-      />
-
-      <Box zIndex={1} h={"100%"} position={"relative"}>
+      <Box h={"100%"} position={"relative"}>
         <CardHeader>
           <Heading fontSize={{ base: "90px", md: "70px", lg: "30px" }}>
             {heading}
@@ -77,11 +68,9 @@ const Newscard = ({ image, info, heading }: Props) => {
           right={{ base: 7, md: 0 }}
         >
           <Button
-            fontSize={{ base: 50, md: 30, lg: 15 }}
+            variant={"customVariant"}
             px={{ base: 50, md: 30, lg: 15 }}
             py={{ base: 10, md: 6, lg: 5 }}
-            colorScheme={colors.button}
-            color={"white"}
           >
             More...
           </Button>

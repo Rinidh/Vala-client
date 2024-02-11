@@ -5,7 +5,7 @@ import { AdminInfo } from "./AdminMain";
 const AdminHeader = ({ adminInfo }: { adminInfo: AdminInfo }) => {
   return (
     <Flex
-      bg={useColorModeValue("#e0dcf5", "#190257")}
+      bg={useColorModeValue("valaBlue.50", "valaBlue.800")}
       borderRadius={20}
       h={{ base: 80, md: 28 }}
       px={8}

@@ -80,17 +80,24 @@ const theme = extendTheme({
       variants: {
         // custom new variant for use
         customVariant: (props: StyleFunctionProps) => ({
-          fontSize: { base: "60px", md: "35px", lg: "20px" },
+          fontSize: {base: 50, md: 30, lg: 15}, //or bigger: { base: "60px", md: "35px", lg: "20px" },
           color: "white",
           backgroundColor: mode("valaBlue.400", "valaBlue.600")(props),
+          boxSizing: "border-box",
+          h: "40px",
+          minW: "100px",
 
           _hover: {
             backgroundColor: mode("valaBlue.500", "valaBlue.700")(props),
+            // border: mode("","1px solid")(props), // boxSizing is not preventing button from enlarging due to added border
+            // borderColor: "valaBlue.500"
           },
 
           _active: {
             backgroundColor: mode("valaBlue.500", "valaBlue.700")(props),
           },
+
+          transition: "all 0.1s linear"
           // Prefer not to set padding and margin here
         }),
 

@@ -28,7 +28,7 @@ const AdminMain = () => {
       {currentAdmin.name && (
         <Box
           minH={{ base: "400vh", sm: "300vh", lg: "200vh" }}
-          bg={useColorModeValue("#ebe9f5", "#0c002b")}
+          bg={useColorModeValue("gray.50", "valaBlue.900")}
           px={{ base: 10, md: 140 }}
           py={10}
         >

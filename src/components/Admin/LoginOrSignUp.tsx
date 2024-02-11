@@ -28,7 +28,7 @@ const LoginOrSignUp = () => {
           <Flex
             h={{ base: "200vh", lg: "100vh" }}
             direction={"column"}
-            bg={useColorModeValue("white", "valaBlue.900")}
+            bg={useColorModeValue("gray.50", "valaBlue.900")}
           >
             <Center flex={1} mt={10}>
               <VStack
@@ -59,7 +59,7 @@ const LoginOrSignUp = () => {
                   bg={useColorModeValue("valaBlue.800", "white")}
                   color={useColorModeValue("white", "valaBlue.800")}
                   transition={"all 0.2s ease-in"}
-                  _hover={{ bg: useColorModeValue("valaBlue.600", "gray.100") }}
+                  _hover={{ bg: useColorModeValue("valaBlue.700", "gray.100") }}
                   onClick={() => {
                     setOperation("create-account");
                     setModalVisibility(true);
