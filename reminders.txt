@@ -1,9 +1,3 @@
-pass headerstyle cntext down
-
-save adminInfo in localStorage received after creating a/c
-
-show input err when user enters @ in name input
-
 incase valdation skips at client and fails at server, 400 returned back, show appropriate error (err.response.data)
 
 ask email from review + store in db

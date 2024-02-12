@@ -1,7 +1,7 @@
 import BackWall from "../BackWall";
 import SearchInput from "./SearchInput";
 import ProductCarousel from "./ProductsCarousel";
-import { Heading, Box, Flex } from "@chakra-ui/react";
+import { Heading, Box, Flex, useDisclosure } from "@chakra-ui/react";
 import { demoProducts } from "../../demoPdts";
 import BackToTop from "../BackToTop";
 import ProductModal from "./ProductModal";
@@ -17,11 +17,11 @@ export interface ProductBrief {
 const Products = () => {
   const [clickedProduct, setClickedProduct] = useState<string>("");
 
-  const [modalIsVisible, setModalVisibility] = useState(false);
+  const { isOpen, onClose, onOpen } = useDisclosure();
 
   const handleProductClick = (fullName: string) => {
     setClickedProduct(fullName);
-    setModalVisibility(true);
+    onOpen();
   };
 
   return (
@@ -96,8 +96,8 @@ const Products = () => {
 
       <ProductModal
         clickedProduct={clickedProduct}
-        modalIsVisible={modalIsVisible}
-        setModalVisibility={() => setModalVisibility(false)}
+        modalIsVisible={isOpen}
+        onCloseModal={onClose}
       />
 
       <BackToTop />

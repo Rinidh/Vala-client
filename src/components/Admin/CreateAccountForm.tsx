@@ -84,6 +84,10 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
           <Input
             {...register("name", {
               required: true,
+              pattern: {
+                value: /^[^@]+$/,
+                message: "@ symbol is prohibited in Name",
+              },
               minLength: { value: 1, message: "Name too short" },
               maxLength: { value: 50, message: "Too long" },
             })}

@@ -8,7 +8,7 @@ import CustomModal from "../CustomModal";
 interface Props {
   operation: "create-account" | "login";
   modalIsVisible: boolean;
-  setModalVisibility: (bool: boolean) => void;
+  onCloseModal: () => void;
   onLogin: (adminInfo: AdminInfo) => void;
 }
 
@@ -22,7 +22,7 @@ const LoginModal = ({
   operation,
   modalIsVisible,
   onLogin,
-  setModalVisibility,
+  onCloseModal,
 }: Props) => {
   const [APIError, setAPIError] = useState("");
   const [modalDisplayStatus, setModalDisplayStatus] =
@@ -35,7 +35,7 @@ const LoginModal = ({
   return (
     <CustomModal
       modalIsVisible={modalIsVisible}
-      setModalVisibility={setModalVisibility}
+      onCloseModal={onCloseModal}
       key="login-modal"
     >
       {modalDisplayStatus === "create-account" && (

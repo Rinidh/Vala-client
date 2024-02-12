@@ -6,6 +6,7 @@ import {
   Show,
   VStack,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import LoginModal from "./LoginModal";
@@ -15,7 +16,7 @@ import useDefaultLogin from "../../hooks/useDefaultLogin";
 type Operation = "create-account" | "login";
 
 const LoginOrSignUp = () => {
-  const [modalIsVisible, setModalVisibility] = useState(false);
+  const { isOpen, onClose, onOpen } = useDisclosure();
   const [operation, setOperation] = useState<Operation>("" as Operation);
 
   const { errorMessage, failedDefaultLogIn } = useDefaultLogin(); //sometimes, there may be failure but not necessarily an errorMessage
@@ -62,7 +63,7 @@ const LoginOrSignUp = () => {
                   _hover={{ bg: useColorModeValue("valaBlue.700", "gray.100") }}
                   onClick={() => {
                     setOperation("create-account");
-                    setModalVisibility(true);
+                    onOpen();
                   }}
                 >
                   Create an Account
@@ -76,8 +77,8 @@ const LoginOrSignUp = () => {
 
           <LoginModal
             operation={operation}
-            modalIsVisible={modalIsVisible}
-            setModalVisibility={() => setModalVisibility(false)}
+            modalIsVisible={isOpen}
+            onCloseModal={onClose}
             onLogin={(adminInfo) => setLoggedInAdmin(adminInfo)}
           />
 

@@ -4,14 +4,16 @@ import { MdClose } from "react-icons/md";
 
 interface Props {
   modalIsVisible: boolean;
-  setModalVisibility: (bool: boolean) => void;
+  onCloseModal: () => void;
   children: ReactNode;
   name?: string;
 }
 
+// At consumer, you'll only need to worry about setting a state-variable holding modalIsVisible/isOpen ie using chakra's useDisclosure() hook
+
 const CustomModal = ({
   modalIsVisible,
-  setModalVisibility,
+  onCloseModal,
   children,
   name,
 }: Props) => {
@@ -44,7 +46,7 @@ const CustomModal = ({
             //use other libs eg emotion & react-transition-group to create a smooth transition when disappearing instead of complicated code in this component
           >
             <Flex h={"100%"} w={"100%"} bg={"rgba(0,0,0,0.5)"}>
-              <Flex flex={1} onClick={() => setModalVisibility(false)} />
+              <Flex flex={1} onClick={() => onCloseModal()} />
 
               <Flex
                 w={{ base: "100%", sm: "60%" }}
@@ -73,7 +75,7 @@ const CustomModal = ({
                         ),
                       }}
                       transition={"all 0.1s linear"}
-                      onClick={() => setModalVisibility(false)}
+                      onClick={() => onCloseModal()}
                     >
                       <MdClose />
                     </Box>
@@ -82,7 +84,7 @@ const CustomModal = ({
                 </Box>
               </Flex>
 
-              <Flex flex={1} onClick={() => setModalVisibility(false)} />
+              <Flex flex={1} onClick={() => onCloseModal()} />
             </Flex>
           </Flex>
         </Fragment>

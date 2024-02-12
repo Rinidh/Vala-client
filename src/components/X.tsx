@@ -11,18 +11,7 @@ const X = () => {
   return (
     <>
       <Container bg={"orange"} h={40} w={40} children="X" />
-      <Box position="relative" bg={"darkred"} w={"100%"} minH={"300px"}>
-        <Box
-          minH={{ base: "400vh", sm: "300vh", lg: "200vh" }}
-          bg={useColorModeValue("#ebe9f5", "#0c002b")}
-          px={{ base: 10, md: 140 }}
-          py={10}
-        >
-          <PendingRequests />
-          <AdminHeader adminInfo={demoAdmin} />
-          <AdminBody adminInfo={demoAdmin} />
-        </Box>
-      </Box>
+      <Box position="relative" bg={"darkred"} w={"100%"} minH={"300px"}></Box>
     </>
   );
 };
