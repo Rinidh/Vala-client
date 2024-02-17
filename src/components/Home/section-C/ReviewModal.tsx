@@ -39,12 +39,13 @@ const ReviewModal = ({
     {} as ReviewFormData
   ); //as useForm() doesn't directly provide the current obj with field values
 
-  const { error, isPosting, response } = useReviewPoster({
+  const { error, isPosting, response, resetReviewPoster } = useReviewPoster({
     ...formData,
     review: reviewText,
   });
 
   const {
+    reset, //can also use formState.trigger() for conditional clearing
     handleSubmit,
     register,
     formState: { errors },
@@ -65,7 +66,12 @@ const ReviewModal = ({
   return (
     <CustomModal
       modalIsVisible={modalIsVisible}
-      onCloseModal={onCloseModal}
+      onCloseModal={() => {
+        onCloseModal();
+        reset();
+        setFormData({} as ReviewFormData); //reset all
+        resetReviewPoster();
+      }}
       name="review-modal"
     >
       {!error && !isPosting && !response && (

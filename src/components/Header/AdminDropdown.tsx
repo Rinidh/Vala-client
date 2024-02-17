@@ -3,11 +3,10 @@ import {
   IconButton,
   Menu,
   MenuButton,
-  MenuGroup,
-  MenuIcon,
   MenuItem,
   MenuList,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { FaChevronDown } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
@@ -19,7 +18,7 @@ import { HeaderStyleContext } from "./HeaderMain";
 type Operation = "create-account" | "login";
 
 const AdminDropdown = () => {
-  const [modalIsVisible, setModalVisibility] = useState(false);
+  const { isOpen, onClose, onOpen } = useDisclosure();
   const [operation, setOperation] = useState<Operation>("" as Operation);
   const headerStyleProps = useContext(HeaderStyleContext);
 
@@ -56,7 +55,7 @@ const AdminDropdown = () => {
             icon={<FaPlus fontSize={"22px"} />}
             onClick={() => {
               setOperation("create-account");
-              setModalVisibility(true);
+              onOpen();
             }}
           >
             Create an Account
@@ -67,7 +66,7 @@ const AdminDropdown = () => {
             icon={<LuLogIn fontSize={"22px"} />}
             onClick={() => {
               setOperation("login");
-              setModalVisibility(true);
+              onOpen();
             }}
           >
             Login
@@ -76,8 +75,8 @@ const AdminDropdown = () => {
       </Menu>
 
       <LoginModal
-        modalIsVisible={modalIsVisible}
-        onCloseModal={() => setModalVisibility(false)}
+        modalIsVisible={isOpen}
+        onCloseModal={() => onClose()}
         operation={operation}
         onLogin={(adminInfo) => setLoggedInAdmin(adminInfo)}
       />

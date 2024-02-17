@@ -13,7 +13,7 @@ export default function ({ name, email, review }: ReviewToSubmit) {
   useEffect(() => {
     const controller = new AbortController();
 
-    if (review && !isPosting) {
+    if (name && review && email && !isPosting) {
       setIsPosting(true);
       apiClient
         .post<string>(
@@ -35,5 +35,11 @@ export default function ({ name, email, review }: ReviewToSubmit) {
     }
   }, [name, email, review]);
 
-  return { isPosting, response, error };
+  const resetReviewPoster = () => {
+    setError("");
+    setIsPosting(false);
+    setResponse("");
+  };
+
+  return { isPosting, response, error, resetReviewPoster };
 }

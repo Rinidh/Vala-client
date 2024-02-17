@@ -98,7 +98,7 @@ const Navs = () => {
           {linkText("Admin")}
         </Flex>
 
-        <Flex cursor={"pointer"} align={"center"} ml={3}>
+        <Flex align={"center"} ml={3}>
           <AdminDropdown />
         </Flex>
       </Show>

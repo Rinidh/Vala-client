@@ -9,7 +9,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import ReviewModal from "./ReviewModal";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const Review = () => {
   const [reviewText, setReviewText] = useState("");
@@ -17,6 +17,7 @@ const Review = () => {
   //Only if the user clicks the submit button the reviewText is passed to the ReviewModal (to prevent unnecessary re-renders)
 
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   return (
     <>
@@ -39,6 +40,7 @@ const Review = () => {
             Tell us what you think
           </FormLabel>
           <Textarea
+            ref={textAreaRef}
             bg={useColorModeValue("valaBlue.50", "valaBlue.900")}
             resize={"none"}
             placeholder="Write a review"
@@ -63,7 +65,12 @@ const Review = () => {
       </Box>
 
       <ReviewModal
-        onCloseModal={onClose}
+        onCloseModal={() => {
+          onClose();
+          setIsSubmitted(false);
+          setReviewText(""); //reset the state
+          if (textAreaRef.current) textAreaRef.current.value = ""; //reset the visible textarea
+        }}
         modalIsVisible={isOpen}
         reviewText={isSubmitted ? reviewText : ""} //only pass reviewText if 'post' button is clicked
         onSubmit={() => setIsSubmitted(true)}
