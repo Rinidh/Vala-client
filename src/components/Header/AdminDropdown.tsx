@@ -77,7 +77,7 @@ const AdminDropdown = () => {
 
       <LoginModal
         modalIsVisible={modalIsVisible}
-        setModalVisibility={() => setModalVisibility(false)}
+        onCloseModal={() => setModalVisibility(false)}
         operation={operation}
         onLogin={(adminInfo) => setLoggedInAdmin(adminInfo)}
       />

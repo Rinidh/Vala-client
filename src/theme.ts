@@ -117,7 +117,8 @@ const theme = extendTheme({
             borderRadius: 20,
             fontSize: "20px",
             // more styles eg backgroundColor and others related to color mode are 
-            // styled at the consumer comp. The mode() function is failing to work in this field object
+            // styled at the consumer comp. The mode() function is failing to work for Input
+            // also can't assign 'placeholder' from here
           }
         }
       }

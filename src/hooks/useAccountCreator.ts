@@ -27,8 +27,8 @@ const useAccountCreator = ({ name, email, password }:FormData)=>{
       .catch((error)=>{
         if(error instanceof CanceledError) return;
 
-        console.error("Err posting data: ", error);
-        setFetchError(error.message);
+        console.error("Error creating new account: ", error);
+        setFetchError(error.response.data);
         setIsPosting(false);
       })
     }

@@ -59,27 +59,25 @@ const CustomModal = ({
                   borderRadius={{ base: 30, lg: 20 }}
                   pt={{ base: 30, md: 15 }}
                   px={{ base: 20, md: 10 }}
+                  position={"relative"}
                 >
-                  <Flex
-                    justify={"flex-end"}
-                    mb={5}
-                    mr={{ base: "-70px", md: "-35px" }}
+                  <Box
+                    position={"absolute"}
+                    right={4}
+                    top={4}
+                    fontSize={{ base: 60, md: 40 }}
+                    borderRadius={"17%"}
+                    _hover={{
+                      bg: useColorModeValue(
+                        "rgba(0,0,0,0.3)",
+                        "rgba(255,255,255,0.3)"
+                      ),
+                    }}
+                    transition={"all 0.1s linear"}
+                    onClick={() => onCloseModal()}
                   >
-                    <Box
-                      fontSize={{ base: 60, md: 40 }}
-                      borderRadius={"17%"}
-                      _hover={{
-                        bg: useColorModeValue(
-                          "rgba(0,0,0,0.3)",
-                          "rgba(255,255,255,0.3)"
-                        ),
-                      }}
-                      transition={"all 0.1s linear"}
-                      onClick={() => onCloseModal()}
-                    >
-                      <MdClose />
-                    </Box>
-                  </Flex>
+                    <MdClose />
+                  </Box>
                   {children}
                 </Box>
               </Flex>

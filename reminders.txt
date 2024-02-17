@@ -1,6 +1,6 @@
-incase valdation skips at client and fails at server, 400 returned back, show appropriate error (err.response.data)
 
-ask email from review + store in db
+which event type to use in Review ln 18
+implement a generic custom hook for posting review, product...
 store emails from trending pg into db
 
 use _id for dealing with each product, admin, news, review etc

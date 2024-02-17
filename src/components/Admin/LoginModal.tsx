@@ -68,7 +68,7 @@ const LoginModal = ({
       )}
       {modalDisplayStatus === "error" && (
         <Center boxSize={"100%"}>
-          <Heading>{APIError}</Heading>
+          <Heading>{`Server error: ${APIError}`}</Heading>
         </Center>
       )}
     </CustomModal>

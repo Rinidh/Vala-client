@@ -21,7 +21,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import useAccountCreator from "../../hooks/useAccountCreator";
 import { AdminInfo } from "./AdminMain";
 
-export interface FormData {
+export interface CreateAccountFormData {
   name: string;
   email: string;
   password: string;
@@ -34,15 +34,17 @@ interface Props {
 
 const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
   const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState<FormData>({} as FormData);
+  const [formData, setFormData] = useState<CreateAccountFormData>(
+    {} as CreateAccountFormData
+  );
   const { responseData, isPosting, fetchError } = useAccountCreator(formData);
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<CreateAccountFormData>();
 
-  const handleValidSubmit = (data: FormData) => setFormData(data);
+  const handleValidSubmit = (data: CreateAccountFormData) => setFormData(data);
 
   useEffect(() => {
     if (!isPosting && fetchError) onAPICallError(fetchError);
@@ -190,10 +192,7 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
 
         <Flex direction={"row"} justifyContent={"end"}>
           <Button
-            colorScheme="valaBlue"
-            type="submit"
-            borderRadius={{ base: 20, md: 10 }}
-            fontSize={{ base: 50, md: 30, lg: 15 }}
+            variant={"customVariant"}
             px={{ base: 50, md: 30, lg: 15 }}
             py={{ base: 10, md: 6, lg: 5 }}
           >
