@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { apiClient } from "../services/apiClient"
 import { CanceledError } from "axios";
-import { FormData } from "../components/Admin/CreateAccountForm";
+import { CreateAccountFormData } from "../components/Admin/CreateAccountForm";
 import { AdminInfo } from "../components/Admin/AdminMain"
 
 interface ResponseData {
@@ -9,7 +9,7 @@ interface ResponseData {
   adminInfo: AdminInfo,
 }
 
-const useAccountCreator = ({ name, email, password }:FormData)=>{
+const useAccountCreator = ({ name, email, password }:CreateAccountFormData)=>{
   const [fetchError, setFetchError] = useState("");
   const [isPosting, setIsPosting] = useState(false);
   const [responseData, setResponseData] = useState<ResponseData>({} as ResponseData)

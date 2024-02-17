@@ -65,7 +65,7 @@ const Review = () => {
       <ReviewModal
         onCloseModal={onClose}
         modalIsVisible={isOpen}
-        reviewText={isSubmitted ? reviewText : ""}
+        reviewText={isSubmitted ? reviewText : ""} //only pass reviewText if 'post' button is clicked
         onSubmit={() => setIsSubmitted(true)}
       />
     </>
