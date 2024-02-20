@@ -5,7 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { AxiosError, CanceledError } from "axios";
 import { AdminInfo } from "../components/Admin/AdminMain";
 
-export default function() {
+//use useLogin rather than this module
+
+export default function(deps: any[] = []) {
   const [failedDefaultLogIn, setFailedDefaultLogIn] = useState(false); //the app first tries to login whenever the user visits admin section; if he's already an authorized admin, he is directly taken to admin page
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -53,7 +55,7 @@ export default function() {
     tryDefaultLogin();
 
     return ()=>controller.abort();
-  }, []);
+  }, [...deps]);
 
   return { failedDefaultLogIn, errorMessage }
 }

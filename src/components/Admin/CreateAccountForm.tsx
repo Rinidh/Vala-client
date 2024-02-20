@@ -19,17 +19,16 @@ import { useForm } from "react-hook-form";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import useAccountCreator from "../../hooks/useAccountCreator";
-import { AdminInfo } from "./AdminMain";
 
 export interface CreateAccountFormData {
   name: string;
-  email: string;
+  emailId: string;
   password: string;
 }
 
 interface Props {
   onAPICallError: (error: string) => void;
-  onSubmitSuccess: (adminInfo: AdminInfo) => void; //should run when the server has responded with status 200
+  onSubmitSuccess: () => void; //should run when the server has responded with status 200
 }
 
 const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
@@ -48,8 +47,7 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
 
   useEffect(() => {
     if (!isPosting && fetchError) onAPICallError(fetchError);
-    if (!isPosting && responseData.message)
-      onSubmitSuccess(responseData.adminInfo);
+    if (!isPosting && responseData) onSubmitSuccess(); //all POST reqs return only a string res
   });
 
   //using basic email validation logic
@@ -78,7 +76,9 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
         </Center>
       )}
 
-      <form onSubmit={handleSubmit(handleValidSubmit)}>
+      <form
+        onSubmit={handleSubmit(handleValidSubmit)}
+      >
         <FormControl mb={{ base: 10, lg: 3 }}>
           <FormLabel fontSize={{ base: "40px", md: "13px", xl: "20px" }}>
             Name
@@ -116,7 +116,7 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
             Email
           </FormLabel>
           <Input
-            {...register("email", {
+            {...register("emailId", {
               pattern: {
                 value: emailRegex, //validate directly with react-hook-form
                 message: "Please enter a valid email",
@@ -128,12 +128,12 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
             placeholder="example@yahoo.com"
             aria-label="Provide an email address"
           />
-          {errors.email?.message ? (
+          {errors.emailId?.message ? (
             <FormHelperText
               color={"red"}
               fontSize={{ base: "30px", md: "10px", xl: "15px" }}
             >
-              {errors.email?.message + "!"}
+              {errors.emailId?.message + "!"}
               {/* ---.message to show the pre-set message while registering */}
             </FormHelperText>
           ) : (
@@ -193,6 +193,7 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
         <Flex direction={"row"} justifyContent={"end"}>
           <Button
             variant={"customVariant"}
+            type="submit"
             px={{ base: 50, md: 30, lg: 15 }}
             py={{ base: 10, md: 6, lg: 5 }}
           >

@@ -1,4 +1,7 @@
-clear all data shown... don't fear adding more code
+make 2nd post call to /auth (separate login) after creating a/c as /admin doesn't return adminInfo
+  start server and test new code
+
+change truthy checking in useDataPoster
 
 implement a generic custom hook for posting review, product...
 
@@ -6,7 +9,7 @@ store emails from trending pg into db
 
 use _id for dealing with each product, admin, news, review etc
 
-add the name text box to reviews input with chars-left counter. Also email input popup if one wants to subscribe
+add the chars-left counter to reviews input
 
 add .d.ts or docstrings where necessary
 

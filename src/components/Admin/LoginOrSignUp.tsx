@@ -20,7 +20,6 @@ const LoginOrSignUp = () => {
   const [operation, setOperation] = useState<Operation>("" as Operation);
 
   const { errorMessage, failedDefaultLogIn } = useDefaultLogin(); //sometimes, there may be failure but not necessarily an errorMessage
-  const { setLoggedInAdmin } = useAuth();
 
   return (
     <>
@@ -79,7 +78,6 @@ const LoginOrSignUp = () => {
             operation={operation}
             modalIsVisible={isOpen}
             onCloseModal={onClose}
-            onLogin={(adminInfo) => setLoggedInAdmin(adminInfo)}
           />
 
           {errorMessage && (

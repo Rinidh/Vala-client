@@ -9,7 +9,6 @@ interface Props {
   operation: "create-account" | "login";
   modalIsVisible: boolean;
   onCloseModal: () => void;
-  onLogin: (adminInfo: AdminInfo) => void;
 }
 
 type ModalDisplayStatus =
@@ -18,12 +17,7 @@ type ModalDisplayStatus =
   | "login"
   | "error";
 
-const LoginModal = ({
-  operation,
-  modalIsVisible,
-  onLogin,
-  onCloseModal,
-}: Props) => {
+const LoginModal = ({ operation, modalIsVisible, onCloseModal }: Props) => {
   const [APIError, setAPIError] = useState("");
   const [modalDisplayStatus, setModalDisplayStatus] =
     useState<ModalDisplayStatus>(operation);
@@ -44,9 +38,8 @@ const LoginModal = ({
             setModalDisplayStatus("error");
             setAPIError(error);
           }}
-          onSubmitSuccess={(adminInfo) => {
+          onSubmitSuccess={() => {
             setModalDisplayStatus("a/c-creation-success");
-            onLogin(adminInfo);
           }}
         />
       )}
