@@ -39,10 +39,11 @@ const ReviewModal = ({
     {} as ReviewFormData
   ); //as useForm() doesn't directly provide the current obj with field values
 
-  const { error, isPosting, response, resetReviewPoster } = useReviewPoster({
-    ...formData,
-    review: reviewText,
-  });
+  const { fetchError, isPosting, responseData, resetDataPoster } =
+    useReviewPoster({
+      ...formData,
+      review: reviewText,
+    });
 
   const {
     reset, //can also use formState.trigger() for conditional clearing
@@ -70,11 +71,11 @@ const ReviewModal = ({
         onCloseModal();
         reset();
         setFormData({} as ReviewFormData); //reset all
-        resetReviewPoster();
+        resetDataPoster();
       }}
       name="review-modal"
     >
-      {!error && !isPosting && !response && (
+      {!fetchError && !isPosting && !responseData && (
         <Box position={"relative"}>
           <Center mb={{ base: 35, md: 18 }}>
             <Heading size={{ base: "4xl", md: "xl" }}>
@@ -172,9 +173,9 @@ const ReviewModal = ({
         </Box>
       )}
 
-      {error && (
+      {fetchError && (
         <Center boxSize={"100%"}>
-          <Heading>{`Server error: ${error}`}</Heading>
+          <Heading>{`Server error: ${fetchError}`}</Heading>
         </Center>
       )}
 
@@ -184,9 +185,9 @@ const ReviewModal = ({
         </Center>
       )}
 
-      {response && (
+      {responseData && (
         <Center boxSize={"100%"}>
-          <Heading>{response}</Heading>
+          <Heading>{responseData}</Heading>
         </Center>
       )}
     </CustomModal>
