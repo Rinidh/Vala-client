@@ -1,6 +1,3 @@
-make 2nd post call to /auth (separate login) after creating a/c as /admin doesn't return adminInfo
-  start server and test new code
-
 change truthy checking in useDataPoster
 
 implement a generic custom hook for posting review, product...
@@ -20,3 +17,5 @@ use framer-motion or GSAP instead of IntersectionObserver
 qlty imgs = photos - team / workers, premises,  (at home pg)
 products popover briefly appearing behind the product card on hover
 <Link>s in Footer and ProductsPopOver don't work if using `` in href
+
+

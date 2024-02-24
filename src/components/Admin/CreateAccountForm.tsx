@@ -19,6 +19,7 @@ import { useForm } from "react-hook-form";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import useAccountCreator from "../../hooks/useAccountCreator";
+import { randomNumber } from "../../utlis/helperFunctions";
 
 export interface CreateAccountFormData {
   name: string;
@@ -33,21 +34,20 @@ interface Props {
 
 const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
   const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState<CreateAccountFormData>(
-    {} as CreateAccountFormData
-  );
-  const { responseData, isPosting, fetchError } = useAccountCreator(formData);
+  const { responseData, isPosting, fetchError, triggerAccountCreation } =
+    useAccountCreator();
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm<CreateAccountFormData>();
 
-  const handleValidSubmit = (data: CreateAccountFormData) => setFormData(data);
+  const handleValidSubmit = (data: CreateAccountFormData) =>
+    triggerAccountCreation(data);
 
   useEffect(() => {
     if (!isPosting && fetchError) onAPICallError(fetchError);
-    if (!isPosting && responseData) onSubmitSuccess(); //all POST reqs return only a string res
+    if (!isPosting && responseData) onSubmitSuccess();
   });
 
   //using basic email validation logic
@@ -76,9 +76,7 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
         </Center>
       )}
 
-      <form
-        onSubmit={handleSubmit(handleValidSubmit)}
-      >
+      <form onSubmit={handleSubmit(handleValidSubmit)}>
         <FormControl mb={{ base: 10, lg: 3 }}>
           <FormLabel fontSize={{ base: "40px", md: "13px", xl: "20px" }}>
             Name
@@ -193,9 +191,18 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
         <Flex direction={"row"} justifyContent={"end"}>
           <Button
             variant={"customVariant"}
-            type="submit"
             px={{ base: 50, md: 30, lg: 15 }}
             py={{ base: 10, md: 6, lg: 5 }}
+            // type="submit"
+            onClick={() => {
+              //only for quick live testing purposes
+              const num = randomNumber();
+              triggerAccountCreation({
+                name: `demo${num}`,
+                emailId: `demo@${num}`,
+                password: `${num}`,
+              });
+            }}
           >
             Submit
           </Button>

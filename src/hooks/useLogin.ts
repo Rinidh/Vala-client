@@ -12,19 +12,19 @@ export default function() {
   const navigate = useNavigate();
   const {setLoggedInAdmin} = useAuth()
 
+  const aborter = new AbortController();
+
   const tryDefaultLogin = async () => {
     try {
       setIsLoading(true);
 
-      const { data } = await apiClient.post<AdminInfo>("/api/auth", {});
+      const { data } = await apiClient.post<AdminInfo>("/api/auth", {}, { signal:  (import.meta.env.DEV) ? undefined : aborter.signal });
 
       setLoggedInAdmin(data)
 
       setIsLoading(false);
 
-      // navigate("/admin")
-      console.log("success");
-      
+      navigate("/admin")      
 
     } catch (err) {
       if(err instanceof CanceledError) return;
@@ -53,6 +53,10 @@ export default function() {
       }
     }
   };
+
+  useEffect(()=>{
+    return ()=>aborter.abort();
+  })
 
   return { errorMessage, isLoading, tryDefaultLogin }
 }
