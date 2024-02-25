@@ -10,27 +10,16 @@ import {
 
 const QuickAccess = () => {
   const { colorMode } = useColorMode();
-  const bg =
-    colorMode === "light" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.2)";
 
   return (
     <Card
       borderRadius={20}
       border={colorMode === "dark" ? "3px solid" : ""}
-      borderColor={"valaBlue.50"}
+      borderColor={"valaBlue.500"}
       h={"100%"}
       overflow={"hidden"}
-      bg={"transparent"}
-      position={"relative"}
+      bg={useColorModeValue("gray.100", "none")}
     >
-      <Box
-        position={"absolute"}
-        backdropFilter={"blur(25px)"}
-        height={"100%"}
-        w={"100%"}
-        bg={bg}
-      />
-
       <Flex direction={"column"} zIndex={1} p={5} h={"100%"}>
         <Flex justifyContent={"end"} pr={5}>
           <Text
@@ -54,7 +43,7 @@ const QuickAccess = () => {
         <Flex
           borderRadius={20}
           border={"2px solid"}
-          borderColor={"valaBlue.50"}
+          borderColor={"valaBlue.500"}
           flex={1}
           p={3}
         >

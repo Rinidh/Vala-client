@@ -17,7 +17,6 @@ const ReviewCard = ({ name, image, review }: Review) => {
   return (
     <Card
       w={"100%"}
-      maxW={{ sm: 1000, lg: 450 }}
       h={"100%"}
       borderRadius={{ base: 45, md: 20 }}
       bg={useColorModeValue("valaBlue.50", "valaBlue.900")}

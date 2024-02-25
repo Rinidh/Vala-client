@@ -22,6 +22,7 @@ interface Props {
   name: string;
   description?: string;
   discountPercentage?: string;
+  onClick: () => void;
 }
 
 const ProductCard = ({
@@ -29,82 +30,58 @@ const ProductCard = ({
   name,
   description,
   discountPercentage,
+  onClick,
 }: Props) => {
-  const { isOpen, onClose, onOpen } = useDisclosure();
-
-  const colors = useColorModeValue(
-    {
-      bg: "rgba(255,255,255,0.4)",
-      button: "valaRed",
-      hoverBg: "valaBlue.50",
-    },
-    {
-      bg: "rgba(0,0,0,0.4)",
-      button: "valaBlue",
-      hoverBg: "valaBlue.800",
-    }
-  );
-
   return (
     <>
       <Box position="relative" /* for the tag */>
         <Card
           maxW={{ base: 700, md: 450, lg: 270, xl: 250 }}
           borderRadius={"20px"}
-          bg={"transparent"}
           overflow={"hidden"}
+          bg={useColorModeValue("valaBlue.50", "valaBlue.800")}
+          _hover={{ bg: useColorModeValue("valaBlue.100", "valaBlue.700") }}
+          transition={"all 0.1s linear"}
         >
-          <Box
-            //provides the blurred background
-            position={"absolute"}
-            backdropFilter={"blur(25px)"}
-            height={"100%"}
-            w={"100%"}
-            bg={colors.bg}
-          />
-          <Box
-            zIndex={1}
-            onClick={onOpen}
+          <CardBody
+            p={0}
+            onClick={onClick}
             cursor={"pointer"}
-            _hover={{ bg: colors.hoverBg }}
-            transition={"all 0.2s"}
+            transition={"all 0.2s linear"}
           >
-            <CardBody p={0}>
-              <VStack justify={"start"}>
-                {image && (
-                  <Image
-                    minH={image ? { base: 500, md: 300, lg: 100 } : "0px"} //the space for minH stays even when img is not passed as prop. Therefore render the minH if image is given
-                    maxH={{ base: 1000, md: 800, lg: 400 }}
-                    w={"100%"}
-                    objectFit="cover"
-                    src={image}
-                  />
-                )}
-                <Heading
-                  fontSize={{ base: "90px", md: "70px", lg: "30px" }}
-                  mt={2}
-                >
-                  {name}
-                </Heading>
-                <Box minH={{ base: 380, md: 280, lg: 150 }} w={"90%"} mt={7}>
-                  <Text fontSize={{ base: 50, md: 40, lg: "larger" }}>
-                    {description}
-                  </Text>
-                </Box>
-              </VStack>
-            </CardBody>
-            <CardFooter justify={"end"}>
-              <Button
-                fontSize={{ base: 50, md: 30, lg: 15 }}
-                px={{ base: 50, md: 30, lg: 15 }}
-                py={{ base: 10, md: 6, lg: 5 }}
-                colorScheme={colors.button}
-                color={"white"}
+            <VStack justify={"start"}>
+              {image && (
+                <Image
+                  minH={image ? { base: 500, md: 300, lg: 100 } : "0px"} //the space for minH stays even when img is not passed as prop. Therefore render the minH if image is given
+                  maxH={{ base: 1000, md: 800, lg: 400 }}
+                  w={"100%"}
+                  objectFit="cover"
+                  src={image}
+                />
+              )}
+              <Heading
+                fontSize={{ base: "90px", md: "70px", lg: "30px" }}
+                mt={2}
               >
-                View Sellers
-              </Button>
-            </CardFooter>
-          </Box>
+                {name}
+              </Heading>
+              <Box minH={{ base: 380, md: 280, lg: 150 }} w={"90%"} mt={7}>
+                <Text fontSize={{ base: 50, md: 40, lg: "larger" }}>
+                  {description}
+                </Text>
+              </Box>
+            </VStack>
+          </CardBody>
+          <CardFooter justify={"end"}>
+            <Button
+              fontSize={{ base: 50, md: 30, lg: 15 }}
+              px={{ base: 50, md: 30, lg: 15 }}
+              py={{ base: 10, md: 6, lg: 5 }}
+              variant={"customVariant"}
+            >
+              View
+            </Button>
+          </CardFooter>
         </Card>
 
         {discountPercentage && (
@@ -125,14 +102,6 @@ const ProductCard = ({
           </Tag>
         )}
       </Box>
-
-      <ProductModal
-        heading="heading"
-        image={image}
-        info={description}
-        isOpen={isOpen}
-        onClose={() => onClose()}
-      />
     </>
   );
 };

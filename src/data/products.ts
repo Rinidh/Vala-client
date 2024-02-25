@@ -2,8 +2,10 @@ export interface Product {
   name: string,
   fullName: string
   qtyEachUnit: string,
-  pack: number | null,
-  price: number
+  pack?: number | null,
+  price: number,
+  image?: string,
+  description?: string,
 }
 
 export const products: Product[] = [
@@ -13,6 +15,7 @@ export const products: Product[] = [
     qtyEachUnit: "500ml",
     pack: 12,
     price: 21_000,
+    description: "For use with salads, curries, sauces etc..."
   },
   {
     name: "Vinegar",

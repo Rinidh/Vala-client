@@ -2,10 +2,20 @@ import { extendTheme, theme as default_theme, withDefaultColorScheme, withDefaul
 import { mode } from "@chakra-ui/theme-tools"
 import type { StyleFunctionProps } from '@chakra-ui/styled-system'
 
+/*
+With MenuList and MenuItem in this project, I have used 'react Context' and individual styling (in certain components) istead of styling them here, in extendTheme().
+This is due to:
+  - The MenuItem colors differ much in many areas eg in NavsMenu, I want it to match the colors of the header; at SearchPopOver, I want it to unique etc
+  - It restricts limited colors to generally all MenuItems
+  - It was better to replace Box with MenuItem in some places eg in SearchPopOver
+
+For example, I have used headerStyleProps to add same color styles to all MenuItems in Header. This can work even if I had Boxes instead of MenuItems
+*/
+
 const buttonDark = {
   border: "1px solid",
   borderColor: "valaBlue.300",
-  bg: "valaBlue.200",
+  bg: "valaBlue.400",
   color: "valaBlue.800",
   _hover: {
     bg: "valaBlue.300"
@@ -18,7 +28,7 @@ const buttonDark = {
 const buttonLight = {
   border: "1px solid",
   borderColor: "valaBlue.900",
-  bg: "valaBlue.700",
+  bg: "valaBlue.600",
   color: "whiteAlpha.800",
   _hover: {
     bg: "valaBlue.900"
@@ -31,30 +41,17 @@ const buttonLight = {
 const theme = extendTheme({
   colors: {
     valaBlue: {
-      50: "#c0bdff",
-      100: "#8e88fc",
-      200: "#7870FF",
-      300: "#453bff",
-      400: "#271cff",
-      500: "#0f03ff",
-      600: "#0d02d4",
-      700: "#0c03ad",
-      800: "#0d068f",
-      900: "#070266"
-    },
-    valaRed: {
-      50: "#fcc0c0",
-      100: "#fc8686",
-      200: "#fc6d6d",
-      300: "#fc4c4c",
-      400: "#ff2424",
-      500: "#fc0303",
-      600: "#e30202",
-      700: "#b30b0b",
-      800: "#850505",
-      900: "#6b0202"
-
-    },  
+      50: "#edf5fc", //light
+      100: "#d4eaff",
+      200: "#58b5fc",
+      300: "#2392fc",
+      400: "#2003fc",
+      500: "#1c04d4", //dark
+      600: "#1d0aad",
+      700: "#150785",
+      800: "#0f0369",
+      900: "#070136"
+    }
   },
 
   fonts: {
@@ -82,24 +79,33 @@ const theme = extendTheme({
     Button: {
       variants: {
         // custom new variant for use
-        // customVariant: (props: StyleFunctionProps) => ({
-        //   color: mode('white', 'gray.800')(props),
-        //   backgroundColor: mode('valaBlue.200', 'valaBlue.700')(props),
+        customVariant: (props: StyleFunctionProps) => ({
+          fontSize: {base: 50, md: 30, lg: 15}, //or bigger: { base: "60px", md: "35px", lg: "20px" },
+          color: "white",
+          backgroundColor: mode("valaBlue.400", "valaBlue.600")(props),
+          boxSizing: "border-box",
+          h: "40px",
+          minW: "100px",
 
-        //   _hover: {
-        //     backgroundColor: mode('valaBlue.300', 'valaBlue.600')(props),
-        //   },
+          _hover: {
+            backgroundColor: mode("valaBlue.500", "valaBlue.700")(props),
+            // border: mode("","1px solid")(props), // boxSizing is not preventing button from enlarging due to added border
+            // borderColor: "valaBlue.500"
+          },
 
-        //   _active: {
-        //     backgroundColor: mode('valaBlue.400', 'valaBlue.500')(props),
-        //   },
-        // }),
+          _active: {
+            backgroundColor: mode("valaBlue.500", "valaBlue.700")(props),
+          },
 
-        outline: (props: StyleFunctionProps)=>( //modifying the outline variant
-          mode(buttonLight, buttonDark)(props) //less repetition of mode()
-          //the props is an obj with colorMode as one of its properties
-          //mode is a function that does the allocation for you acc to color mode
-        )
+          transition: "all 0.1s linear"
+          // Prefer not to set padding and margin here
+        }),
+
+        // outline: (props: StyleFunctionProps)=>( //modifying the outline variant
+        //   mode(buttonLight, buttonDark)(props) //less repetition of mode()
+        //   //the props is an obj with colorMode as one of its properties
+        //   //mode is a function that does the allocation for you acc to color mode
+        // )
       },
     },
 
@@ -111,7 +117,8 @@ const theme = extendTheme({
             borderRadius: 20,
             fontSize: "20px",
             // more styles eg backgroundColor and others related to color mode are 
-            // styled at the consumer comp. The mode() function is failing to work in this field object
+            // styled at the consumer comp. The mode() function is failing to work for Input
+            // also can't assign 'placeholder' from here
           }
         }
       }

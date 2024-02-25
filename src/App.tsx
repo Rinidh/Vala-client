@@ -2,7 +2,6 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import Header from "./components/Header/HeaderMain";
 import AppRoutes from "./routes/AppRoutes";
 import Footer from "./components/Footer";
-import PageLoadSpinner from "./PageLoadSpinner";
 import { useEffect, useState } from "react";
 
 const App = () => {
@@ -16,8 +15,7 @@ const App = () => {
     <>
       <Grid
         templateAreas={{
-          base: `"header" "main" "footer"`,
-          // lg: `"header" "main" "footer"`,
+          base: `"header" "main" "footer"`, //from base all the way upto lg, use that templateAreas value
         }}
         gridTemplateRows={{
           base: "200px 1fr 500px",
@@ -41,7 +39,7 @@ const App = () => {
         </GridItem>
       </Grid>
 
-      <PageLoadSpinner show={isLoading} />
+      {/* <PageLoadSpinner show={isLoading} /> */}
     </>
   );
 };

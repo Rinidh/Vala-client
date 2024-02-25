@@ -11,10 +11,7 @@ const ChangingText = ({ duration, texts }: Props) => {
   const [isVisible, setVisible] = useState(true);
   const { colorMode } = useColorMode();
 
-  const gradient =
-    colorMode === "dark"
-      ? "linear(to-r, valaBlue.200, valaBlue.600)"
-      : "linear(to-r, orange.400, valaRed.400)";
+  const gradient = "linear(to-r, valaBlue.400, valaBlue.600)";
 
   useEffect(() => {
     let fadeOutTimeout: number;

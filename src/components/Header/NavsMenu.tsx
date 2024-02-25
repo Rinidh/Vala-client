@@ -8,8 +8,10 @@ import {
   MenuList,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useContext } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
+import { HeaderStyleContext } from "./HeaderMain";
 
 interface Props {
   navs: string[];
@@ -17,6 +19,7 @@ interface Props {
 
 export default function NavsMenu({ navs }: Props) {
   const navigate = useNavigate();
+  const headerStyleProps = useContext(HeaderStyleContext);
 
   const lowerCased = navs.map((nav) => {
     return nav.replace(/[A-Z]/g, (match) => match.toLowerCase());
@@ -43,13 +46,13 @@ export default function NavsMenu({ navs }: Props) {
         <MenuList w={{ base: "700px", sm: "500px" }} p={0} zIndex={100}>
           {navs.map((nav, index) => (
             <MenuItem
+              {...headerStyleProps}
               key={index}
               pl={"50px"}
               py={{ base: 70, sm: 50 }}
               w={"100%"}
               fontSize={{ base: "60px", sm: "35px" }}
               fontWeight={"bold"}
-              bg={useColorModeValue("valaBlue.50", "valaBlue.800")}
               onClick={() => navigate(`/${pageLinks[index]}`)}
             >
               {nav}

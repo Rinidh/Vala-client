@@ -1,4 +1,11 @@
-import { Center, Button, Box, Text, Flex } from "@chakra-ui/react";
+import {
+  Center,
+  Button,
+  Box,
+  Text,
+  Flex,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { Outlet, useNavigate } from "react-router-dom";
 
 const Tabs = () => {
@@ -14,7 +21,7 @@ const Tabs = () => {
       >
         <Button
           mr={{ base: 0, xl: 15 }}
-          _hover={{ bg: "rgba(0, 0, 0, 0.2)" }}
+          _hover={{ bg: useColorModeValue("gray.200", "valaBlue.800") }}
           fontSize={{ base: "60px", md: "40px", lg: "30px" }}
           px={"50px"}
           py={"30px"}
@@ -25,7 +32,7 @@ const Tabs = () => {
           News
         </Button>
         <Button
-          _hover={{ bg: "rgba(0, 0, 0, 0.2)" }}
+          _hover={{ bg: useColorModeValue("gray.100", "valaBlue.800") }}
           fontSize={{ base: "60px", md: "40px", lg: "30px" }}
           px={"50px"}
           py={"30px"}

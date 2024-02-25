@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import ProductsPopOver from "./ProductsPopOver";
+import AdminDropdown from "./AdminDropdown";
 
 const Navs = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -89,8 +90,16 @@ const Navs = () => {
         </Flex>
         <Spacer />
 
-        <Flex align="center" cursor={"pointer"} onClick={() => navigate("/x")}>
-          {linkText("XXXX")}
+        <Flex
+          align="center"
+          cursor={"pointer"}
+          onClick={() => navigate("/login")}
+        >
+          {linkText("Admin")}
+        </Flex>
+
+        <Flex align={"center"} ml={3}>
+          <AdminDropdown />
         </Flex>
       </Show>
     </Flex>

@@ -1,13 +1,17 @@
-import { useState } from "react";
-import { Box, Flex, Button } from "@chakra-ui/react";
-import { ProductBrief } from "./ProductsMain";
+import { Box } from "@chakra-ui/react";
 import ProductCard from "./ProductCard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import placeholder1 from "../../assets/placeholder1.png";
+import { Product } from "../../data/products";
 
-const ProductCarousel = ({ products }: { products: ProductBrief[] }) => {
+interface Props {
+  products: Product[];
+  onClickProductCard: (fullName: string) => void; //fullName is the only thing that uniquely identifies each product as for now
+}
+
+const ProductCarousel = ({ products, onClickProductCard }: Props) => {
   // If not using the react-slick lib, this logic is helpful
   // const [currentIndex, setCurrentIndex] = useState(0);
   // const handleNext = () => {
@@ -65,7 +69,12 @@ const ProductCarousel = ({ products }: { products: ProductBrief[] }) => {
     <Box px={"50px"}>
       <Slider {...settings}>
         {products.map((p, i) => (
-          <ProductCard name={p.name} image={placeholder1} key={i} />
+          <ProductCard
+            name={p.name}
+            image={placeholder1}
+            onClick={() => onClickProductCard(p.fullName)}
+            key={i}
+          />
         ))}
       </Slider>
     </Box>
