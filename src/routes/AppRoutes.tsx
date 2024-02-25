@@ -14,7 +14,7 @@ import AuthProvider from "../components/Auth/AuthProvider";
 import RequireAuth from "../components/Auth/RequireAuth";
 
 //lazy loaded components
-const LoginOrSignUp = lazy(() => import("../components/Admin/LoginOrSignUp"));
+const LoginSignUp = lazy(() => import("../components/Admin/LoginSignUp"));
 const Admin = lazy(() => import("../components/Admin"));
 
 const AppRoutes = () => {
@@ -43,7 +43,7 @@ const AppRoutes = () => {
             <Suspense
             // fallback={<PageLoadSpinner show={isLoading} />}
             >
-              <LoginOrSignUp />
+              <LoginSignUp />
             </Suspense>
           }
         />

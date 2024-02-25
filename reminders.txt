@@ -10,6 +10,8 @@ use _id for dealing with each product, admin, news, review etc
 
 add the chars-left counter to reviews input
 
+use products from api instead of data/products.ts
+
 add .d.ts or docstrings where necessary
 
 add back spinner

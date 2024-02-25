@@ -9,9 +9,9 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import LoginModal from "./LoginModal";
+import LoginModal from "./LoginSignUpModal";
 import { useAuth } from "../Auth/AuthProvider";
-import useDefaultLogin from "../../hooks/useDefaultLogin";
+import useLogin from "../../hooks/useLogin";
 
 type Operation = "create-account" | "login";
 
@@ -19,11 +19,15 @@ const LoginOrSignUp = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [operation, setOperation] = useState<Operation>("" as Operation);
 
-  const { errorMessage, failedDefaultLogIn } = useDefaultLogin(); //sometimes, there may be failure but not necessarily an errorMessage
+  const { errorMessage, tryDefaultLogin, isLoading } = useLogin(); //sometimes, there may be failure but not necessarily an errorMessage
+
+  useEffect(() => {
+    tryDefaultLogin();
+  }, []);
 
   return (
     <>
-      {failedDefaultLogIn && (
+      {errorMessage && (
         <Box position={"relative"}>
           <Flex
             h={{ base: "200vh", lg: "100vh" }}
@@ -99,7 +103,8 @@ const LoginOrSignUp = () => {
           )}
         </Box>
       )}
-      spinner
+
+      {isLoading && <Box>page load spinner</Box>}
     </>
   );
 };

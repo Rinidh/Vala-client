@@ -11,7 +11,7 @@ import {
 import { FaChevronDown } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { LuLogIn } from "react-icons/lu";
-import LoginModal from "../Admin/LoginModal";
+import LoginModal from "../Admin/LoginSignUpModal";
 import { useAuth } from "../Auth/AuthProvider";
 import { HeaderStyleContext } from "./HeaderMain";
 
@@ -21,8 +21,6 @@ const AdminDropdown = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [operation, setOperation] = useState<Operation>("" as Operation);
   const headerStyleProps = useContext(HeaderStyleContext);
-
-  const { setLoggedInAdmin } = useAuth();
 
   const bg = useColorModeValue("valaBlue.50", "valaBlue.800");
   const menuItemProps = {
@@ -78,7 +76,6 @@ const AdminDropdown = () => {
         modalIsVisible={isOpen}
         onCloseModal={() => onClose()}
         operation={operation}
-        onLogin={(adminInfo) => setLoggedInAdmin(adminInfo)}
       />
     </>
   );

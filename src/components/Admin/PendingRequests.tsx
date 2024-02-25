@@ -9,6 +9,7 @@ import {
   useBreakpointValue,
   useColorMode,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { AdminInfo } from "./AdminMain";
@@ -17,7 +18,7 @@ import CustomModal from "../CustomModal";
 import { AiFillMail } from "react-icons/ai";
 
 const PendingRequests = () => {
-  const [modalIsVisible, setModalVisibility] = useState(false);
+  const { isOpen, onClose, onOpen } = useDisclosure();
   const pendingReqs = usePendingRequests();
   const iconSize = useBreakpointValue({ base: "50px", sm: "40px" });
 
@@ -32,7 +33,7 @@ const PendingRequests = () => {
         px={{ base: 50, md: 30, lg: 15 }}
         py={{ base: 10, md: 6, lg: 5 }}
         _hover={{ bg: numberOfReqs === 0 ? "#cacacc" : "#bf0f27" }}
-        onClick={() => setModalVisibility(true)}
+        onClick={onOpen}
       >
         {numberOfReqs === 0
           ? "No requests"
@@ -42,9 +43,9 @@ const PendingRequests = () => {
       </Button>
 
       <CustomModal
-        modalIsVisible={modalIsVisible}
-        setModalVisibility={() => setModalVisibility(false)}
-        key="pending-reqs-modal"
+        modalIsVisible={isOpen}
+        onCloseModal={onClose}
+        name="pending-reqs-modal"
       >
         {pendingReqs.map((req) => (
           <Flex
@@ -105,7 +106,7 @@ const PendingRequests = () => {
                   ),
                 }}
                 transition={"all 0.1s linear"}
-                onClick={() => setModalVisibility(false)}
+                onClick={onClose}
               >
                 <AiFillMail
                   fontSize={iconSize}
