@@ -1,6 +1,8 @@
-change truthy checking in useDataPoster
+design errors in light mode in CustomModal's X and create a/c modal success txt
 
-implement a generic custom hook for posting review, product...
+test the controller.abort in PROD ie at vercel deployment by creating new a/c
+
+implement a generic custom hook for posting review, product... with event handler and useEffect in other places
 
 store emails from trending pg into db
 

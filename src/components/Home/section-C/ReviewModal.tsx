@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CustomModal from "../../CustomModal";
 import {
   Box,
@@ -39,11 +39,29 @@ const ReviewModal = ({
     {} as ReviewFormData
   ); //as useForm() doesn't directly provide the current obj with field values
 
-  const { fetchError, isPosting, responseData, resetDataPoster } =
-    useReviewPoster({
-      ...formData,
-      review: reviewText,
-    });
+  const {
+    fetchError,
+    isPosting,
+    responseData,
+    resetDataPoster,
+    triggerDataPost,
+  } = useReviewPoster();
+
+  //trigger data/review post in an effect hook (instead of handleSubmit) to ensure we have reviewText from parent during post
+  useEffect(() => {
+    if (reviewText) {
+      triggerDataPost(
+        "/api/reviews",
+        {
+          ...formData,
+          review: reviewText,
+        },
+        () => {
+          console.log("onSuccess - review post success");
+        }
+      );
+    }
+  }, [reviewText]);
 
   const {
     reset, //can also use formState.trigger() for conditional clearing
@@ -70,7 +88,6 @@ const ReviewModal = ({
       onCloseModal={() => {
         onCloseModal();
         reset();
-        setFormData({} as ReviewFormData); //reset all
         resetDataPoster();
       }}
       name="review-modal"

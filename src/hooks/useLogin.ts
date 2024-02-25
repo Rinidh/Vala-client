@@ -33,19 +33,17 @@ export default function() {
 
       console.log("failed default login: ", err);
 
-      switch (err) {
-        case err instanceof AxiosError &&
-          err.response?.data == "No token provided...":
+      const axiosError = err as AxiosError
+      switch (err instanceof AxiosError) {
+        case axiosError.response?.data == "No token provided...":
           setErrorMessage("No token provided...")
           break;
 
-        case err instanceof AxiosError &&
-          err.response?.data == "You are not yet approved...":
+        case axiosError.response?.data == "You are not yet approved...":
           setErrorMessage("Please wait, you are not yet approved as an admin...");
           break;
 
-        case err instanceof AxiosError &&
-          err.response?.data == "Invalid token...":
+        case axiosError.response?.data == "Invalid token...":
           setErrorMessage(
             "Please relogin.You may have to relogin after a certain period..."
           );

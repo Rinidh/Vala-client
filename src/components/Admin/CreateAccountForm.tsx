@@ -34,7 +34,7 @@ interface Props {
 
 const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
   const [showPassword, setShowPassword] = useState(false);
-  const { responseData, isPosting, fetchError, triggerAccountCreation } =
+  const { responseData, isPosting, fetchError, triggerDataPost } =
     useAccountCreator();
   const {
     handleSubmit,
@@ -43,7 +43,7 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
   } = useForm<CreateAccountFormData>();
 
   const handleValidSubmit = (data: CreateAccountFormData) =>
-    triggerAccountCreation(data);
+    triggerDataPost("/api/admin", data);
 
   useEffect(() => {
     if (!isPosting && fetchError) onAPICallError(fetchError);
@@ -197,11 +197,17 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
             onClick={() => {
               //only for quick live testing purposes
               const num = randomNumber();
-              triggerAccountCreation({
-                name: `demo${num}`,
-                emailId: `demo@${num}`,
-                password: `${num}`,
-              });
+              triggerDataPost(
+                "/api/admin",
+                {
+                  name: `demo${num}`,
+                  emailId: `demo@${num}`,
+                  password: `${num}`,
+                },
+                () => {
+                  console.log("onSuccess runs");
+                }
+              );
             }}
           >
             Submit
