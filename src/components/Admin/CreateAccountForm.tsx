@@ -65,7 +65,10 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
   return (
     <Box position={"relative"}>
       <Center mb={{ base: 35, md: 18 }}>
-        <Heading size={{ base: "4xl", md: "xl" }}>
+        <Heading
+          size={{ base: "4xl", md: "xl" }}
+          color={useColorModeValue("black", "white")}
+        >
           Create an admin account
         </Heading>
       </Center>

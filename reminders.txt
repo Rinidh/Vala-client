@@ -1,9 +1,5 @@
-design errors in light mode in CustomModal's X and create a/c modal success txt
 
-test the controller.abort in PROD ie at vercel deployment by creating new a/c
-
-implement a generic custom hook for posting review, product... with event handler and useEffect in other places
-
+remove the abort signal to prevent default cancellation
 store emails from trending pg into db
 
 use _id for dealing with each product, admin, news, review etc

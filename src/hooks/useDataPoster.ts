@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { apiClient } from "../services/apiClient"
 import { CanceledError } from "axios";
 import { allValuesTruthy } from "../utlis/helperFunctions";
@@ -8,8 +8,6 @@ const useDataPoster = <U extends object>()=>{ // defualtly set the deps array to
   const [isPosting, setIsPosting] = useState(false);
   const [responseData, setResponseData] = useState<string>("") //modified the server to only return string res on any POST req, apart from /auth
 
-  const controller = new AbortController();
-
   const triggerDataPost = (endpoint: string, data: U, onSuccess?: ()=>void, onFailure?: ()=>void)=>{
     if(isPosting) return; // isPosting is checked here (in event handler) as there is chance of a client clicking the submit button simultaneously
     if(!allValuesTruthy(data)) {
@@ -18,7 +16,7 @@ const useDataPoster = <U extends object>()=>{ // defualtly set the deps array to
     }
 
     setIsPosting(true)
-    apiClient.post(endpoint, data, { signal: import.meta.env.DEV ? undefined : controller.signal }).then((res)=>{
+    apiClient.post(endpoint, data).then((res)=>{
       setResponseData(res.data);
       setIsPosting(false);
       if(onSuccess) onSuccess(); //if present, run the cb passed by consumer of hook on successful POST
@@ -32,10 +30,6 @@ const useDataPoster = <U extends object>()=>{ // defualtly set the deps array to
       if(onFailure) onFailure();
     })
   }
-
-  useEffect(()=>{
-    return ()=>controller.abort()
-  })
 
   const resetDataPoster = () => {
     setFetchError("");

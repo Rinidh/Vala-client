@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { apiClient } from "../services/apiClient";
 import { useAuth } from "../components/Auth/AuthProvider";
 import { useNavigate } from "react-router-dom";
@@ -12,13 +12,11 @@ export default function() {
   const navigate = useNavigate();
   const {setLoggedInAdmin} = useAuth()
 
-  const aborter = new AbortController();
-
   const tryDefaultLogin = async () => {
     try {
       setIsLoading(true);
 
-      const { data } = await apiClient.post<AdminInfo>("/api/auth", {}, { signal:  (import.meta.env.DEV) ? undefined : aborter.signal });
+      const { data } = await apiClient.post<AdminInfo>("/api/auth");
 
       setLoggedInAdmin(data)
 
@@ -51,10 +49,6 @@ export default function() {
       }
     }
   };
-
-  useEffect(()=>{
-    return ()=>aborter.abort();
-  })
 
   return { errorMessage, isLoading, tryDefaultLogin }
 }
