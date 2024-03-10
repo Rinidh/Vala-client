@@ -25,13 +25,14 @@ export default function() {
       navigate("/admin")      
 
     } catch (err) {
-      if(err instanceof CanceledError) return;
-
       setIsLoading(false);
+
+      const axiosError = err as AxiosError
+      if(axiosError instanceof CanceledError) return;
+      if(axiosError.code === "ECONNABORTED" && axiosError.message === "timeout of 2000ms exceeded") setErrorMessage("Request Timed out")
 
       console.log("failed default login: ", err);
 
-      const axiosError = err as AxiosError
       switch (err instanceof AxiosError) {
         case axiosError.response?.data == "No token provided...":
           setErrorMessage("No token provided...")

@@ -19,7 +19,7 @@ const LoginOrSignUp = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [operation, setOperation] = useState<Operation>("" as Operation);
 
-  const { errorMessage, tryDefaultLogin, isLoading } = useLogin(); //sometimes, there may be failure but not necessarily an errorMessage
+  const { errorMessage, tryDefaultLogin, isLoading } = useLogin();
 
   useEffect(() => {
     tryDefaultLogin();

@@ -1,6 +1,6 @@
-
-remove the abort signal to prevent default cancellation
 store emails from trending pg into db
+
+login form
 
 use _id for dealing with each product, admin, news, review etc
 
@@ -17,5 +17,7 @@ use framer-motion or GSAP instead of IntersectionObserver
 qlty imgs = photos - team / workers, premises,  (at home pg)
 products popover briefly appearing behind the product card on hover
 <Link>s in Footer and ProductsPopOver don't work if using `` in href
+
+Don't rely on the code of Gemini, look at the code of real projects at github to get ideas eg on how to make good axios reqs 
 
 

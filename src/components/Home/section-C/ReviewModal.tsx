@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import useReviewPoster from "../../../hooks/useReviewPoster";
+import { emailRegex } from "../../../utlis/emailRegex";
 
 interface Props {
   modalIsVisible: boolean;
@@ -69,10 +70,6 @@ const ReviewModal = ({
     register,
     formState: { errors },
   } = useForm<ReviewFormData>();
-
-  //using basic email validation logic
-  const emailRegex =
-    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
   const inputDesignProps = {
     variant: "outline",

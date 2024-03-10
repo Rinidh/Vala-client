@@ -20,6 +20,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import useAccountCreator from "../../hooks/useAccountCreator";
 import { randomNumber } from "../../utlis/helperFunctions";
+import { emailRegex } from "../../utlis/emailRegex";
 
 export interface CreateAccountFormData {
   name: string;
@@ -49,10 +50,6 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
     if (!isPosting && fetchError) onAPICallError(fetchError);
     if (!isPosting && responseData) onSubmitSuccess();
   });
-
-  //using basic email validation logic
-  const emailRegex =
-    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
   const inputDesignProps = {
     variant: "outline",

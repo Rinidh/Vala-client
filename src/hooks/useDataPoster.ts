@@ -16,14 +16,18 @@ const useDataPoster = <U extends object>()=>{ // defualtly set the deps array to
     }
 
     setIsPosting(true)
-    apiClient.post(endpoint, data).then((res)=>{
+    apiClient.post(endpoint, data, { timeout: 10000 }).then((res)=>{
       setResponseData(res.data);
       setIsPosting(false);
       if(onSuccess) onSuccess(); //if present, run the cb passed by consumer of hook on successful POST
     })
     .catch((error)=>{
       if(error instanceof CanceledError) return;
-
+      if(error.code === "ECONNABORTED" && error.message === "timeout of 2000ms exceeded") {
+        setFetchError("Request Timed out");
+        setIsPosting(false)
+      }
+ 
       console.error("Error creating new account: ", error);
       setFetchError(error.response.data);
       setIsPosting(false);
