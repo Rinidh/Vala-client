@@ -16,7 +16,6 @@ interface Props {
 }
 
 const InfoCard = ({ image, info, name, role }: Props) => {
-  const bg = useColorModeValue("rgba(255,255,255,0.2)", "rgba(0,0,0,0.2)");
   const border = useColorModeValue("1px solid wheat", "1px solid black");
 
   return (
@@ -24,18 +23,11 @@ const InfoCard = ({ image, info, name, role }: Props) => {
       <Card
         maxW={{ sm: 1000, lg: 800 }}
         // h={{ md: "390px", lg: "350px", xl: "390px" }}
+        bg={useColorModeValue("valaBlue.50", "valaBlue.800")}
         borderRadius={30}
-        bg={"transparent"}
         overflow={"hidden"}
         border={border}
       >
-        <Box
-          position={"absolute"}
-          backdropFilter={"blur(25px)"}
-          height={"100%"}
-          w={"100%"}
-          bg={bg}
-        />
         <CardBody zIndex={1}>
           <HStack>
             <Image

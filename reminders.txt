@@ -1,5 +1,3 @@
-store emails from trending pg into db
-
 login form
 
 use _id for dealing with each product, admin, news, review etc

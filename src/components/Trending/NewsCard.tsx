@@ -37,6 +37,7 @@ const Newscard = ({ image, info, heading }: Props) => {
       bg={useColorModeValue("valaBlue.50", "valaBlue.800")}
       _hover={{ bg: useColorModeValue("valaBlue.100", "valaBlue.700") }}
       overflow={"hidden"}
+      transition={"all 0.1s linear"}
     >
       <Box h={"100%"} position={"relative"}>
         <CardHeader>

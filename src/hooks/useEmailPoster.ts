@@ -1,5 +1,5 @@
 import useDataPoster from "./useDataPoster";
 
 export function useEmailPoster() {
-  return useDataPoster<{email: string}>();
+  return useDataPoster<{email: string}, string>("/api/emails");
 }

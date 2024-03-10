@@ -3,12 +3,12 @@ import { apiClient } from "../services/apiClient"
 import { CanceledError } from "axios";
 import { allValuesTruthy } from "../utlis/helperFunctions";
 
-const useDataPoster = <U extends object>()=>{ // defualtly set the deps array to empty
+const useDataPoster = <TData extends object, TResponse extends string | object>(endpoint: string, )=>{ //the server returns string res on any POST req, apart from /auth and /auth/login
   const [fetchError, setFetchError] = useState("");
   const [isPosting, setIsPosting] = useState(false);
-  const [responseData, setResponseData] = useState<string>("") //modified the server to only return string res on any POST req, apart from /auth
+  const [responseData, setResponseData] = useState<TResponse>({} as TResponse) 
 
-  const triggerDataPost = (endpoint: string, data: U, onSuccess?: ()=>void, onFailure?: ()=>void)=>{
+  const triggerDataPost = (data: TData, onSuccess?: ()=>void, onFailure?: ()=>void)=>{
     if(isPosting) return; // isPosting is checked here (in event handler) as there is chance of a client clicking the submit button simultaneously
     if(!allValuesTruthy(data)) {
       setFetchError("Please fill in all values") //For rare instances
@@ -16,7 +16,7 @@ const useDataPoster = <U extends object>()=>{ // defualtly set the deps array to
     }
 
     setIsPosting(true)
-    apiClient.post(endpoint, data, { timeout: 10000 }).then((res)=>{
+    apiClient.post<TResponse>(endpoint, data, { timeout: 10000 }).then((res)=>{
       setResponseData(res.data);
       setIsPosting(false);
       if(onSuccess) onSuccess(); //if present, run the cb passed by consumer of hook on successful POST
@@ -38,7 +38,7 @@ const useDataPoster = <U extends object>()=>{ // defualtly set the deps array to
   const resetDataPoster = () => {
     setFetchError("");
     setIsPosting(false);
-    setResponseData("");
+    setResponseData({} as TResponse);
   };
 
   return { responseData, fetchError, isPosting, resetDataPoster, triggerDataPost }

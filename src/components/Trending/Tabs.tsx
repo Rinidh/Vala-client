@@ -21,7 +21,7 @@ const Tabs = () => {
       >
         <Button
           mr={{ base: 0, xl: 15 }}
-          _hover={{ bg: useColorModeValue("gray.200", "valaBlue.800") }}
+          _hover={{ bg: useColorModeValue("gray.100", "valaBlue.800") }}
           fontSize={{ base: "60px", md: "40px", lg: "30px" }}
           px={"50px"}
           py={"30px"}

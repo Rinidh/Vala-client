@@ -52,7 +52,6 @@ const ReviewModal = ({
   useEffect(() => {
     if (reviewText) {
       triggerDataPost(
-        "/api/reviews",
         {
           ...formData,
           review: reviewText,

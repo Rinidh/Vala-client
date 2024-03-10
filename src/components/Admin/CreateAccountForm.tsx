@@ -44,12 +44,12 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
   } = useForm<CreateAccountFormData>();
 
   const handleValidSubmit = (data: CreateAccountFormData) =>
-    triggerDataPost("/api/admin", data);
+    triggerDataPost(data);
 
   useEffect(() => {
     if (!isPosting && fetchError) onAPICallError(fetchError);
     if (!isPosting && responseData) onSubmitSuccess();
-  });
+  }, [isPosting, fetchError, responseData]);
 
   const inputDesignProps = {
     variant: "outline",
@@ -198,7 +198,6 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
               //only for quick live testing purposes
               const num = randomNumber();
               triggerDataPost(
-                "/api/admin",
                 {
                   name: `demo${num}`,
                   emailId: `demo@${num}`,

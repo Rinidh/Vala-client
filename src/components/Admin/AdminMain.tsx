@@ -9,7 +9,7 @@ import PendingRequests from "./PendingRequests";
 export interface AdminInfo {
   _id: string;
   name: string;
-  email: string;
+  emailId: string;
 }
 
 const AdminMain = () => {

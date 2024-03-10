@@ -43,9 +43,7 @@ const SubscribeToNews = () => {
       {!fetchError && !responseData && !isPosting && (
         <SubscribeForm
           triggerDataPost={(data) =>
-            triggerDataPost("/api/emails", data, () =>
-              console.log("email post success")
-            )
+            triggerDataPost(data, () => console.log("email post success"))
           }
         />
       )}

@@ -4,5 +4,5 @@ import useDataPoster from "./useDataPoster";
 type ReviewToSubmit = ReviewFormData & { review: string }; //the obj type that's actually posted
 
 export default function () {
-  return useDataPoster<ReviewToSubmit>(); // means the data should be type ReviewToSubmit. The response expected is type string by default
+  return useDataPoster<ReviewToSubmit, string>("/api/reviews"); // means the data should be type ReviewToSubmit. The response expected is type string by default
 }
