@@ -34,7 +34,7 @@ export default function() {
       console.log("failed default login: ", err);
 
       switch (err instanceof AxiosError) {
-        case axiosError.response?.data == "No token provided...":
+        case axiosError.response?.data == "No token provided...":// means the user has no account
           setErrorMessage("No token provided...")
           break;
 

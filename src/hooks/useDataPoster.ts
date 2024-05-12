@@ -23,7 +23,7 @@ const useDataPoster = <TData extends object, TResponse extends string | object>(
     })
     .catch((error)=>{
       if(error instanceof CanceledError) return;
-      if(error.code === "ECONNABORTED" && error.message === "timeout of 2000ms exceeded") {
+      if(error.code === "ECONNABORTED" && error.message === "timeout of 10000ms exceeded") {
         setFetchError("Request Timed out");
         setIsPosting(false)
       }

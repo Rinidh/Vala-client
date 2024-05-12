@@ -1,4 +1,5 @@
 login form
+  the account creation modal  always shows "req submitted" yet no req posted
 
 use _id for dealing with each product, admin, news, review etc
 

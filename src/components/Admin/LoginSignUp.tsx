@@ -9,7 +9,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import LoginModal from "./LoginSignUpModal";
+import LoginSignUpModal from "./LoginSignUpModal";
 import { useAuth } from "../Auth/AuthProvider";
 import useLogin from "../../hooks/useLogin";
 
@@ -27,7 +27,7 @@ const LoginOrSignUp = () => {
 
   return (
     <>
-      {errorMessage && (
+      {errorMessage === "No token provided..." && ( //means the user has no a/c
         <Box position={"relative"}>
           <Flex
             h={{ base: "200vh", lg: "100vh" }}
@@ -78,13 +78,13 @@ const LoginOrSignUp = () => {
             </Show>
           </Flex>
 
-          <LoginModal
+          <LoginSignUpModal
             operation={operation}
             modalIsVisible={isOpen}
             onCloseModal={onClose}
           />
 
-          {errorMessage && (
+          {errorMessage !== "No token provided..." && ( //only show error messages if something else apart from not having an a/c
             <Box
               bg={useColorModeValue("valaBlue.50", "valaBlue.900")}
               px={30}
@@ -104,7 +104,7 @@ const LoginOrSignUp = () => {
         </Box>
       )}
 
-      {isLoading && <Box>page load spinner</Box>}
+      {isLoading && <Box color={"white"}>page load spinner</Box>}
     </>
   );
 };

@@ -43,7 +43,14 @@ const LoginModal = ({ operation, modalIsVisible, onCloseModal }: Props) => {
           }}
         />
       )}
-      {modalDisplayStatus === "login" && <LoginForm />}
+      {modalDisplayStatus === "login" && (
+        <LoginForm
+          onAPICallError={(err: string) => {
+            setModalDisplayStatus("error");
+            setAPIError(err);
+          }}
+        />
+      )}
       {modalDisplayStatus === "a/c-creation-success" && (
         <Center boxSize={"100%"}>
           <Flex direction={"column"} align={"center"}>
