@@ -3,10 +3,10 @@ import { apiClient } from "../services/apiClient"
 import { CanceledError } from "axios";
 import { allValuesTruthy } from "../utlis/helperFunctions";
 
-const useDataPoster = <TData extends object, TResponse extends string | object>(endpoint: string, )=>{ //the server returns string res on any POST req, apart from /auth and /auth/login
+const useDataPoster = <TData extends object, TResponse extends string | object>(endpoint: string, emptyResponseValue: TResponse)=>{ //the server returns string res on any POST req, apart from /auth and /auth/login
   const [fetchError, setFetchError] = useState("");
   const [isPosting, setIsPosting] = useState(false);
-  const [responseData, setResponseData] = useState<TResponse>({} as TResponse) 
+  const [responseData, setResponseData] = useState<TResponse>(emptyResponseValue); //responseData state var should be either initialzed with "" if TResponse is a string, or `{} as TResponse` if an object type eg AdminInfo as in useManualLogin(), hence it's necessry to provide it as arg 
 
   const triggerDataPost = (data: TData, onSuccess?: ()=>void, onFailure?: ()=>void)=>{
     if(isPosting) return; // isPosting is checked here (in event handler) as there is chance of a client clicking the submit button simultaneously
@@ -38,7 +38,7 @@ const useDataPoster = <TData extends object, TResponse extends string | object>(
   const resetDataPoster = () => {
     setFetchError("");
     setIsPosting(false);
-    setResponseData({} as TResponse);
+    setResponseData(emptyResponseValue);
   };
 
   return { responseData, fetchError, isPosting, resetDataPoster, triggerDataPost }

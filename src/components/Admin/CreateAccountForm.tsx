@@ -19,7 +19,10 @@ import { useForm } from "react-hook-form";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import useAccountCreator from "../../hooks/useAccountCreator";
-import { randomNumber } from "../../utlis/helperFunctions";
+import {
+  randomNumber,
+  isEmptyObjectOrString,
+} from "../../utlis/helperFunctions";
 import { emailRegex } from "../../utlis/emailRegex";
 
 export interface CreateAccountFormData {
@@ -48,7 +51,14 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
 
   useEffect(() => {
     if (!isPosting && fetchError) onAPICallError(fetchError);
-    if (!isPosting && responseData) onSubmitSuccess();
+    if (!isPosting) {
+      //we check if we are not posting any data, and also that responseData (whether a string or object) is not empty, then we consider successful submit
+      if (
+        isEmptyObjectOrString(responseData) !== true &&
+        typeof isEmptyObjectOrString(responseData) === "boolean" //isEmptyObjectOrString() returns a warn string if wrong arg passed
+      )
+        onSubmitSuccess();
+    }
   }, [isPosting, fetchError, responseData]);
 
   const inputDesignProps = {

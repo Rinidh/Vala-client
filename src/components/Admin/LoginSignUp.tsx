@@ -15,7 +15,7 @@ import useLogin from "../../hooks/useLogin";
 
 type Operation = "create-account" | "login";
 
-const LoginOrSignUp = () => {
+const LoginSignUp = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [operation, setOperation] = useState<Operation>("" as Operation);
 
@@ -109,4 +109,4 @@ const LoginOrSignUp = () => {
   );
 };
 
-export default LoginOrSignUp;
+export default LoginSignUp;

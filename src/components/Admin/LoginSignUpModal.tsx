@@ -17,7 +17,11 @@ type ModalDisplayStatus =
   | "login"
   | "error";
 
-const LoginModal = ({ operation, modalIsVisible, onCloseModal }: Props) => {
+const LoginSignUpModal = ({
+  operation,
+  modalIsVisible,
+  onCloseModal,
+}: Props) => {
   const [APIError, setAPIError] = useState("");
   const [modalDisplayStatus, setModalDisplayStatus] =
     useState<ModalDisplayStatus>(operation);
@@ -30,7 +34,7 @@ const LoginModal = ({ operation, modalIsVisible, onCloseModal }: Props) => {
     <CustomModal
       modalIsVisible={modalIsVisible}
       onCloseModal={onCloseModal}
-      key="login-modal"
+      key="login-signup-modal"
     >
       {modalDisplayStatus === "create-account" && (
         <CreateAccountForm
@@ -75,4 +79,4 @@ const LoginModal = ({ operation, modalIsVisible, onCloseModal }: Props) => {
   );
 };
 
-export default LoginModal;
+export default LoginSignUpModal;

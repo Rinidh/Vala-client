@@ -11,7 +11,7 @@ import {
 import { FaChevronDown } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { LuLogIn } from "react-icons/lu";
-import LoginModal from "../Admin/LoginSignUpModal";
+import LoginSignUpModal from "../Admin/LoginSignUpModal";
 import { useAuth } from "../Auth/AuthProvider";
 import { HeaderStyleContext } from "./HeaderMain";
 
@@ -72,7 +72,7 @@ const AdminDropdown = () => {
         </MenuList>
       </Menu>
 
-      <LoginModal
+      <LoginSignUpModal
         modalIsVisible={isOpen}
         onCloseModal={() => onClose()}
         operation={operation}
