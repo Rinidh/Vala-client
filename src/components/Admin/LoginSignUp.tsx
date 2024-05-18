@@ -10,24 +10,36 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import LoginSignUpModal from "./LoginSignUpModal";
-import { useAuth } from "../Auth/AuthProvider";
-import useLogin from "../../hooks/useLogin";
+import useDefaultLogin from "../../hooks/useDefaultLogin";
+import CloseButton from "../CloseButton";
 
 type Operation = "create-account" | "login";
 
 const LoginSignUp = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const {
+    isOpen: popupIsOpen,
+    onClose: popupOnClose,
+    onOpen: popupOnOpen,
+  } = useDisclosure(); //for the error message popup that shows eg when you're not yet approved
   const [operation, setOperation] = useState<Operation>("" as Operation);
 
-  const { errorMessage, tryDefaultLogin, isLoading } = useLogin();
+  const { errorMessage, tryDefaultLogin, isLoading } = useDefaultLogin();
 
   useEffect(() => {
     tryDefaultLogin();
   }, []);
 
+  useEffect(() => {
+    if (errorMessage && errorMessage !== "No token provided...") {
+      //only show error messages if something else apart from not having an a/c
+      popupOnOpen();
+    }
+  }, [errorMessage]);
+
   return (
     <>
-      {errorMessage === "No token provided..." && ( //means the user has no a/c
+      {errorMessage && ( //means the user has no a/c
         <Box position={"relative"}>
           <Flex
             h={{ base: "200vh", lg: "100vh" }}
@@ -52,6 +64,10 @@ const LoginSignUp = () => {
                   bg={useColorModeValue("white", "valaBlue.900")}
                   transition={"all 0.2s ease-in"}
                   fontSize={{ base: 30, lg: 15 }}
+                  onClick={() => {
+                    setOperation("login");
+                    onOpen();
+                  }}
                 >
                   Login
                 </Button>
@@ -84,22 +100,24 @@ const LoginSignUp = () => {
             onCloseModal={onClose}
           />
 
-          {errorMessage !== "No token provided..." && ( //only show error messages if something else apart from not having an a/c
-            <Box
+          {popupIsOpen && (
+            <Flex
+              flexDirection={"row"}
               bg={useColorModeValue("valaBlue.50", "valaBlue.900")}
               px={30}
               py={10}
               fontSize={{ base: 70, md: 40, lg: 20 }}
               fontWeight={"bold"}
-              boxShadow={"0px 6px 20px black"}
+              boxShadow={"0px 6px 10px gray"}
               borderRadius={20}
               position={"absolute"}
-              top={10}
+              top={5}
               left={"20%"}
               right={"20%"}
             >
               {errorMessage}
-            </Box>
+              <CloseButton onCloseModal={() => popupOnClose()} />
+            </Flex>
           )}
         </Box>
       )}

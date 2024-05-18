@@ -1,6 +1,7 @@
 import { Flex, useColorModeValue, Box } from "@chakra-ui/react";
 import { Fragment, ReactNode, useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
+import CloseButton from "./CloseButton";
 
 interface Props {
   modalIsVisible: boolean;
@@ -61,24 +62,7 @@ const CustomModal = ({
                   px={{ base: 20, md: 10 }}
                   position={"relative"}
                 >
-                  <Box
-                    position={"absolute"}
-                    right={4}
-                    top={4}
-                    fontSize={{ base: 60, md: 40 }}
-                    borderRadius={"17%"}
-                    color={useColorModeValue("black", "white")}
-                    _hover={{
-                      bg: useColorModeValue(
-                        "rgba(0,0,0,0.3)",
-                        "rgba(255,255,255,0.3)"
-                      ),
-                    }}
-                    transition={"all 0.1s linear"}
-                    onClick={() => onCloseModal()}
-                  >
-                    <MdClose />
-                  </Box>
+                  <CloseButton onCloseModal={() => onCloseModal()} />
                   {children}
                 </Box>
               </Flex>

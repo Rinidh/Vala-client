@@ -21,6 +21,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import { useManualLogin } from "../../hooks/useManualLogin";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/AuthProvider";
+import { isEmptyObjectOrString } from "../../utlis/helperFunctions";
 
 export interface LoginFormData {
   name_or_emailId: string;
@@ -51,10 +52,16 @@ const LoginForm = ({ onAPICallError }: Props) => {
 
   useEffect(() => {
     if (!isPosting && fetchError) onAPICallError(fetchError);
-    if (!isPosting && responseData) {
-      setLoggedInAdmin(responseData);
-      navigate("/admin");
+    if (!isPosting) {
+      //we check if we are not posting any data, and also that responseData (whether a string or object) is not empty, then we consider successful submit
+      if (
+        isEmptyObjectOrString(responseData) !== true &&
+        typeof isEmptyObjectOrString(responseData) === "boolean" //isEmptyObjectOrString() returns a warn string if wrong arg passed
+      )
+        setLoggedInAdmin(responseData);
+        navigate("/admin");
     }
+
   }, [isPosting, fetchError, responseData]);
 
   const inputDesignProps = {

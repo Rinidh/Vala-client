@@ -15,7 +15,8 @@ type ModalDisplayStatus =
   | "a/c-creation-success"
   | "create-account"
   | "login"
-  | "error";
+  | "error"
+  | "";
 
 const LoginSignUpModal = ({
   operation,
@@ -24,11 +25,11 @@ const LoginSignUpModal = ({
 }: Props) => {
   const [APIError, setAPIError] = useState("");
   const [modalDisplayStatus, setModalDisplayStatus] =
-    useState<ModalDisplayStatus>(operation);
+    useState<ModalDisplayStatus>("");
 
   useEffect(() => {
-    if (modalIsVisible) setModalDisplayStatus(operation);
-  }, [modalIsVisible, operation]);
+    setModalDisplayStatus(operation);
+  }, [operation]);
 
   return (
     <CustomModal

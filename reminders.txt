@@ -1,6 +1,3 @@
-login form
-  the account creation modal  always shows "req submitted" yet no req posted
-
 use _id for dealing with each product, admin, news, review etc
 
 add the chars-left counter to reviews input
@@ -12,11 +9,12 @@ add .d.ts or docstrings where necessary
 add back spinner
 
 ----------
-use framer-motion or GSAP instead of IntersectionObserver
 qlty imgs = photos - team / workers, premises,  (at home pg)
+use framer-motion or GSAP instead of IntersectionObserver
 products popover briefly appearing behind the product card on hover
 <Link>s in Footer and ProductsPopOver don't work if using `` in href
+on clicking login (after a/c creation), it shows that I am not yet approved, instead of login form
 
-Don't rely on the code of Gemini, look at the code of real projects at github to get ideas eg on how to make good axios reqs 
+Don't rely only on the code of Gemini, look at the code of real projects at github to get ideas eg on how to make good axios reqs 
 
 

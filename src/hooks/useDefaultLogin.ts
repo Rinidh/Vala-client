@@ -5,31 +5,31 @@ import { useNavigate } from "react-router-dom";
 import { AxiosError, CanceledError } from "axios";
 import { AdminInfo } from "../components/Admin/AdminMain";
 
-export default function() {
+export default function () {
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false)
 
   const navigate = useNavigate();
-  const {setLoggedInAdmin} = useAuth()
+  const { setLoggedInAdmin } = useAuth()
 
   const tryDefaultLogin = async () => {
     try {
       setIsLoading(true);
 
-      const { data } = await apiClient.post<AdminInfo>("/api/auth");
+      const { data } = await apiClient.post<AdminInfo>("/api/auth", {}, { timeout: 10000 });
 
       setLoggedInAdmin(data)
 
       setIsLoading(false);
 
-      navigate("/admin")      
+      navigate("/admin")
 
     } catch (err) {
       setIsLoading(false);
 
       const axiosError = err as AxiosError
-      if(axiosError instanceof CanceledError) return;
-      if(axiosError.code === "ECONNABORTED" && axiosError.message === "timeout of 2000ms exceeded") setErrorMessage("Request Timed out")
+      if (axiosError instanceof CanceledError) return;
+      if (axiosError.code === "ECONNABORTED" && axiosError.message === "timeout of 10000ms exceeded") setErrorMessage("Request Timed out")
 
       console.log("failed default login: ", err);
 

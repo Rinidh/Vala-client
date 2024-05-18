@@ -203,21 +203,21 @@ const CreateAccountForm = ({ onSubmitSuccess, onAPICallError }: Props) => {
             variant={"customVariant"}
             px={{ base: 50, md: 30, lg: 15 }}
             py={{ base: 10, md: 6, lg: 5 }}
-            // type="submit"
-            onClick={() => {
-              //only for quick live testing purposes
-              const num = randomNumber();
-              triggerDataPost(
-                {
-                  name: `demo${num}`,
-                  emailId: `demo@${num}`,
-                  password: `${num}`,
-                },
-                () => {
-                  console.log("onSuccess runs");
-                }
-              );
-            }}
+            // onClick={() => {
+            //   //only for quick live testing purposes
+            //   const num = randomNumber();
+            //   triggerDataPost(
+            //     {
+            //       name: `demo${num}`,
+            //       emailId: `demo@${num}`,
+            //       password: `${num}`,
+            //     },
+            //     () => {
+            //       console.log("onSuccess runs");
+            //     }
+            //   );
+            // }}
+            type="submit"
           >
             Submit
           </Button>
