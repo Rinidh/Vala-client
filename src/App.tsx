@@ -3,12 +3,13 @@ import Header from "./components/Header/HeaderMain";
 import AppRoutes from "./routes/AppRoutes";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
+import PageLoadSpinner from "./PageLoadSpinner";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(false);
+    setIsLoading(false); //effect hook will only run after all the rendering is done, hence set the PageLoadSpinner to false
   }, []);
 
   return (
@@ -39,7 +40,7 @@ const App = () => {
         </GridItem>
       </Grid>
 
-      {/* <PageLoadSpinner show={isLoading} /> */}
+      <PageLoadSpinner show={isLoading} />
     </>
   );
 };

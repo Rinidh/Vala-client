@@ -90,7 +90,7 @@ const Navs = () => {
         </Flex>
         <Spacer />
 
-        <Flex
+        {/* <Flex
           align="center"
           cursor={"pointer"}
           onClick={() => navigate("/login")}
@@ -100,7 +100,7 @@ const Navs = () => {
 
         <Flex align={"center"} ml={3}>
           <AdminDropdown />
-        </Flex>
+        </Flex> */}
       </Show>
     </Flex>
   );

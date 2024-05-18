@@ -9,21 +9,14 @@ import News from "../components/Trending/News";
 import Tabs from "../components/Trending/Tabs";
 import Offers from "../components/Trending/Offers";
 import Products from "../components/Products";
-import PageLoadSpinner from "../PageLoadSpinner";
 import AuthProvider from "../components/Auth/AuthProvider";
 import RequireAuth from "../components/Auth/RequireAuth";
 
 //lazy loaded components
-const LoginSignUp = lazy(() => import("../components/Admin/LoginSignUp"));
-const Admin = lazy(() => import("../components/Admin"));
+// const LoginSignUp = lazy(() => import("../components/Admin/LoginSignUp"));
+// const Admin = lazy(() => import("../components/Admin"));
 
 const AppRoutes = () => {
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(false);
-  }, []);
-
   return (
     <AuthProvider>
       <Routes>
@@ -37,7 +30,7 @@ const AppRoutes = () => {
           <Route path="offers" element={<Offers />} />
         </Route>
         <Route path="/about" element={<About />} />
-        <Route
+        {/* <Route
           path="/login"
           element={
             <Suspense
@@ -46,9 +39,9 @@ const AppRoutes = () => {
               <LoginSignUp />
             </Suspense>
           }
-        />
+        /> */}
 
-        <Route
+        {/* <Route
           path="/admin"
           element={
             <Suspense fallback={"Loading Admin..."}>
@@ -57,7 +50,7 @@ const AppRoutes = () => {
               </RequireAuth>
             </Suspense>
           }
-        />
+        /> */}
 
         <Route path="*" element={<No />} />
       </Routes>
